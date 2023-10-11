@@ -77,49 +77,55 @@ Code | Name | Description
 0 | Status | Status, Errors that have nothing to do with commands but usually with headers
 1 | Authentication | Services that authenticate tokens.
 2 | Healing | Services that make all RAIDA agree on the authenticity of tokens.
-3 | Stable token | Services that add or subtrack tokens from the WEST RAIDA.
+3 | Admin | Services that add or subtrack tokens from the WEST RAIDA.
 8 | Locker Services | Services that place and retrieve tokens from "RAIDA Lockers."
 9 | Change | Breaks 100s into 10s or joins 10s to make 100s. Works with all denominations.
 
 
 ## COMMAND CODES
 
-### Authentication Commands
+### 0. Status Commands
 Code (Decimal) | Command | Description
 --- | --- | --- 
  00 |  Echo | Sends a request for a response.
- 10 |  Detect | Compares authenticity numbers but does not change them.
- 20 | P'Own | Password Own. Changes ANs (Authenticity Numbers) with PANs (Proposed Authenticity Numbers). 
- 30 | P'Own Check Sum | Checks the sums of all ANs sent at once.
- 70 | Identify| Searches all ANs for a match. (Not Implemented)
- 
- ### Healing Commands
+ 01 | Version | Returns the version of the RAIDA Software
+
+### 1. Authentication Commands
 Code (Decimal) | Command | Description
 --- | --- | --- 
- 40 |Get Ticket | Returns proof that the tokens are good. 
- 44 |Encrypt Ticket | Returns an encrypted key part that can be used as a shared secret. 
- 45 | Fix Encryption | Accepts tickets from many RAIDA to created a shared secret from many "key parts". 
+ 10 |  Detect | Compares authenticity numbers but does not change them.
+ 11 |  Detect SUM | Compares authenticity numbers by adding them all together. Does not change them.
+ 20 | P'Own | Password Own. Changes ANs (Authenticity Numbers) with PANs (Proposed Authenticity Numbers). 
+ 21 | P'Own Check Sum | Checks the sums of all ANs sent at once and changes them if good.
+ 
+ ### 2. Healing Commands
+Code (Decimal) | Command | Description
+--- | --- | --- 
  40 |Get Ticket | Returns proof that the tokens are good. 
  50 | Validate Ticket | Checks to see if a ticket is valid. 
  60 |Find|  Checks last two ANs to see if there is a match. 
  80 | Fix | Accepts a bunch of tickets to ensure they are good.
- 90 | Fix with Remote Key| Uses a key that was exchanged earlier.
 
- ### Locker Commands
+### 3. Admin Commands
 Code (Decimal) | Command | Description
 --- | --- | --- 
- 81 | Put in Locker | Puts token in a locker that can be opened by a key.
- 82 | Get From Locker | Removes tokens from locker and destroys locker.
- 83 | Read Meta | Just returns information about what is in the locker such as how many tokens are there. 
-
-### Stable token Commands
-Code (Decimal) | Command | Description
---- | --- | --- 
- 100 | Show Stats | Shows how many p'owns there were, how many fixes, how many finds, etc. 
  120 | Get Available SNs| Shows available serial numbers. 
  130 | Create tokens| Adds more tokens to the total tokens on the RAIDA.
  140 | Delete tokens| Removes tokens from the RAIDA.
- 150 | Audit tokens | Shows how many tokens there are on the RAIDA. 
+
+ ### 4. Key Exchange 
+ Code (Decimal) | Command | Description
+--- | --- | --- 
+ 44 |Encrypt Ticket | Returns an encrypted key part that can be used as a shared secret. 
+ 45 | Fix Encryption | Accepts tickets from many RAIDA to created a shared secret from many "key parts". 
+
+ ### 8. Locker Commands
+Code (Decimal) | Command | Description
+--- | --- | --- 
+ 82 | Put | Puts token in a locker that can be opened by a key.
+ 83 | Peek | Just returns information about what is in the locker such as how many tokens are there. 
+ 84 | Remove | Removes tokens from locker and destroys locker.
+
 
 
 ## 🔴DENOMINATIONS
