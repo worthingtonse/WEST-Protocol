@@ -1,6 +1,6 @@
-# Authentication Services
+# Authentication Services (Command Group 1)
 
-Theses services help people to know if tokens are authentic and to allow them to change ownership.
+These services check the authenticty of tokens and allow change of ownership.
 
 Command Code | Service  | Description
 --- | --- |---
