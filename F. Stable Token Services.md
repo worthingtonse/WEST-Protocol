@@ -3,13 +3,13 @@
 Used by the RAIDA Authority to create and destroy tokens.
 
 Command Code | Service | Description
---- | --- | :---: | :---: | :---: 
+--- | --- | :---: 
 120 | [Get Available SNS](#get-available-sns) | Tells the Admin what SNs it can use to create tokens. 
 130 | [Create tokens](#create-tokens) | Orders that tokens be created
 140 | [Delete tokens](#delete-tokens) | Orders tokens to be destroyed. 
 
 ## Code meanings
-Code | Meaning | Sample in HEX
+Code | Meaning | Sample
 ---|---|---
 RD | Random | 6
 DN | Denomination | This denomination will not have a random first four bits. Hex between 0x00 and 0x0F 
@@ -40,7 +40,7 @@ CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 SI SI SI SI
 AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
 DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //One byte for each denomination. Request for 0-255 tokens of that denomination. 
-3E 3E
+3E 3E //Not Encrypted
 ```
 
 
@@ -70,7 +70,7 @@ RS RS RS RS  RE RE RE RE
 SN SN SN SN
 SN SN SN SN
 SN SN SN SN
-3E 3E 
+3E 3E  //Not Encrypted
 ```
 
 # Create tokens
@@ -87,7 +87,7 @@ DN SN SN SN SN
 DN SN SN SN SN
 DN SN SN SN SN
 DN SN SN SN SN
-3E 3E
+3E 3E //Not Encrypted
 ```
 
 
@@ -102,7 +102,7 @@ AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
-E3 E3
+E3 E3 //Not Encrypted
 ```
 
 
@@ -128,7 +128,7 @@ Mixed | 243
 
 Response Body 
 ```
-E3 E3
+E3 E3 //Not Encrypted
 ```
 
 
