@@ -167,12 +167,15 @@ The Fix protocl may recieve empty tickets with all "00000". In this case there i
 7. Fract RAIDA compares the Serial Numbers returned by the Good RAIDA with the Serial Numbers specified by the Client. 
 8. If there are 13 Good RAIDAs that agree with what the Serial numbers that the client sent, the Authenticty Numbers on the Fract RAIDA are changed. 
 9. All Pass is returned if all the token were fixed. All fail if none of the tokens were fixed. Mixed if some of the tokens were fixed. 
-10. IMPORTANT: Fix should check the owners table and delete any row that has the fixed SN. 
-11. NOTE: If there is only one ticket provided and that ticket is from the RAIDA itself, the AN will be changed to that asked for by the client. 
 
 ### Fix Algorithm
 
-Fix allows you to fix multiple Cloudtoken using tickets that it got from the Get_Ticket service. Each ticket can only be used one time per RAIDA. Each RAIDA can use the same ticket to fix. This allows the client to use all the tickets returned from a Get_Ticket request to fix all the fracked tokens on all the RAIDA without needed to go and get more tickets.  The Fix then calls the "Validate Ticket" service and sees what SNs are returned. If 13 or 25 RAIDA return the same SN, that SN's ANs are changed to the PAN supplied by the Client in Version 0 of the Fix command. Version 1 requires the caller to supply a PAN Generator instead of PANs. 
+Fix allows you to fix multiple tokens using tickets that it got from the Get_Ticket service. 
+Each ticket can only be used one time per RAIDA. 
+Each RAIDA can use the same ticket to fix. 
+This allows the client to use all the tickets returned from a Get_Ticket request to fix all the fracked tokens on all the RAIDA without needed to go and get more tickets.  The Fix then calls the "Validate Ticket" service and sees what SNs are returned. 
+If 13 or 25 RAIDA return the same SN, that SN's ANs are changed to the PAN supplied by the Client in 🔴Version 0 of the Fix command. 
+🔴Version 1 requires the caller to supply a PAN Generator instead of PANs. 
 
 
 Version 0 Example Request Body with four tokens:
@@ -190,8 +193,6 @@ TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RA
 TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 20 through RAIDA 24. 
 3E 3E //Not Encryption
 ```
-
-
 The PAN is determined by concatinating the RAIDA ID, Serial Number and the PG. Like this
 
 ```diff
@@ -237,11 +238,10 @@ No response body | No response body | MS
 
 ## GET ENCRYPTION TICKET
 
-The two services "Get Encryption TIcket" and "Fix Encryption" are used to exchange keys between clients who have shared secrets with RAIDA servers but not a specific RAIDA server. This will establish a shared secret with a fracked RAIDA so fixes can be done. 
+The two services "Get Encryption TIcket" and "Fix Encryption" are used to exchange keys between clients who have shared secrets with RAIDA servers but not a specific
+RAIDA server. This will establish a shared secret with a fracked RAIDA so fixes can be done. 
 
 These services are only needed if there are no tokens that can be used for encryption between a RAIDA and client but the same token does work with at least two other RAIDA. 
-
-When we "echo" a RAIDA and it comes back "Failed to validate challenge" it should be marked as an 'k'. K means key screwed up. Then the token can be put in the "KeyFracked" folder. 
 
 Then the fix keys process can run. This process uses the two services in this "RAIDA Key Service" that are designed just for this purpose. 
 
@@ -258,7 +258,7 @@ The the client then uses these two key parts and calls the "Post RAIDA Key" serv
 The Fracked RAIDA can then decrypt the key parts using the common secret between them and the helping RAIDA. The key is actually the AN of the key ID that they client provides and so the AN of that token is changed accordinly so now encryption will work with the token provided. 
 
 
-Client wants to talk to RAIDA 11. However, RAIDA 11 lost all its data and the Client and RAIDA 11 have no shared secret.  RAIDA 5 is "Helper RAIDA 1" and RAIDA 12 is "Helper RAIDA 2". The Client has shared secrets with Helper RAIDA 1 and 2 (cloudtokens). 
+Client wants to talk to RAIDA 11. However, RAIDA 11 lost all its data and the Client and RAIDA 11 have no shared secret.  RAIDA 5 is "Helper RAIDA 1" and RAIDA 12 is "Helper RAIDA 2". The Client has shared secrets with Helper RAIDA 1 and 2 (tokens). 
 
 Step | Actor | Action | Notes
 ---|---|---|---
@@ -282,7 +282,7 @@ Step | Actor | Action | Notes
 18 🔴| Fracked RAIDA | For additional security, the Fracked RAIDA should tell its token Manager to pown the key that was used in the encryption. 
 
 
-Note: Clients know that the each RAIDA has 1000 tokens on their 0 network and the client can pick one at random. 
+Note: Clients know that the each RAIDA has 🔴 1000 tokens on their 0 network and the client can pick one at random. 
 Sample Request for Get Encryption Ticket:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  //Challenge
@@ -320,7 +320,7 @@ The "Post Key" service recieves a group of tickets encrypted by other RAIDAs. It
 
 * Which key parts it used to create a master key.
 
-* A SHA-256 hash of the key.
+* 🔴A SHA-256 hash of the key.
 
 * Seems the Nonce in the header should be the same as the ones used in the "Encrypt Key" requests.
 
@@ -366,123 +366,3 @@ KA
 KA //one for every key the client proposed
 E3 E3  //Not Encrypted
 ```
-
-
-<!--
-
-# ENCRYPT TICKET
-Command Code: 91
-
-User requests tickets that have been enrypted so that only the designated computer/raida can decrypt it. 
-
-NOTE: The first part of this is exactly the same as the "POWN SUM" service. 
-Sample Request:
-```C
-CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-DN  SN SN SN SN 
-DN  SN SN SN SN  
-DN  SN SN SN SN  
-DN  SN SN SN SN  
-SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU //The sum all all the ANs of the SNs added together. Amount allowed to roll over. 
-AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //number to add to the currency ANs to derive the PAN 
-//The ID of who the key that that needs to be used for the encyption. THis is a key that the broken RAIDA owns
-DN SN SN SN SN //Should be denominatio zeor. RAIDA zero should have keys 0-999. RAIDA 1 has keys 1000-1999. RAIDA 24 has keys 24,000-24999.
-3E 3E  //Not Encrypted
-```
-
-The response
-
-The response will be a 44 byte array and encrypt it using the DN SN SN SN.
-THe byte array is composed of:
-
-part | bytes | description
----|---|---
-Leading Random | 4 | four random bytes at the start
-Time Stamp | 4 | using standard universal time
-Number of tokens | 1 | Maxiumum of 255 tokens can be fixed at once 
-Array of DNs | varies | This is an array of bytes that describe the 
-Array of DN SN SN SNs | Varies | These numbers must be in random order to help in encryption
-
-
-```C
-
-Comming soon
-
-```
-
-
-
-THis service is used to fix tokens with RAIDA that do not have a shared secret but whoes RAIDA do have shared secrets
-```C
-CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-DN  SN SN SN SN  PN PN PN PN PN PN PN 
-NS SN SN SN PN PN PN PN PN PN PN 
-NS SN SN SN PN PN PN PN PN PN PN 
-NS SN SN SN PN PN PN PN PN PN PN 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 0 through RAIDA 4. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 5 through RAIDA 9. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 10 through RAIDA 14. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 15 through RAIDA 19. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 20 through RAIDA 24. 
-3E 3E //Not Encryption
-```
-
-#### Fix V3 (Not sure if this has been implemented)
-Version 3 is just for debuging. It shows what the response from the validate ticket response from other RAIDA.
-The Request is the same as V2.
-```dif
-CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-NS SN SN SN PN PN PN PN PN PN PN 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 0 through RAIDA 4. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 5 through RAIDA 9. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 10 through RAIDA 14. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 15 through RAIDA 19. 
-TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  TK TK TK TK  //Tickts for RAIDA 20 through RAIDA 24. 
-3E 3E //Not Encryption
-```
-
-Response:
-```
-ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST ST //25 Statuses of Validate Ticket returns. 
-NS SN SN SN //First Serial Number returned from RAIDA 0. 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN 
-NS SN SN SN //First serial Number returned from RAIDA 24
-```
-#### Status codes:
-```
-0x00 means that the server did not have a ticket to send to that RAIDA.  
-
-0x01 means that the server was not able to get the IP Address of the RAIDA.  
-
-0x02 Means that the server was unable to open a port to talk to the othe RAIDA
-
-0x03 Means that the server received no response from that RAIDA. 
-
-0x04 Means that at least one serial number was returned. 
-
-0xXX Any other codes means that this is the status code returned by the RAIDA. 
-```
--->
-
