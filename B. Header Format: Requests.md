@@ -126,6 +126,13 @@ Code (Decimal) | Command | Description
  83 | Peek | Just returns information about what is in the locker such as how many tokens are there. 
  84 | Remove | Removes tokens from locker and destroys locker.
 
+ ### 9. Change Commands
+Code (Decimal) | Command | Description
+--- | --- | --- 
+ 91 | Get Available SNs | Asks the RAIDA what SNs are available for use. 
+ 92 | Break | Breaks token into ten smaller tokens. 
+ 93 | Join | Joins smaller tokens into one larger token. 
+
 
 
 ## 🔴DENOMINATIONS
