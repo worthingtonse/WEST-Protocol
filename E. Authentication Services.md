@@ -2,12 +2,12 @@
 
 Theses services help people to know if tokens are authentic and to allow them to change ownership.
 
-Command Code | Service  
---- | --- 
-10 | [Detect](#detect) 
-11 | [Detect Sum](#detect-sum)
-20 | [Pown](#pown)|
-21 | [Pown Sum](pown-sum)| 
+Command Code | Service  | Description
+--- | --- |---
+10 | [Detect](#detect) | Tells if token is authentic without changing AN
+11 | [Detect Sum](#detect-sum) | Uses sum of ANs to mass authenticate
+20 | [Pown](#pown)| Changes AN 
+21 | [Pown Sum](pown-sum)| Changes ANs based on sum of ANs
 
 ## Code meanings
 Code | Meaning | Sample in HEX | Description
