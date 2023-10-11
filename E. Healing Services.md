@@ -1,4 +1,4 @@
-# RAIDA Healing Service
+# RAIDA Healing Service (Command Group 2)
 
 These services allow the RAIDA to heal when a token becomes counterfeit on one RAIDA and authentic on others. 
 
