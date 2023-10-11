@@ -16,7 +16,7 @@
 
  
  Command Code | Service
- ---|---|---|---|---
+ ---|---
 82| [Put](#put) 
 83| [Peek](#peek)
 84 | [Remove](#remove)
