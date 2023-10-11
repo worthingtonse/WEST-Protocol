@@ -2,7 +2,7 @@
 Takes larger notes and breaks them into smaller notes or vis versa. 
 
 Command Code | Service 
---- | --- | :---: | :---: | :---: 
+--- | --- | :---:
 91 | [Get Available SNs](#get-available-change-sns)
 92 | [Break](#break)
 93 | [Join](#join)
