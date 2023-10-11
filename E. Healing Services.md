@@ -213,7 +213,7 @@ So the AN will be:
 fd1495be732ab2f6959559f3041c72c0
 ```
 
-Example With Actual Bytes for an attempt to fix RAIDA 12 for four tokens:
+Example Request Body With Actual Bytes for an attempt to fix RAIDA 12 for four tokens:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 00 00 01  
@@ -229,7 +229,11 @@ CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 3E 3E //Not Encryption
 ```
 
-🔴There will only be a response body if there is mixed results. 
-
+Example Respons: 
+There will only be a response body if there is mixed results. 
+```
+🔴MS MS MS MS MS MT MT MT MT  //Master Ticket or 🔴MT MT MT MT MS MS MS MS MS  //Needs verification
+3E 3E 
+```
 
 
