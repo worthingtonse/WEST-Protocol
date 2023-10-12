@@ -6,8 +6,8 @@ Explains that Status of the RAIDA
 Command Code | Service | Description
 --- | --- | :---: 
 00 | [Echo](OFF_LEDGER.md#echo) | Returns the challenge 
-01 | Version  | Returns the version of the protocol
-02🔴 | Shows - Status Not Implemented | Returns the usage of services
+01🔴 | Version  | Returns the version of the protocol
+02🔴 | Performance - Status Not Implemented | Returns the usage of services
 03🔴 | Audit - CoinsNot Implemented | Returns the number of tokens in the system
 
 
@@ -30,7 +30,7 @@ But echo can accept more bytes between CH and 3E if necessary.
 For example if we want to test big packets we may want to send a bigger packet.
 
 
-# VERSION
+# 🔴VERSION
 Not documented
 <!--
 # Not Implemented 
