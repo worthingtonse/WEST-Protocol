@@ -70,6 +70,7 @@ SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU //The sum of all the ANs of the 
 PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  //This is the PAN for all the tokens. The last four bytes must be set to binary ones (0xFF) 
 3E 3E  //Not Encrypted
 ```
+🔴
 
 
 ## PEEK
@@ -92,7 +93,7 @@ DN  SN SN SN SN
 DN  SN SN SN SN  
 3E 3E  //Not Encrypted
 ```
-
+🔴
 ## REMOVE
 This command is just like POWN except there is only one AN. 
 
@@ -157,6 +158,7 @@ DN  SN SN SN SN
 DN  SN SN SN SN  
 3E 3E  //Not Encrypted
 ```
+🔴
 
 
 
