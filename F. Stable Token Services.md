@@ -4,7 +4,7 @@ Used by the RAIDA Authority to create and destroy tokens.
 
 Command Code | Service | Description
 --- | --- | :---: 
-120 | [Get Available SNS](#get-available-sns) | Tells the Admin what SNs it can use to create tokens. 
+120 | [Get Available SNs](#get-available-sns) | Tells the Admin what serial numbers it can use to create tokens. 
 130 | [Create tokens](#create-tokens) | Orders that tokens be created
 140 | [Delete tokens](#delete-tokens) | Orders tokens to be destroyed. 
 
