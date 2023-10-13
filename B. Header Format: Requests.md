@@ -173,6 +173,7 @@ Rule | Description
  Request Bodies | Encrypted using the same encryption key as the Request header specifies. 
  "E3 E3" |  Terminating bytes at end of a request or a response not encrypted.
 
+<!--
 
 # FUTURE USE
 
@@ -236,3 +237,4 @@ Code | token
 4 | Playtoken / Testtoken (Reserved for future use)
 
 
+-->
