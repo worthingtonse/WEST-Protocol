@@ -4,7 +4,7 @@
  
  
 ## Sugested Client Use
-1. The client creates a seed code. The seed code consists of 7 characters. The seven characters are randomly picked from 31 different symbols. The symbols are [abcdefghjkmnpqrstuvwxyz23456789] The letters of the alphabet, all numbers. However, the letters oh, and el (O,L,I o,l,i) are excluded to reduce confusion. The numbers zero (0) and one (1) are also excluded. Note that the client can create any code but a seven letter code will be standard.
+1. The client creates a seed code. The seed code consists of 7 characters. The seven characters are randomly picked from 31 different symbols. The symbols are [ABCDEFGHJKMNPQRSTUVWXYZ23456789] The capital letters of the alphabet, all numbers. However, the letters oh, and el (O,L,I o,l,i) are excluded to reduce confusion. The numbers zero (0) and one (1) are also excluded. Note that the client can create any code but a seven letter code will be standard.
 
 2. User puts the RAIDA number in front of the code and create a hash from it using MD5. These become the locker numbers and each RAIDA has a different numer. Any messages, emails, attachments etc are also sent.
 
