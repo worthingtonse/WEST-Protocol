@@ -57,7 +57,7 @@ Extension | Always ".bin"
 Although some items are optional, the dots are not. 
 
 Samples:
-```dos
+```c
 0.08_362_541.For Billy.bin
 0.50_167_000.bin
 0.00_400_099.Taylor.bin
@@ -99,25 +99,22 @@ Except for Idtoken and possible future extensions of this table decimal values s
 
 Hex Code| Decimal Code | Denomination
 --- | :---: | ---
-`0xf8` | F8 | `.000 000 01` (1 Satoshi)
-`0xf9` | F9 | `.000 000 1`
-`0xfa` | FA | `.000 001`
-`0xfb` | FB | `.000 01`
-`0xfc` | FC | `.000 1`
-`0xfd` | FD | `.001`
-`0xfe` | FE | `.01` (1 Cent)
-`0xff` | FF | `.1` (1 Dime)
-`0x00` | 00 | `1` (1 whole)
-`0x01` | 01 | `10`
-`0x02` | 02 | `100`
-`0x03` | 03 | `1,000`
-`0x04` | 04 | `10,000`
-`0x05` | 05 | `100,000`
-`0x06` | 06 | `1,000,000`
---- | --- | ---
-`0x80` | 80 | Idtoken
---- | --- | ---
-|  x | XX  | Others (Application keys, chat, etc...) 
+`0xF8` | -8 | `.000 000 01` (1 Satoshi)
+`0xF9` | -7 | `.000 000 1`
+`0xFa` | -6 | `.000 001`
+`0xFb` | -5 | `.000 01`
+`0xFc` | -4 | `.000 1`
+`0xFd` | -3 | `.001`
+`0xFe` | -2 | `.01` (1 Cent token)
+`0xFf` | -1 | `.1` (1 Dime token)
+`0x00` | 0 | `1` (1 Whole token)
+`0x01` | 1 | `10`
+`0x02` | 2 | `100`
+`0x03` | 3 | `1,000`
+`0x04` | 4 | `10,000`
+`0x05` | 5 | `100,000`
+`0x06` | 6 | `1,000,000`
+`0x07` | 7 | `0` (fake money used to strengthen encryption)
 
 
 
@@ -135,7 +132,7 @@ SP | ST | DN | SN SN SN SN  |  16 byte AN x 25 | 16 byte PAN x 25
 16 byte PAN x 25 (The PANs that were sent to the RAIDA but were not confirmed)
 
 Sample token in format 8
-```hex
+```c
 SP ST DN SN SN SN SN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
@@ -171,7 +168,7 @@ Shard | ST | DN | SN SN SN SN  |  16 byte AN x 25
 16 byte AN x 25
 
 Sample token in format 9
-```hex
+```c
 SP ST DN SN SN SN SN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
@@ -205,7 +202,7 @@ SD| ST | DN | SN SN SN SN
 
 ##  Sample token with Header and Body Format 'A'
 This has 7 tokens in it. Each token takes up 20 bytes. 
-```
+```c
 SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//First token
 SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//Second token
 SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE
@@ -247,7 +244,7 @@ SD | ST | DN | SN SN SN SN
 
 ##  Sample file body in format 'B'
 This has 7 tokens in it. Each token takes up 20 bytes. 
-```
+```c
 CC CC CC //token Count (How many tokens are in the file)
 SE ED SE ED SE ED SE ED SE ED SE //Seed
 SD ST DN  SN SN SN SN  // First token
