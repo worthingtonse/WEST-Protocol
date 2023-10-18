@@ -58,6 +58,8 @@ Step 5 in detail:
 
 Store is the exact same thing as POWN SUM but instead of adding a sum, a single PAN is used for all the tokens. This PAN becomes the "Locker Number". However, to make it clear that the PAN is a locker number, the last four bytes must be set to all ones (0xFF) by the client. 
 
+If the client is using CloudCoin for the first time, then the locker key must be used to encrypt this request. You will want to use Encryption type 2 in the header. 🔴
+
 
 Sample Store Request:
 ```c
