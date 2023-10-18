@@ -14,7 +14,7 @@ All multibyte fields are considered big-endian. For example, the two "ID" byte l
 
 ## WEST RAIDA Protocol Header Byte Group View (32 Bytes Fixed):
 ```javascript
-CL SP RI SH CM CM ID ID  // 8 Routing Bytes
+VR SP RI SH CG CM ID ID  // 8 Routing Bytes
 VR AP AP CP TR AI RE RE  // 8 Presentation Bytes
 EN DN SN SN SN SN BL BL  // 8 Encryption Bytes
 NO NO NO NO NO NO EC EC  // 8 Nounce Bytes
@@ -25,8 +25,8 @@ NO NO NO NO NO NO EC EC  // 8 Nounce Bytes
 ## WEST RAIDA Protocol Header Offset View:
 Offset(h) |`0x00` | `0x01` | `0x02` | `0x03` |`0x04` |`0x05`|`0x06`|`0x07`|`0x08`|`0x09`|`0x0A`|`0x0B`|`0x0C`|`0x0D`|`0x0E`|`0x0F`
 -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-
-`0x00` | CL |SP |RI |SH| CM | CM |ID| ID| VR | AP| AP |CP | TR| AI| RE| RE 
-`0x10` | DN |SN |SN |SN| SN | BL |BL| NO| NO| NO | NO| NO |NO | NO| EC| EC 
+`0x00` | VR |SP |RI |SH| CG | CM |ID| ID| VR | AP| AP |CP | TR| AI| RE| RE 
+`0x10` | EN | DN |SN |SN| SN | SN |BL| NO| NO| NO | NO| NO |NO | NO| EC| EC 
 
 
 ### Request Header Byte by Byte Code Meanings
@@ -35,7 +35,7 @@ Index (Decimal) | Group | Code | Name | Notes
 ---|---|---|---|---
 0 | Routing | VR | Version  | Version of Routing Header Protocol. Should be 1 
 1 | Routing | SP | Split ID | For future use in case the token is to be split. Otherwise zero. 
-2 | Routing | DA | Detection Agent  |  DAs also called RAIDA Servers. Value must be 0-24.  
+2 | Routing | RI | RAIDA ID  |  Detection Agents called RAIDA Servers. Value must be 0-24. 
 3 | Routing | SH | Shard ID  | For future use in case the token is to be sharded. For now, zero. 
 4 | Routing | CG | [Command Group](#command-groups) | High order byte for command number
 5 | Routing | CM | [Command](#commands)  | Low Number byte for command number
