@@ -130,36 +130,5 @@ MS //Mixed content bitfield. Maybe many bytes. One byte for 8 tokens. 0 is fail,
 3E 3E  //Not Encrypted
 ```
 
-## 🔴First Peek (The same command number as Peek)
-This works exactly like the Peek except, the command does not use the information in the encryption block of the 
-request header in the same way. 
-
-Instead of looking at bytes 17 through 21 as the denomination and the serial number of the encryption token,
-these bytes are looked at as the clear-text first part of the AN. 
-
-This allows the RAIDA to quickly identify the key used. 
-
-The RAIDA looks at the first five bytes, then compare these with the first five bytes in the locker index table. 
-
-Sample Call
-```c
-CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH 
-AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
-3E 3E
-
-```
-
-Sample Response
-```
-DN  SN SN SN SN   
-DN  SN SN SN SN   
-DN  SN SN SN SN  
-...
-DN  SN SN SN SN  
-3E 3E  //Not Encrypted
-```
-🔴
-
-
 
 
