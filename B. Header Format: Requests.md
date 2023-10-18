@@ -60,7 +60,7 @@ Index (Decimal) | Group | Code | Name | Notes
 24 | Nonce | NO |  Nonce 0 | The nonce bytes can be used for two purposes in the future if 
 25 | Nonce | NO |  Nonce 1 | more bytes are needed and the other purpose is random enough.
 26 | Nonce | NO |  Nonce 2|
-27 | Nonce | NO |  Nonce 3|
+27 | Nonce | NO |  Nonce 3| Nouce bytes 0-7 should be random and never used twice. 
 28 | Nonce | NO |  Nonce 4 |
 29 | Nonce | NO |  Nonce 5 
 30 | Nonce | NO |  Nonce 6 / Echo 0 | Serves two purposes. These last two Nonce bytes are always echoed 
