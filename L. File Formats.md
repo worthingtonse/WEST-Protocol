@@ -19,13 +19,13 @@ B | 7 | Ultra Compressed | This format allows all the coins in the file to use t
 ## File Nameing Convention For Single Coins Inside Software:
 We are accurate to one satoshi which represents a decimal, seven zeros, and a 1.
 
-Denomination Whole|   Satoshies (Fraction) | BTC|  Pown String | SN | extra separator | Price | Group Name | Extention
+Denomination Whole|   Satoshies (Fraction) | WST|  Pown String | SN | extra separator | Price | Group Name | Extention
 ---|---|---|---|---|---|---|---|---
-0|  00_000_001| BTC |  ppppfpppuppppppppppupppep| 20 | extra | 10 | MyGroup | .bin
-0|  00_000_010| BTC |  ppppfpppuppppppppppupppep| 87920 | extra | 10 | MyGroup | .bin
-0| 01_000_000| BTC |  ppppfpppuppppppppppupppep| 499920 | extra | 10 | MyGroup| .bin
-1| 00_000_000| BTC |  ppppfpppuppppppppppupppep| 73920 | extra | 20 | Your Group | .bin
-100| 00_000_000| BTC |  ppppfpppuppppppppppupppep| 2332920 | extra | 1000 | MyGroup New | .bin
+0|  00_000_001| WST |  ppppfpppuppppppppppupppep| 20 | extra | 10 | MyGroup | .bin
+0|  00_000_010| WST |  ppppfpppuppppppppppupppep| 87920 | extra | 10 | MyGroup | .bin
+0| 01_000_000| WST |  ppppfpppuppppppppppupppep| 499920 | extra | 10 | MyGroup| .bin
+1| 00_000_000| WST |  ppppfpppuppppppppppupppep| 73920 | extra | 20 | Your Group | .bin
+100| 00_000_000| WST |  ppppfpppuppppppppppupppep| 2332920 | extra | 1000 | MyGroup New | .bin
 
 Samples:
 ```dos
