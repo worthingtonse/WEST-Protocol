@@ -2,22 +2,19 @@
 WEST Tokens are designed to be "files within files" so they can be inserted into any file format. This allows us to embed WEST into PNG, JPG, MP3, DOCX, TXT. PDF and and just about 
 any other format. However, the native WEST file format is binary and has a ".bin" file extension. 
 
-Binary files with the ".bin" extention may hold many coins. PNG files are .bin files stored inside of PNGs. 
-Each file has one file header. Each coin inside the file has one coin header. So you will always have a file header and one coin header for each coin. 
+Binary files with the ".bin" extention may hold many coins.
+Each file has one file header. Each coin inside the file has one coin header. 
 
-See the PNG file here: 
-https://hierodev.com/notes/
-
-We have four standard file formats of the .bin files but many more can be added later if needed: 
+There are four standard file formats of the .bin files but many more can be added later if needed: 
 
 ## File Format Overview
 
 Format Code | Bytes per token | Purpose | Description
 ---|---|---|---
-8 | 807 | Internal Software | This format is used inside of software that changes the Authenticity Numbers. It is needed only if there is no response from the RAIDA while powning. 
-9 | 416 | Common | This format allows for 25 16 byte Authenticity Numbers that are all not related to each other. 
-A | 21 | Seeded | This format allows for each coin to have a unique seed that is used to generate all the authenticity numbers. 
-B | 7 | Single Seed | This format allows all the coins in the file to use the same seed.
+8 | 807 | Debugging | This format is used inside of software that changes the Authenticity Numbers. It is needed only if there is no response from the RAIDA while powning. 
+9 | 416 | Most Secure | This format allows for 25 16 byte Authenticity Numbers that are all not related to each other. 
+A | 21 | Compressed | This format allows for each coin to have a unique seed that is used to generate all the authenticity numbers for that coin. 
+B | 7 | Ultra Compressed | This format allows all the coins in the file to use the same seed.
 
 ## File Nameing Convention For Single Coins Inside Software:
 We are accurate to one satoshi which represents a decimal, seven zeros, and a 1.
