@@ -163,7 +163,7 @@ Code | Type | Description | Bytes after EN
 ---|---|-----|---
 0 | No encryption | Clear Text | 5 ( All Zeros)
 1 | 128 AES CRT | Shared Secret |  5 (1 DN + 4 SN)
-2 | 128 AES CRT | From Key Table | 5 ( 2 bytes random number, 3 bytes Key ID)
+2 | 128 AES CRT | From Key Table | 5 ( 2 bytes random number, 3 bytes Key ID) 🔴. Note this is also used if the client is using CloudCoin for the first time and needs to use the locker key and an encryption key. 
 
 # ENCRYPTION RULES All SERVICES
 
@@ -172,69 +172,3 @@ Rule | Description
  Request Headers | Not encrypted
  Request Bodies | Encrypted using the same encryption key as the Request header specifies. 
  "E3 E3" |  Terminating bytes at end of a request or a response not encrypted.
-
-<!--
-
-# FUTURE USE
-
-## Ways the WEST Token can be extended:
-1. Quantom safe encryption of protocols such as HTTP, SMS, FTB, SMTP, DNS and all other protocols. 
-2. Massive compression of the protocls listed above by new encoding mehtods. 
-3. Rounting over a private "Wyoming Network".
-4. Authentication/Identification of persons and network objects.
-5. Key Exchange systems to replace SSL/TLS and quantum vulnerable public key exchage systems such as RSA. 
-6. Authentication/Identification of persons and network objects for the so called Internet of things.
-7. Storage of files and NFTs
-
-## DENOMINATIONS RESERVED FOR FUTURE USE
-Hex Code| Decimal Code | Denomination
---- | :---: | ---
-`0x20` | 32 | 128 Byte NFT
-`0x21` | 33 | 256 Byte NFT
-`0x22` | 34 | 512 Byte NFT
-`0x23` | 35 | 1024 Byte NFT
-`0x24` | 36 | 5K Byte NFT
-`0x25` | 37 | 10K Byte NFT
-`0x26` | 38 | 50K Byte NFT
-`0x27` | 39 | 100K Byte NFT
-`0x28` | 40 | 500K Byte NFT
-`0x29` | 41 | 1M Byte NFT
-`0x2A` | 42 | 5M Byte NFT
-`0x2B` | 43 | 10M Byte NFT
-`0x2C` | 44 | 25M Byte NFT
-`0x2D` | 45 | 50M Byte NFT
-`0x2E` | 46 | 100M Byte NFT
-`0x2F` | 47 | 250M Byte NFT
-`0x30` | 48 | 500M Byte NFT
-
-
-### RESERVED COMMAND GROUPS FOR FUTURE USE
-Code | Name | Description
---- | --- | ---
-4 | Key Exchange | RKE (Not Implemented in V.1)
-5 | Banking | Deposit, withdraw, etc. (Not Implemented in V.1)
-6 | Chat & Data | post message, get message, etc. (Not Implemented in V.1)
-7 | Blockchain | Services that add or subtrack tokens based deposit and withdraw in blockchain accounts. (Not Implemented in V.1)
-10 | NFTs | Data Storage associated with a tokens (Not Implemented)
-16 | Conversion | Changes older versions of tokens into newer ones. (Future Use)
-17 | Switch Shard | Moves tokens from one shard to another. (Future Use)
-
-
- ### Commands Reserved for Future Use
- Code (Decimal) | Command Group | Command | Description
---- | --- | --- |---
- 200 | Key Exchange |Put Key | Puts a key on a key server
- 210 | Key Exchange |Get Key | Allows a client to download a key
- 220 | Key Exchange | Exchange Key | Tells the RAIDA to get a key that has been left for it. 
-
-## Cloud /Token ID
-Code | token
---- | ---
-0 | IDs (Reserved for future use)
-1 | Wyoming Extensible Stable token. 
-2 | NFTs (Reserved for future use)
-3 | Ghost Chat (Reserved for future use)
-4 | Playtoken / Testtoken (Reserved for future use)
-
-
--->
