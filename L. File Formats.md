@@ -2,8 +2,8 @@
 WEST Tokens are designed to be "files within files" so they can be inserted into any file format. This allows us to embed WEST into PNG, JPG, MP3, DOCX, TXT. PDF and and just about 
 any other format. However, the native WEST file format is binary and has a ".bin" file extension. 
 
-Binary files with the ".bin" extention may hold many coins.
-Each file has one file header. Each coin inside the file has one coin header. 
+Binary files with the ".bin" extention may hold many tokens.
+Each file has one file header. Each token inside the file has one token header. 
 
 There are four standard file formats of the .bin files but many more can be added later if needed: 
 
@@ -11,57 +11,71 @@ There are four standard file formats of the .bin files but many more can be adde
 
 Format Code | Bytes per token | Purpose | Description
 ---|---|---|---
-8 | 807 | Debugging | This format is used inside of software that changes the Authenticity Numbers. It is needed only if there is no response from the RAIDA while powning. 
-9 | 416 | Most Secure | This format allows for 25 16 byte Authenticity Numbers that are all not related to each other. 
-A | 21 | Compressed | This format allows for each coin to have a unique seed that is used to generate all the authenticity numbers for that coin. 
-B | 7 | Ultra Compressed | This format allows all the coins in the file to use the same seed.
+8 | 807 | Debugging | Software will use this format if they have made a pown request but there was no response from the RAIDA. In this case it is unkonw if the AN or the PAN is in the RAIDA. Files using this format can be created and put in the "Limbo" folder until they are fixed using the "Find" service.  
+9 | 416 | Most Secure | This format allows for twentyfive 16-byte Authenticity Numbers that are not related to each other. 
+A | 21 | Compressed | This format allows for each token to have a unique seed that is used to generate all the authenticity numbers for that token. 
+B | 7 | Ultra Compressed | This format allows all the tokens in the file to use the same seed.
 
-## File Nameing Convention For Single Coins Inside Software:
+## File Nameing Convention For Single tokens Inside Software:
 We are accurate to one satoshi which represents a decimal, seven zeros, and a 1.
 
-Denomination Whole|   Satoshies (Fraction) | WST|  Pown String | SN | extra separator | Price | Group Name | Extention
----|---|---|---|---|---|---|---|---
-0|  00_000_001| WST |  ppppfpppuppppppppppupppep| 20 | extra | 10 | MyGroup | .bin
-0|  00_000_010| WST |  ppppfpppuppppppppppupppep| 87920 | extra | 10 | MyGroup | .bin
-0| 01_000_000| WST |  ppppfpppuppppppppppupppep| 499920 | extra | 10 | MyGroup| .bin
-1| 00_000_000| WST |  ppppfpppuppppppppppupppep| 73920 | extra | 20 | Your Group | .bin
-100| 00_000_000| WST |  ppppfpppuppppppppppupppep| 2332920 | extra | 1000 | MyGroup New | .bin
+File Name Part | Description
+---|---
+Whole Number | The number infront of the decimal formated with commas between 3 numbers
+Fraction | The numbers after the decimal point serperated by underscores. 
+Token Symbol | WST (Wyoming Stable token
+P'Own String (optional) | 25 (one per RAIDA) letters showing the results of the last pown. p=passed, f=failed, u=untried, e=error, n=no response, k=encrypton error
+Serial Number | The serial number of the token in the file
+Memo (optional) | Can be used for any purpose a software would like or left empty. Commonly created by the user.
+price (optional) | How much in dollars the token should be sold for if for sale. 
+Token Group (option)| Allows software to group tokens such as "ForSale", "ForGroceries", "Savings" "invoice_98473233".
+Extension | Always ".bin"
+
+Although some items are optional, the dots are not. 
 
 Samples:
-```dos
-0.00_000_001.BTC.ppppfpppuppppppppppupppep.488773920.extra.20..bin
-0.00_100_000.BTC.ppppupppeppfpppuppppppppp.1122320.extra.30.Group.bin
-0.00_000_001.BTC.ppppupppeppfpppuppppppppp.223920.extra.40..bin
-1.00_000_000.BTC.ppppupppeppfpppuppppppppp.94887720.extra.50..bin
-1000.00_000_000.BTC.ppppupppeppfpppuppppppppp.3920.extra.1000.All people.bin
+```c
+0.00_000_001.WEST.ppppfpppuppppppppppupppep.488773920.From Bill.20..bin
+0.00_100_000.WEST.ppppupppeppfpppuppppppppp.1122320.GAI.30.ForSale.bin
+0.00_000_001.WEST..223920....bin
+1.00_000_000.WEST.ppppupppeppfpppuppppppppp.94887720.Bonus.50..bin
+1000.00_000_000.WEST.ppppupppeppfpppuppppppppp.3920.extra.1000.All people.bin
 
 ```
 
-## File Nameing Convention For Files with Multiple Coins:
-If there are more than 1 coin in the file, the sum of all the coins will be in the name. The extension maybe .bin or .png. 
+## File Nameing Convention For Files with Multiple tokens:
+If there are more than 1 token in the file, the sum of all the tokens will be in the name. The extension maybe .bin or .png. 
 
-Denomination Whole|  BTC |  Satoshies (Fraction) | SAT|  Pown String | SN | Extention
----|---|---|---|---|---|---
-0| BTC | 00_000_001| SAT |  tag| 20 | .bin
-0| BTC | 00_000_010| SAT |  memo| 87920 | .png
-0| BTC | 01_000_000| SAT |  note| 499920 | .bin
-1| BTC | 00_000_000| SAT |  custom text| 73920 | .bin
-100| BTC | 00_000_000| SAT | empty| 2332920 | .bin
+File Name Part | Description
+---|---
+Whole Number | The number infront of the decimal formated with commas between 3 numbers
+Fraction | The numbers after the decimal point serperated by underscores. 
+Token Symbol | WST (Wyoming Stable token
+Memo (optional) | Can be used for any purpose a software would like or left empty. Commonly created by the user.
+Extension | Always ".bin"
 
+Although some items are optional, the dots are not. 
 
 Samples:
 ```dos
-0 BTC 08_362_541 SAT.For Billy.bin
-0 BTC 50_167_000 SAT.bin
-0 BTC 00_400_099 SAT.Taylor.bin
-1 BTC 00_000_340 SAT.transport.bin
-1268 BTC 69_894_485 SAT.CUBBY.bin
-1268 USD 69_894_485 CENTS.CUBBY.bin
+0.08_362_541.For Billy.bin
+0.50_167_000.bin
+0.00_400_099.Taylor.bin
+1.00_000_340.transport.bin
+1268.69_894_485.CUBBY.bin
+1268.69_894_485.CUBBY.bin
+
+0.08_362_541.For Billy.bin
+0.50_167..bin
+0.00_400_099.Taylor.bin
+1.00_000_34.transport.bin
+11,268.69_894_485.CUBBY.bin
+2,556.58.For PGR.bin
 
 ```
 
 
-## File Header For All Coins (32 Bytes Fixed)
+## File Header For All tokens (32 Bytes Fixed)
 ```
 FT CL ID ID SP EN CC HS HS HS HS HS HS HS HS FL
 RC RC RC RC RC RC RC RC RC RC RC RC RC RC RC RC 
@@ -71,17 +85,17 @@ Code | Bytes |  Name | Description
 ---|---|---|---
 FT | 1 |  Format Type | '9', 'A' or 'B'.
 CL |  1 | Cloud ID | 1 for theRAIDAX network
-ID |  2 |Coin ID 1 | ID Coins are 0, CloudCoin is 1, NFTs are 2  10 =  BTC
+ID |  2 |token ID 1 | ID tokens are 0, Cloudtoken is 1, NFTs are 2  10 =  BTC
 RE |  1 |Reserved| Reserved
 EN |  1 |Encryption Type | 0 for no encryption
-CC |  2 |Coin Count | How many note are in the file. Not the tota value but total count. 
-HS |  7 | MD5 Hash of encryption password | First 7 bytes of a hash of the encryption key used to encrypt the coin seeds. (if used). Otherwise zeros if no encyption. This is used to tell if the password that the user used was correct. 
+CC |  2 |token Count | How many note are in the file. Not the tota value but total count. 
+HS |  7 | MD5 Hash of encryption password | First 7 bytes of a hash of the encryption key used to encrypt the token seeds. (if used). Otherwise zeros if no encyption. This is used to tell if the password that the user used was correct. 
 FL |  1 |Flags | Represents 8 bitfields. 00000000 means no flags. 00000001 means encoded with email recovery. Custom for applications. 
 RC |  16 | Receipt Number | A transaction's GUID to help software track transactions internally. Can be all random or zeros. But can be used by applications for anything. However, if there is no Receipt number, then the following hex should be used "4C 69 76 65 20 46 72 65 65 20 4F 72 20 44 69 65". This transalates to "Live Free or Die" in ASCII.
 
 ## DENOMINATIONS
 
-Except for IdCoin and possible future extensions of this table decimal values should be treated as powers of ten
+Except for Idtoken and possible future extensions of this table decimal values should be treated as powers of ten
 
 Hex Code| Decimal Code | Denomination
 --- | :---: | ---
@@ -101,26 +115,26 @@ Hex Code| Decimal Code | Denomination
 `0x05` | 05 | `100,000`
 `0x06` | 06 | `1,000,000`
 --- | --- | ---
-`0x80` | 80 | IdCoin
+`0x80` | 80 | Idtoken
 --- | --- | ---
 |  x | XX  | Others (Application keys, chat, etc...) 
 
 
 
 # FORMAT '8'
-This requires 807 bytes per coin. Format 8 should be readable by all software but is not the perfered file format. Format 'A' should be used instead. 
-This format is for internal use only. It is used for coins that are stored in the Limbo folder
+This requires 807 bytes per token. Format 8 should be readable by all software but is not the perfered file format. Format 'A' should be used instead. 
+This format is for internal use only. It is used for tokens that are stored in the Limbo folder
 
 Shard 1 byte | Stripe 1 byte | Denomination 1 Byte | Serial Number (4 Bytes) | Authenticity Numbers | PAN Numbers
 ---|---|---|---|---|---
 SP | ST | DN | SN SN SN SN  |  16 byte AN x 25 | 16 byte PAN x 25
 
 
-## Coin Body Codes for Format 9
+## token Body Codes for Format 9
 16 byte AN x 25 (The original ANs before the call)
 16 byte PAN x 25 (The PANs that were sent to the RAIDA but were not confirmed)
 
-Sample coin in format 8
+Sample token in format 8
 ```hex
 SP ST DN SN SN SN SN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   
@@ -146,17 +160,17 @@ PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
 
 
 # FORMAT '9'
-This requires 407 bytes per coin. Format 9 should be readable by all software but is not the perfered file format. Format 'A' should be used instead. 
+This requires 407 bytes per token. Format 9 should be readable by all software but is not the perfered file format. Format 'A' should be used instead. 
 
 Shard 1 byte | Stripe 1 byte | Denomination 1 Byte | Serial Number (4 Bytes) | Authenticity Numbers
 ---|---|---|---|---
 Shard | ST | DN | SN SN SN SN  |  16 byte AN x 25
 
 
-## Coin Body Codes for Format 9
+## token Body Codes for Format 9
 16 byte AN x 25
 
-Sample coin in format 9
+Sample token in format 9
 ```hex
 SP ST DN SN SN SN SN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   
@@ -175,30 +189,30 @@ AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN
 
 
 # FORMAT 'A'
-## Coin Header Codes for Format 'A'
-Every coin within a file has its own header. For file format 'A', we just have 20 bytes per coin because all the ANs are created by one hash seed. 
+## token Header Codes for Format 'A'
+Every token within a file has its own header. For file format 'A', we just have 20 bytes per token because all the ANs are created by one hash seed. 
 
 Shard | Denomination 1 Byte | Serial Number (4 Bytes) 
 ---|---|---
 SD| ST | DN | SN SN SN SN  
 
-## Coin Body Codes for Format 'A'
+## token Body Codes for Format 'A'
 
  11 Byte Seed (SE ED) | 3 Bytes Reserved (RE)
 ---|---
  SE ED SE ED SE ED SE ED SE ED SE | RE RE RE
 
 
-##  Sample Coin with Header and Body Format 'A'
-This has 7 coins in it. Each coin takes up 20 bytes. 
+##  Sample token with Header and Body Format 'A'
+This has 7 tokens in it. Each token takes up 20 bytes. 
 ```
-SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//First coin
-SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//Second coin
+SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//First token
+SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//Second token
 SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE
 SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE
 SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE
 SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE
-SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//7th Coin
+SD ST DN  SN SN SN SN  SE ED SE ED SE ED SE ED SE ED SE  RE RE RE//7th token
 ```
 
 To Generate the 25 seeds for each RAIDA:
@@ -215,15 +229,15 @@ RAIDA ID | DN |SN | Seed | Concatenated Hex Strings | SHA-384 Hash. Truncated to
 
 
 # FORMAT 'B'
-## Coin Header Codes for Format 'B'
-For this standard, there is one seed for all the coins. Each coin is just the split number, Denomination number and the serial number. This gives us 6 bytes per coin. 
+## token Header Codes for Format 'B'
+For this standard, there is one seed for all the tokens. Each token is just the split number, Denomination number and the serial number. This gives us 6 bytes per token. 
 
 After the header, there is an 11 byte seed. THis keeps the same seed size as with format 'A':
  11 Byte Seed (SE ED) 
 |---|
 | SE ED SE ED SE ED SE ED SE ED SE | 
 
-Then there are six bytes for every coin. 
+Then there are six bytes for every token. 
 
 Shard | Denomination 1 Byte | Serial Number (4 Bytes) 
 ---|---|---
@@ -232,16 +246,16 @@ SD | ST | DN | SN SN SN SN
 
 
 ##  Sample file body in format 'B'
-This has 7 coins in it. Each coin takes up 20 bytes. 
+This has 7 tokens in it. Each token takes up 20 bytes. 
 ```
-CC CC CC //Coin Count (How many coins are in the file)
+CC CC CC //token Count (How many tokens are in the file)
 SE ED SE ED SE ED SE ED SE ED SE //Seed
-SD ST DN  SN SN SN SN  // First coin
+SD ST DN  SN SN SN SN  // First token
 SD ST DN  SN SN SN SN  
 SD ST DN  SN SN SN SN 
 SD ST DN  SN SN SN SN  
 SD ST DN  SN SN SN SN 
-SD ST DN  SN SN SN SN  6th Coin
+SD ST DN  SN SN SN SN  6th token
 ```
 
 To Generate the 25 seeds for each RAIDA (Same as with 'A'):
