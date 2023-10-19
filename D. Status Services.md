@@ -74,20 +74,11 @@ Returns the serial numbers of the coin in that denomination that have been creat
 The ranges come first prepended by the number of them. The individual serial numbers come after them.
 
 
-Code | Meaning
---|--
-CH |  Challenge (16 byte randome number)
-DU |  Days of uptime. How many days the RAIDA has been up since last failure .
-NE | No Error Time. How many days since the RAIDA has had to change its SN table to correct errors. 
-ER | Errors Last time. How many errors were found the last time it found errors.  
-AU |  Authorizatio number (Secret between RAIDA servers like a password)
-DN | Denomination of the serial numbers that the RAIDA is to return. 
-
 
 Example Request Body:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-DU DU NE ER    
+00 00 00 00 
 AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. Only RAIDA can use this service and a password is required
 DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //These bytes must all be zeros except one: The denomination requested. 
 3E 3E
@@ -100,10 +91,21 @@ Success | 250
 Failure | 251
 
 
+Code | Meaning
+--|--
+CH |  Challenge (16 byte randome number)
+DU |  Days of uptime. How many days the RAIDA has been up since last failure .
+NE | No Error Time. How many days since the RAIDA has had to change its SN table to correct errors. 
+ER | Errors Last time. How many errors were found the last time it found errors.  
+AU |  Authorizatio number (Secret between RAIDA servers like a password)
+DN | Denomination of the serial numbers that the RAIDA is to return. 
+
+
+
 Returns: three ranges (contiguous serial numbers) and three single (incontiguous) serial numbers. It also shows the denomination but the client will probably 
 rember what denomination they asked for. 
 ```
-DN   
+DU DU NE ER    //Discolosures
 NR NS 
 RR RR RR RR RR RR RR RR //Range: 4 bytes start, 4 bytes end. 
 RR RR RR RR RR RR RR RR
