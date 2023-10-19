@@ -119,10 +119,7 @@ PR PR PR PR PR PR PR PR PR PR PR PR PR PR PR PR //Comand Parameters. Each one ma
 
 Sample Responses with four key/value pairs:
 ```
-kY VA VA VA VA //Key Value
-kY VA VA VA VA //Key Value
-kY VA VA VA VA //Key Value
-kY VA VA VA VA //Key Value
+DT DT DT DT TT TT TT TT //Date (a day), Total calls for that day)   //Key Value
 3E 3E
 ```
 
@@ -150,7 +147,29 @@ Key | Name | Parameters
 210 | Get Key | 4 byte starting date. 4 byte ending date (optional)
 220 | Exchange Key | 4 byte starting date. 4 byte ending date (optional)
 
-
+Amount handled per request. 
+Key | Name | Parameters
+---|---|---
+0 | Echo | None
+10 | Detect | 4 byte starting date. 4 byte ending date (optional)
+20 | Pown | 4 byte starting date. 4 byte ending date (optional)
+30 | Pown with Check Sum and Add | 4 byte starting date. 4 byte ending date (optional)
+40 | Get Ticket | 4 byte starting date. 4 byte ending date (optional)
+50 | Validate Ticket | 4 byte starting date. 4 byte ending date (optional)
+60 | Find | 4 byte starting date. 4 byte ending date (optional)
+80 | Fix | 4 byte starting date. 4 byte ending date (optional)
+81 | Put in Locker | 4 byte starting date. 4 byte ending date (optional)
+82 | Get From Locker | 4 byte starting date. 4 byte ending date (optional)
+83 | Read Meta | 4 byte starting date. 4 byte ending date (optional)
+90 | Fix with Remote Key | 4 byte starting date. 4 byte ending date (optional)
+100 | Show Stats | 4 byte starting date. 4 byte ending date (optional)
+120 | Get Available SNS | 4 byte starting date. 4 byte ending date (optional)
+130 | 	Create Coins | 4 byte starting date. 4 byte ending date (optional)
+140 | Delete Coins | 4 byte starting date. 4 byte ending date (optional)
+150 | Audit Coins | 4 byte starting date. 4 byte ending date (optional)
+200 | Put Key | 4 byte starting date. 4 byte ending date (optional)
+210 | Get Key | 4 byte starting date. 4 byte ending date (optional)
+220 | Exchange Key | 4 byte starting date. 4 byte ending date (optional)
 
 
 
