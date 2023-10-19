@@ -59,18 +59,11 @@ Although some items are optional, the dots are not.
 Samples:
 ```c
 0.08_362_541.For Billy.bin
-0.50_167_000.bin
+0.50_167_000..bin
 0.00_400_099.Taylor.bin
 1.00_000_340.transport.bin
-1268.69_894_485.CUBBY.bin
-1268.69_894_485.CUBBY.bin
-
-0.08_362_541.For Billy.bin
-0.50_167..bin
-0.00_400_099.Taylor.bin
-1.00_000_34.transport.bin
-11,268.69_894_485.CUBBY.bin
-2,556.58.For PGR.bin
+11268.69_894_485.CUBBY.bin
+2556.58_000_000.For PGR.bin
 
 ```
 
@@ -83,7 +76,7 @@ RC RC RC RC RC RC RC RC RC RC RC RC RC RC RC RC
 ## File Header Codes:
 Code | Bytes |  Name | Description
 ---|---|---|---
-FT | 1 |  Format Type | '9', 'A' or 'B'.
+FT | 1 |  Format Type | '8', '9', 'A' or 'B'.
 CL |  1 | Cloud ID | 1 for theRAIDAX network
 ID |  2 |token ID 1 | ID tokens are 0, Cloudtoken is 1, NFTs are 2  10 =  BTC
 RE |  1 |Reserved| Reserved
