@@ -54,7 +54,7 @@ Sample Request:
 
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authentication A password given only to status reporting servers
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Autherization: Only RAIDA can uA password given only to status reporting servers
 ST // Status Code requested
 AM AM AM //Number of records requested. 
 
@@ -66,28 +66,44 @@ Sample Respons:
 Needs to be decided. 
 
 ```
+-->
 
-## Audit Coins
-Shows the denominations and the amount of each denomination that is on the RAIDA.
+# Audit
+Note: This service is almost identical to the Stable Token Service called Get_Available_SNs.
+Returns the serial numbers of the coin in that denomination that have been created. It has two sections: The returned item can be either an individual serial number or a range.
+The ranges come first prepended by the number of them. The individual serial numbers come after them.
 
-This shows the hex code for the Denomination here
+This method is the first part of the two-step FreeID command. The client sends four-byte SessionID and the RAIDA server locks serial numbers
+using the Session ID. After that, the next step downloads the coins using the same Session ID.
 
-Sample Audit Coins Request: 
-
+Example Request Body with four coins:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-3E 3E //Not Encrypted
+00 00 00 00 //These bytes are ignored
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. Only RAIDA can use this service and a password is required
+DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //These bytes must all be zeros except one: The denomination requested. 
+3E 3E
 ```
 
-Returns as many records as there are denominations that have coins:
+
+Response Status | Code
+---|---
+Success | 250
+Failure | 251
+
+
+Returns: three ranges (contiguous serial numbers) and three single (incontiguous) serial numbers. It also shows the denomination but the client will probably 
+rember what denomination they asked for. 
 ```
-DN CT CT CT    //DN comes from the denomination table. CT is the count of how many coins of that denomination there are. 
-DN CT CT CT  
-DN CT CT CT 
-.... The amount will vary
-3E 3E //Not Encrypted
+DN   
+NR NS 
+RR RR RR RR RR RR RR RR //Range: 4 bytes start, 4 bytes end. 
+RR RR RR RR RR RR RR RR
+RR RR RR RR RR RR RR RR 
+SN SN SN SN
+SN SN SN SN
+SN SN SN SN 
 ```
 
--->
 
 
