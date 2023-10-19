@@ -73,10 +73,21 @@ Note: This service is almost identical to the Stable Token Service called Get_Av
 Returns the serial numbers of the coin in that denomination that have been created. It has two sections: The returned item can be either an individual serial number or a range.
 The ranges come first prepended by the number of them. The individual serial numbers come after them.
 
+
+Code | Meaning
+--|--
+CH |  Challenge (16 byte randome number)
+DU |  Days of uptime. How many days the RAIDA has been up since last failure .
+ET | No Error Time. How many days since the RAIDA has had to change its SN table to correct errors. 
+ER | Errors Last time. How many errors were found the last time it found errors.  
+AU |  Authorizatio number (Secret between RAIDA servers like a password)
+DN | Denomination of the serial numbers that the RAIDA is to return. 
+
+
 Example Request Body:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-00 00 00 00 //These bytes are ignored
+DU DU ER CF //DU=Days Up (uptime), ER = Errors Fixed, Days since last error fixed.   
 AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. Only RAIDA can use this service and a password is required
 DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //These bytes must all be zeros except one: The denomination requested. 
 3E 3E
