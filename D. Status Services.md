@@ -78,7 +78,7 @@ Code | Meaning
 --|--
 CH |  Challenge (16 byte randome number)
 DU |  Days of uptime. How many days the RAIDA has been up since last failure .
-ET | No Error Time. How many days since the RAIDA has had to change its SN table to correct errors. 
+NE | No Error Time. How many days since the RAIDA has had to change its SN table to correct errors. 
 ER | Errors Last time. How many errors were found the last time it found errors.  
 AU |  Authorizatio number (Secret between RAIDA servers like a password)
 DN | Denomination of the serial numbers that the RAIDA is to return. 
@@ -87,7 +87,7 @@ DN | Denomination of the serial numbers that the RAIDA is to return.
 Example Request Body:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-DU DU ER CF //DU=Days Up (uptime), ER = Errors Fixed, Days since last error fixed.   
+DU DU NE ER    
 AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. Only RAIDA can use this service and a password is required
 DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //These bytes must all be zeros except one: The denomination requested. 
 3E 3E
