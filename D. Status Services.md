@@ -30,7 +30,7 @@ But echo can accept more bytes between CH and 3E if necessary.
 For example if we want to test big packets we may want to send a bigger packet.
 
 
-# 🔴VERSION
+# 🔴Version
 Not documented
 <!--
 # Not Implemented 
@@ -73,10 +73,7 @@ Note: This service is almost identical to the Stable Token Service called Get_Av
 Returns the serial numbers of the coin in that denomination that have been created. It has two sections: The returned item can be either an individual serial number or a range.
 The ranges come first prepended by the number of them. The individual serial numbers come after them.
 
-This method is the first part of the two-step FreeID command. The client sends four-byte SessionID and the RAIDA server locks serial numbers
-using the Session ID. After that, the next step downloads the coins using the same Session ID.
-
-Example Request Body with four coins:
+Example Request Body:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 00 00 00 00 //These bytes are ignored
@@ -104,6 +101,56 @@ SN SN SN SN
 SN SN SN SN
 SN SN SN SN 
 ```
+
+
+# Performance
+The job of the persormance service is to allow admins to evaluat the use of their RAIDA. 
+The performance returns up to 255 performance indicators. 
+The is done by key value pairs These keys and values are based on the Performance Table below. 
+
+Example Request Body:
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+KY MX MX MX //Key Maxium Records to return
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. Only RAIDA can use this service and a password is required
+PR PR PR PR PR PR PR PR PR PR PR PR PR PR PR PR //Comand Parameters. Each one may have different meanings 
+3E 3E
+```
+
+Sample Responses with four key/value pairs:
+```
+kY VA VA VA VA //Key Value
+kY VA VA VA VA //Key Value
+kY VA VA VA VA //Key Value
+kY VA VA VA VA //Key Value
+3E 3E
+```
+
+Number of times a service has been called
+Key | Name | Parameters
+---|---|---
+0 | Echo | None
+10 | Detect | 4 byte starting date. 4 byte ending date (optional)
+20 | Pown | 4 byte starting date. 4 byte ending date (optional)
+30 | Pown with Check Sum and Add | 4 byte starting date. 4 byte ending date (optional)
+40 | Get Ticket | 4 byte starting date. 4 byte ending date (optional)
+50 | Validate Ticket | 4 byte starting date. 4 byte ending date (optional)
+60 | Find | 4 byte starting date. 4 byte ending date (optional)
+80 | Fix | 4 byte starting date. 4 byte ending date (optional)
+81 | Put in Locker | 4 byte starting date. 4 byte ending date (optional)
+82 | Get From Locker | 4 byte starting date. 4 byte ending date (optional)
+83 | Read Meta | 4 byte starting date. 4 byte ending date (optional)
+90 | Fix with Remote Key | 4 byte starting date. 4 byte ending date (optional)
+100 | Show Stats | 4 byte starting date. 4 byte ending date (optional)
+120 | Get Available SNS | 4 byte starting date. 4 byte ending date (optional)
+130 | 	Create Coins | 4 byte starting date. 4 byte ending date (optional)
+140 | Delete Coins | 4 byte starting date. 4 byte ending date (optional)
+150 | Audit Coins | 4 byte starting date. 4 byte ending date (optional)
+200 | Put Key | 4 byte starting date. 4 byte ending date (optional)
+210 | Get Key | 4 byte starting date. 4 byte ending date (optional)
+220 | Exchange Key | 4 byte starting date. 4 byte ending date (optional)
+
+
 
 
 
