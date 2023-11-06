@@ -68,7 +68,7 @@ Needs to be decided.
 ```
 -->
 
-# Audit
+# 🔴Audit
 Returns the total number of coins the RAIDA has. 
 
 
