@@ -69,26 +69,34 @@ Needs to be decided.
 -->
 
 # Audit
-Note: This service is almost identical to the Stable Token Service called Get_Available_SNs.
-Returns the serial numbers of the coin in that denomination that have been created. It has two sections: The returned item can be either an individual serial number or a range.
-The ranges come first prepended by the number of them. The individual serial numbers come after them.
+Returns the total number of coins the RAIDA has. 
 
 
-
-Example Request Body:
+## Example Request Body:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-00 00 00 00 
+00 00 00 00 //for future use 
 AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. Only RAIDA can use this service and a password is required
-DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //These bytes must all be zeros except one: The denomination requested. 
 3E 3E
 ```
 
+
+## Response
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+TO TO TO TO TO TO  //Six Byte total amount of coins
+3E 3E
+
+```
 
 Response Status | Code
 ---|---
 Success | 250
 Failure | 251
+
+Response:
+
+
 
 
 Code | Meaning
@@ -100,6 +108,11 @@ ER | Errors Last time. How many errors were found the last time it found errors.
 AU |  Authorizatio number (Secret between RAIDA servers like a password)
 DN | Denomination of the serial numbers that the RAIDA is to return. 
 
+
+# Performance
+The job of the persormance service is to allow admins to evaluat the use of their RAIDA. 
+The performance returns up to 255 performance indicators. 
+The is done by key value pairs These keys and values are based on the Performance Table below. 
 
 
 Returns: three ranges (contiguous serial numbers) and three single (incontiguous) serial numbers. It also shows the denomination but the client will probably 
@@ -114,12 +127,6 @@ SN SN SN SN
 SN SN SN SN
 SN SN SN SN 
 ```
-
-
-# Performance
-The job of the persormance service is to allow admins to evaluat the use of their RAIDA. 
-The performance returns up to 255 performance indicators. 
-The is done by key value pairs These keys and values are based on the Performance Table below. 
 
 Example Request Body:
 ```hex
