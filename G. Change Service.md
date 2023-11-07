@@ -70,10 +70,10 @@ DN SN SN SN SN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
 DN SN SN SN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  //There's always 10 tokens returned. 
 E3 E3
 ```
-🔴
+
 
 ## JOIN
-Takes any number of tokens that add up to one denomination and return that denomination. Then destroys the old tokens. 
+🔴(not implemented yet) Takes any number of tokens that add up to one denomination and return that denomination. Then destroys the old tokens. 
 ```cpp
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 SI SI SI SI //Session ID
@@ -92,6 +92,5 @@ DN SN SN SN PN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   // There will 
 ....
 E3 E3
 ```
-🔴
 
 
