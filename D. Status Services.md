@@ -6,7 +6,7 @@ Explains that Status of the RAIDA
 Command Code | Service | Description
 --- | --- | :---: 
 00 | [Echo](OFF_LEDGER.md#echo) | Returns the challenge 
-01🔴 | Version  | Returns the version of the protocol
+01 | Version  | Returns the version of the protocol
 02🔴 | Performance - Status Not Implemented | Returns the usage of services
 03🔴 | Audit - CoinsNot Implemented | Returns the number of tokens in the system
 
@@ -30,45 +30,26 @@ But echo can accept more bytes between CH and 3E if necessary.
 For example if we want to test big packets we may want to send a bigger packet.
 
 
-# 🔴Version
-Not documented
-<!--
-# Not Implemented 
-## Show Stats
-Sends the data in RAM from the last statistics dump. 
-This service must be able to be turned off incase of Denial of service attacks. 
-So it will only respond to a 1 request per ten seconds. 
+# Version
 
-## Show Stats Table in RAIDA RAM
+Command Group: 0
+Command Number: 1
 
-Index | Column Name | Datatype | Notes
-0 |  Echo | 4 bytes | Every time echo is called ++
-1 |  Audit | 4 bytes | Tracks status calls
-2 |  Status | 4 bytes | ++
-3 |  Echo | 4 bytes | ++
-4 |  Echo | 4 bytes |  ++
-5 |  Echo | 4 bytes | ++
-
-
-Sample Request: 
-
-```hex
+Request (no parameters)
+```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Autherization: Only RAIDA can uA password given only to status reporting servers
-ST // Status Code requested
-AM AM AM //Number of records requested. 
-
-3E 3E //Not encryption
+3E 3E
 ```
-Sample Respons:
+Response:
 ```
-
-Needs to be decided. 
-
+Status 250
 ```
--->
-
-# 🔴Audit
+Version 8 bytes
+```
+VE VE VE VE VE VE VE VE
+3E 3E
+```
+# Audit
 Returns the total number of coins the RAIDA has. 
 
 
