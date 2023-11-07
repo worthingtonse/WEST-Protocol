@@ -58,7 +58,6 @@ Step 5 in detail:
 
 Store is the exact same thing as POWN SUM but instead of adding a sum, a single PAN is used for all the tokens. This PAN becomes the "Locker Number". However, to make it clear that the PAN is a locker number, the last four bytes must be set to all ones (0xFF) by the client. 
 
-If the client is using CloudCoin for the first time, then the locker key must be used to encrypt this request. You will want to use Encryption type 2 in the header. 🔴
 
 
 Sample Store Request:
@@ -72,11 +71,21 @@ SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU //The sum of all the ANs of the 
 PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  //This is the PAN for all the tokens. The last four bytes must be set to binary ones (0xFF) 
 3E 3E  //Not Encrypted
 ```
-🔴
-
 
 ## PEEK
 Allows the caller to see all the serial numbers in a RAIDA Locker. 
+
+### Encryption if locker key is the user's first coins
+If the client is using CloudCoin for the first time, then the locker key must be used to encrypt this request. You will want to use Encryption type 2 in the header. 
+
+Since the user doesn't have any coins before they import a locker code we encrypt traffic with a key that is extracted from the locker code itself. 
+
+The header: 
+bytes 17 (DE)  and bytes 18-22 ( SN ) in the header are ignored by the RAIDA. Byte 16 equals to "2"
+
+How the keys are generated:
+The locker code is prepended with a raida number. The resulting string is hashed by the md5 function.
+The last four bytes of the hash are set to 0xff
 
 Sample Call
 ```c
@@ -95,7 +104,7 @@ DN  SN SN SN SN
 DN  SN SN SN SN  
 3E 3E  //Not Encrypted
 ```
-🔴
+
 ## REMOVE
 This command is just like POWN except there is only one AN. 
 
