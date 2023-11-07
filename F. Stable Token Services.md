@@ -8,7 +8,7 @@ Command Code | Service | Description
 130 | [Create tokens](#create-tokens) | Orders that tokens be created
 140 | [Delete tokens](#delete-tokens) | Orders tokens to be destroyed. 
 150 | [Free Coins](#delete-coins)|  Tells RAIDA to release lock on reserved SNs|
-160 | [Get All SNSs](#get-all-sns)|  Returns all the SNs that the RAIDA has minted|
+160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted|
 
 ## Code meanings
 Code | Meaning | Sample
@@ -97,7 +97,7 @@ Response Status | Code
 Success | 250
 
 
-# Get All SNS
+# Get All SNs
 The service returns all serial number for a denomination (or all denominations).
 The returned byte array is packed into a bitmap sequence where "1" stands for "minted", "0" is "available"
 
