@@ -170,9 +170,8 @@ The Fix protocl may recieve empty tickets with all "00000". In this case there i
 Fix allows you to fix multiple tokens using tickets that it got from the Get_Ticket service. 
 Each ticket can only be used one time per RAIDA. 
 Each RAIDA can use the same ticket to fix. 
-This allows the client to use all the tickets returned from a Get_Ticket request to fix all the fracked tokens on all the RAIDA without needed to go and get more tickets.  The Fix then calls the "Validate Ticket" service and sees what SNs are returned. 
-If 13 or 25 RAIDA return the same SN, that SN's ANs are changed to the PAN supplied by the Client in 🔴Version 0 of the Fix command. 
-🔴Version 1 requires the caller to supply a PAN Generator instead of PANs. 
+This allows the client to use all the tickets returned from a Get_Ticket request to fix all the fracked tokens on all the RAIDA without needing to go and get more tickets.  The Fix then calls the "Validate Ticket" service and sees what SNs are returned. 
+If 13 out of 25 RAIDA return the same SN, that SN's ANs are changed to the PAN supplied by the Client.
 
 
 Version 0 Example Request Body with four tokens:
@@ -232,7 +231,7 @@ CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 Example Respons: 
 There will only be a response body if there is mixed results. 
 ```
-🔴MS MS MS MS MS MT MT MT MT  //Master Ticket or 🔴MT MT MT MT MS MS MS MS MS  //Needs verification
+MS MS MS MS MS MT MT MT MT  //Master Ticket
 3E 3E 
 ```
 
