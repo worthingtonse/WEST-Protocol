@@ -161,7 +161,7 @@ Code | Type | Description | Bytes after EN
 ---|---|-----|---
 0 | No encryption | Clear Text | 5 ( All Zeros)
 1 | 128 AES CRT | Shared Secret |  5 (1 DN + 4 SN)
-2 | 128 AES CRT | From Key Table | 5 ( 2 bytes random number, 3 bytes Key ID) 🔴. Note this is also used if the client is using CloudCoin for the first time and needs to use the locker key and an encryption key. 
+2 | 128 AES CRT | Locker Key is used | This is used by the PEEK command if the user doesn not have any coins yet. See PEEK in Locker Services. 
 
 # ENCRYPTION RULES All SERVICES
 
