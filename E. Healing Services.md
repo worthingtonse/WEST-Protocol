@@ -53,6 +53,8 @@ The Validate Ticket protocol allows the client to see if a ticket belongs to a s
 It is used to prove that a person owns a token without them having to show the token. 
 This is useful if you are using WEST Tokens to authenticate a person or thing in your own application. 
 
+Validate ticket is not encrypted.
+
 EXAMPLE BODY OF REQUEST
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
