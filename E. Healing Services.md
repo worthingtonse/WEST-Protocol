@@ -6,7 +6,7 @@ These services allow the RAIDA to heal when a token becomes counterfeit on one R
 Command Code | Service 
 --- | --- 
 40 | [Get Ticket](#/get-ticket)
-50 | 🔴[Validate Ticket](#validate-ticket)
+50 | [Validate Ticket](#validate-ticket)
 60 | [Find](#find)
 80 | [Fix](OFF_LEDGER.md#fix) 
 
@@ -43,7 +43,7 @@ MT MT MT MT  //Master Ticket
 ```
 Example Response if all mixed :
 ```hex
-🔴MS MS MS MS MS MT MT MT MT  //Master Ticket or 🔴MT MT MT MT MS MS MS MS MS  //Needs verification
+MS MS MS MS MS MT MT MT MT  //Master Ticket 
 3E 3E 
 ```
 
@@ -56,7 +56,7 @@ This is useful if you are using WEST Tokens to authenticate a person or thing in
 EXAMPLE BODY OF REQUEST
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-🔴RI //Always 0
+RI
 TK TK TK TK 
 3E 3E //Not Encryption
 ```
