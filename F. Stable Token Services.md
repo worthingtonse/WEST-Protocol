@@ -7,6 +7,8 @@ Command Code | Service | Description
 120 | [Get Available SNs](#get-available-sns) | Tells the Admin what serial numbers it can use to create tokens. 
 130 | [Create tokens](#create-tokens) | Orders that tokens be created
 140 | [Delete tokens](#delete-tokens) | Orders tokens to be destroyed. 
+150 | [Free Coins](#delete-coins)|  |Tells RAIDA to release lock on reserved SNs|
+160 | [Get All SNSs](#get-all-sns)|  |Returns all the SNs that the RAIDA has minted|
 
 ## Code meanings
 Code | Meaning | Sample
@@ -72,6 +74,81 @@ SN SN SN SN
 SN SN SN SN
 3E 3E  //Not Encrypted
 ```
+
+
+# Free Coins
+
+The service deletes coins that were previously reserved by Get Available SNs call.  
+Example Request Body with four coins:
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+SI SI SI SI
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
+DN SN SN SN SN
+DN SN SN SN SN
+DN SN SN SN SN
+DN SN SN SN SN
+3E 3E
+```
+
+
+Response Status | Code
+---|---
+Success | 250
+
+
+# Get All SNS
+The service returns all serial number for a denomination (or all denominations).
+The returned byte array is packed into a bitmap sequence where "1" stands for "minted", "0" is "available"
+
+
+Example Request Body: 
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
+DN  
+3E 3E  //Not Encrypted
+```
+
+
+Response Status | Code
+---|---
+Success | 250
+
+
+```
+11110000 111111000
+```
+sn 0 (lowest bit of the first byte) available
+sn 1 available
+sn 2 available
+sn 3 available
+sn 4 minted
+sn 5 minted
+sn 6 minted
+sn 7 minted
+sn 8 (lowest bit of the second byte) available
+sn 9 available
+sn 10 available
+sn 11 minted
+sn 12 minted
+sn 13 minted
+sn 14 minted
+sn 15 minted
+
+Response Body 
+```
+DN
+NR NR NR NR
+SB SB SB SB SB ...
+...
+E3 E3
+```
+DN - denomination (0x99 for all of them)
+NR - number of returned bytes for a denomination
+SB - serial number byte (one bit per serial number)
+
+
 
 # Create tokens
 
