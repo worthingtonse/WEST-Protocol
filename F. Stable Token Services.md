@@ -7,8 +7,8 @@ Command Code | Service | Description
 120 | [Get Available SNs](#get-available-sns) | Tells the Admin what serial numbers it can use to create tokens. 
 130 | [Create tokens](#create-tokens) | Orders that tokens be created
 140 | [Delete tokens](#delete-tokens) | Orders tokens to be destroyed. 
-150 | [Free Coins](#delete-coins)|  |Tells RAIDA to release lock on reserved SNs|
-160 | [Get All SNSs](#get-all-sns)|  |Returns all the SNs that the RAIDA has minted|
+150 | [Free Coins](#delete-coins)|  Tells RAIDA to release lock on reserved SNs|
+160 | [Get All SNSs](#get-all-sns)|  Returns all the SNs that the RAIDA has minted|
 
 ## Code meanings
 Code | Meaning | Sample
