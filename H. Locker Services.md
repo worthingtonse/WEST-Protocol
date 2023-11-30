@@ -73,28 +73,23 @@ PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  //This is the PAN for all the t
 ```
 
 ## PEEK
-Allows the caller to see all the serial numbers in a RAIDA Locker. 
+Allows the caller to see all the serial numbers in a RAIDA Locker. This must be called before the REMOVE command can be called. It can also be used to find out how many coins are in the locker without removing them. 
 
 ### Encryption if locker key is the user's first coins
-If the client is using CloudCoin for the first time, then the locker key must be used to encrypt this request. You will want to use Encryption type 2 in the header. 
-
-Since the user doesn't have any coins before they import a locker code we encrypt traffic with a key that is extracted from the locker code itself. 
+If the client is using CloudCoin for the first time, then the locker key must be used to encrypt this request. You will need to use Encryption type 2 in the header. 
 
 The header: 
-bytes 17 (DE)  and bytes 18-22 ( SN ) in the header are not used in the typical way with the PEEK command.
-Instead of representing the one byte denomination code and the four byte serial number code, these five bytes are actually the first five bytes of the locker key. 
-This is so the RAIDA can figure out what locker key is used for the encryption. 
-Byte 16 equals to "2"
+They Encryption Type (byte 16) will be '2'. Bytes 17-22 (DE SN SN SN SN ) are not used to specify the encryption token but intead are the first five bytes of the locker code in clear text. 
+The RAIDA will use these five bytes to find the locker key needed for decryption.
+If no locker key is found with matching five bytes, the command returns an error. 
 
-<!--
-How the keys are generated:
-The locker code is prepended with a raida number. The resulting string is hashed by the md5 function.
-The last four bytes of the hash are set to 0xff
--->
+### After Decryption of the Body
+After decrypting the body, the RAIDA will use the locker key (LK) to find all the coins that are part of the locker. 
+
 Sample Call
 ```c
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH 
-AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK 
 3E 3E
 
 ```
