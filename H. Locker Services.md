@@ -81,12 +81,16 @@ If the client is using CloudCoin for the first time, then the locker key must be
 Since the user doesn't have any coins before they import a locker code we encrypt traffic with a key that is extracted from the locker code itself. 
 
 The header: 
-bytes 17 (DE)  and bytes 18-22 ( SN ) in the header are ignored by the RAIDA. Byte 16 equals to "2"
+bytes 17 (DE)  and bytes 18-22 ( SN ) in the header are not used in the typical way with the PEEK command.
+Instead of representing the one byte denomination code and the four byte serial number code, these five bytes are actually the first five bytes of the locker key. 
+This is so the RAIDA can figure out what locker key is used for the encryption. 
+Byte 16 equals to "2"
 
+<!--
 How the keys are generated:
 The locker code is prepended with a raida number. The resulting string is hashed by the md5 function.
 The last four bytes of the hash are set to 0xff
-
+-->
 Sample Call
 ```c
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH 
