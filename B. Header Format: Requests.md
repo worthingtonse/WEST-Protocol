@@ -89,6 +89,8 @@ Code (Decimal) | Command | Description
 --- | --- | --- 
  00 |  Echo | Sends a request for a response.
  01 | Version | Returns the version of the RAIDA Software
+ 02 | ShowStats | Shows information about requests to the RAIDA
+ 03 | Audit | Shows how many coins are in the RAIDA
 
 ### 1. Authentication Commands
 Code (Decimal) | Command | Description
@@ -112,6 +114,7 @@ Code (Decimal) | Command | Description
  120 | Get Available SNs| Shows available serial numbers. 
  130 | Create tokens| Adds more tokens to the total tokens on the RAIDA.
  140 | Delete tokens| Removes tokens from the RAIDA.
+ 160 | Get All SNs | Allows RAIDA to syncronize their serial numbers. 
 
  ### 4. Key Exchange 
  Code (Decimal) | Command | Description
