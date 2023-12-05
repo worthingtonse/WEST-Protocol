@@ -7,8 +7,8 @@ Command Code | Service | Description
 --- | --- | :---: 
 00 | [Echo](OFF_LEDGER.md#echo) | Returns the challenge 
 01 | Version  | Returns the version of the protocol
-02🔴 | Performance - Status Not Implemented | Returns the usage of services
-03🔴 | Audit - CoinsNot Implemented | Returns the number of tokens in the system
+02 | Show Stats | Returns the usage of services
+03 | Audit | Returns the number of tokens in the system
 
 
 # Echo  
