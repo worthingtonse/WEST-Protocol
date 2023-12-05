@@ -10,6 +10,7 @@ Command Code | Service
 
 
 
+
 ## GET ENCRYPTION TICKET
 
 The two services "Get Encryption TIcket" and "Fix Encryption" are used to exchange keys between clients who have shared secrets with RAIDA servers but not a specific
