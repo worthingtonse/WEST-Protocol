@@ -157,8 +157,8 @@ Hex Code| Decimal Code | Denomination
 `0x05` | 5 | `100,000`
 `0x06` | 6 | `1,000,000`
 `0x07` | 7 | `0` (fake money used to strengthen encryption)
-`0x79` | -127 | Administrator Keys
-`0x80` | -128 | RAIDA ID Keys
+`0x79` | -127 | Administrator Keys (For creating and issuing)
+`0x80` | -128 | RAIDA ID Keys (For inter RAIDA encryption)
 
 
 ## ENCRYPTION
