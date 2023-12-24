@@ -103,18 +103,36 @@ For example, the Realm Administrator can say that user Bill@West.Wy.gov is able 
 
 
 ## Modifications needed for Phase I
-New Denomination Code x78 Client User Keys
-New Denomination Code x77 Account Admin User Keys
-Users & Groups: Create Account (just like create money service)
-Users & Groups: Delete Account And User’s Tokens ( Just like delete all the money service)
-DNS Server to store user names.
-A Users & Groups Client. This must be able to call “create new users” and register them with a DNS server (optional). Must also be able to delete users. 
-Audit services would return user ID too. 
-Need an encryption type that uses the user keys and changes the AN of the encryption key to the challenge. Challenge response becomes a MD5 hash of the challenge sent. 
-Client program would need a place to keep the user keys.
-Client program would need to pown the key every time it uses an user key. encrypted. 
-RAIDA needs new encryption errors such as “Access Denied”
+* New Denomination Code x78 Client User Keys
+* New Denomination Code x77 Account Admin User Keys
+* Users & Groups: Create Account (just like create money service)
+* Users & Groups: Delete Account And User’s Tokens ( Just like delete all the money service)
+* DNS Server to store user names.
+* A Users & Groups Client. This must be able to call “create new users” and register them with a DNS server (optional). Must also be able to delete users. 
+* Audit services would return user ID too. 
+* Need an encryption type that uses the user keys and changes the AN of the encryption key to the challenge. Challenge response becomes a MD5 hash of the challenge sent. 
+* Client program would need a place to keep the user keys.
+* Client program would need to pown the key every time it uses an user key. encrypted. 
+* RAIDA needs new encryption errors such as “Access Denied”
 
+## Tasks
+
+* Only allow approved people to use the coin
+* Creat, list, update and delete users
+* Know how many tokens each person has
+* Know the giver and receiver of tokens when they transact
+* Know the physical location of users when they transact
+* Know the time that users transact
+* Complete advanced analsyis of the economy by anyalizing all the transactions. 
+* Be able to cancel a user's accounts and seize all tokens
+* Be able to stop certains coins that a user has from being spent.
+* Limit the number of tokens a person can trade in a single time period.
+* Limit the ability of users to send tokens to specific users
+* 
+* Allow uses to change their passwords.
+* Create a password policy including password complexity, length, history and expiration date.
+* Create a security policy that includes the amount of tokens an individual can trade each day, the times and physical locations.
+*  
 
 
 
