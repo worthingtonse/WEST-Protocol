@@ -1,11 +1,11 @@
-# West Ranch
-NOTE: The name "West Ranch" is analogus to "Windows Domains" or "Linux Realms", tools used to administer enterprise networks. 
+# West Domain
+NOTE: The name "West Domain" is analogus to "Windows Domain" or "Linux Realm", tools used to administer enterprise networks. 
 
-West Ranch is an optional features that allows Wyoming to control every aspect of the token and to see everything that is going on including all actions that each user takes and 
+West Domain is an optional features that allows Wyoming to control every aspect of the token and to see everything that is going on including all actions that each user takes and 
 exactly who those users are.
 
 # Components of West Ranch include:
-Ranch
+Domain
 
 User Accounts
 
@@ -17,39 +17,39 @@ User Permissions (Access Control Lists)
 
 User Rights
 
-## Ranch
+## Domain
 
-A West Ranch is a computer network that uses a distributed database to manage user accounts, user groups and access to 
-RAIDA resources such as authentication services and money lockers.
+A West Domain is a computer network that uses redundant databases to manage user accounts, user groups and access to 
+resources such as authentication services and money lockers.
 
-The West Ranch has "Ranch Administrators". 
+The West Domain has "Domain Administrators". 
 
 ## Accounts
-Everytime a user wants to join the West Ranch, the Rranch Administrator will need to create an account for them. 
-Accounts have a DNS name such as "David.Falk@WST.WY.gov" and are associated with a dotted decimal number such as 154.56.214.899.
+Everytime a user wants to join the West Domain, the Domain Administrator will need to create an account for them. 
+Accounts have a DNS name such as "David.Falk@WST.WY.gov" and are associated with a dotted decimal number such as 154.56.214.899. Accounts can be recorded in a DNS server to allow for global lookup. 
 
-When the account is created, the user will receive a key that allows them to be part of the West Ranch. The users will need to import this into their software. 
+When the account is created, the user will receive a key that allows them to be part of the West Domain. Users will need to import this key into their software to use the West Token. 
 
 ## Groups
-Groups are logical groupings of users so that they can be given rights and permissions to access resources on the Ranch. 
-There are Built-in groups that are perminent in the Ranch and Custom Groups that can be created as needed to administer the Ranch.  
-The Ranch Administrator can assign people to be members of customer groups and some built-in groups. 
+Groups are logical groupings of users so that they can be given rights and permissions to access resources on the Domain. 
+There are Built-in groups that are perminent in the Domain and Custom Groups that can be created as needed by administers.  
+The Domain Administrators can assign people to be members of custom groups and some built-in groups. 
 
 ### Built-in Groups
-These groups cannot be deleted. Everyone is automatically a member of the Authenticated Users group and the RAIDA Servers group cannot be modified.
+These groups cannot be deleted. Everyone is automatically a member of the Authenticated Users group and the RAIDA Servers Group cannot be modified.
 In Phase I, the built-in groups include:
 * Authenticated Users (All accounts are members of this group by default)
 * Account Administrators (People who are allowed to create, disable and delete accounts). 
 * RAIDA Servers (The actual servers used as nodes)
 * Treasurers ( People who are allowed to create, disable and delete tokens) 
 
-NOTE: in Phase I, the Trasueres Groupd is able to create and delete but not disable. Disable is not needed because as much right now because we have "disable accoutn" that 
-will do nearly the same thing. We will add this in Phase II. 
+NOTE: In Phase I, the Trasueres Group is able to create and delete but not disable. Disable is not needed right now because we can disable accounts instead and that 
+will do nearly the same thing. We will add this in disable tokens Phase II. 
 
 ### Custom Groups
 Custom Groups reduce the administrative effort needed to administrator the Ranch. For example, we can have a custom
 group called "Suspect" that is not allowed to user the "Locker" facilities. If we want to stop Bob from using lockers we just 
-put add his account to the Suspect group. 
+add his account to the Suspect group. 
 
 In Phase I we will not have custom groups. These will be created in Phase II. To start with we can enable and disable accounts. This is not very granular but its good for a start. 
 
