@@ -117,18 +117,25 @@ For example, the Realm Administrator can say that user Bill@West.Wy.gov is able 
 
 ## Tasks
 
-* Only allow approved people to use the coin
-* Creat, list, update and delete users
-* Know how many tokens each person has
-* Know the giver and receiver of tokens when they transact
-* Know the physical location of users when they transact
-* Know the time that users transact
+Choices the commission needs to make: 
+
+BlockChain |  Active Mode | Private Mode 
+---|---|---
+hmnm | mmd| dfdf
+
+Only allow approved people to use the token | Allow anyone to use the token
+* Creat, list, update and delete users | No users
+* Know how many tokens each person has | Do not know how many tokens a person has
+* Know the giver and receiver of tokens when they transact | Do not know the giver and receiver
+* Know the physical location of users when they transact | Do not know the physical location of the user
+* Know the time that users transact | 
 * Complete advanced analsyis of the economy by anyalizing all the transactions. 
 * Be able to cancel a user's accounts and seize all tokens
 * Be able to stop certains coins that a user has from being spent.
 * Limit the number of tokens a person can trade in a single time period.
 * Limit the ability of users to send tokens to specific users
-* 
+* Create accountability with spending
+* Allow more than one user to have accountabiliy with a resource (Stop theft on exchanges)
 * Allow uses to change their passwords.
 * Create a password policy including password complexity, length, history and expiration date.
 * Create a security policy that includes the amount of tokens an individual can trade each day, the times and physical locations.
