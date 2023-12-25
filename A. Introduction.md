@@ -1,4 +1,4 @@
-# Introduction to the Wyoming Extensible Stable Token Protocol
+# Introduction to the WEST Protocol
 
 ## GOALS
 The Goals of the WEST Token are to create:
@@ -14,7 +14,7 @@ The Goals of the WEST Token are to create:
 * The token with the most ability to mitigate the risk of theft and loss.
 * The only token that provides accountability so that system administrators can’t steal without being noticed. 
 
-The Wyoming Stable Token will be the only stable token in the world that separates data from logic so that:  
+The WEST will be the only stable token in the world that separates data from logic so that:  
 * “smart contract” bugs are impossible.
 * It is the first “crossover currency” and can go between reality and virtual reality.
 * ”Turing complete” and usable by all computer programming languages.
@@ -23,6 +23,10 @@ The Wyoming Stable Token will be the only stable token in the world that separat
 * It can be easily stored in a person’s mind where it is undetectable.  
 * It can easily be integrated with existing ATM systems
 
+The WEST token has optional features including: 
+* Easy to implement smart contracts system
+* Active Directory Administration
+* Loss Recovery of Coins
 
 In addition, in the future,  the WEST Protocol can be used to support: 
 * quantum safe key exchange systems to replace the SSL/TLS Protocols that are not quantum safe. 
@@ -65,7 +69,7 @@ As a rule, if you are going to need to send one packet then you should use UDP. 
 Autheticity Numbers are sixteeen bytes and are created by the Clients. Clients should use a different ANs for each RAIDA so there is no way that RAIDA Admins can know the ANs that are on other RAIDA. 
 
 ### FILES FORMAT
-The format for the 
+The format for the coins is a binary file format that is founded under L. File Formates. 
 
 
  [1] Cash is defined as a currency or token whose database’s data is stored with the owner of the data. Coins and paper money are data stored in the pockets of their owners. WEST stores data on the computers, smart phones and USB drives of their owners. 
