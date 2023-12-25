@@ -57,14 +57,14 @@ Index (Decimal) | Group | Code | Name | Notes
 21 | Encryption | SN |  Encryption token SN 3| Lowest Order Byte
 22 | Encryption | BL | Body Length | Length in bytes of the entire body including the last 2 terminating bytes. 
 23 | Encryption | BL | Body Length| LOB. if more than 65K bytes are sent, then these two will be FF FF and bytes 24, 25, 26 and 27 will tokentain the length. 
-24 | Nonce | NO |  Nonce 0 | The nonce bytes can be used for two purposes in the future if 
-25 | Nonce | NO |  Nonce 1 | more bytes are needed and the other purpose is random enough.
+24 | Nonce | NO |  Nonce 0 | The nonce used in the encryption.
+25 | Nonce | NO |  Nonce 1 | 
 26 | Nonce | NO |  Nonce 2|
 27 | Nonce | NO |  Nonce 3| Nouce bytes 0-7 should be random and never used twice. 
 28 | Nonce | NO |  Nonce 4 |
-29 | Nonce | NO |  Nonce 5 
-30 | Nonce | NO |  Nonce 6 / Echo 0 | Serves two purposes. These last two Nonce bytes are always echoed 
-31 | Nonce | NO |  Nonce 7 / Echo 1 | back to the client. 
+29 | Nonce | NO |  Nonce 5 |
+30 | Nonce | NO |  Nonce 6 / Echo 0 | Serves two purposes. These bytes are always echoed back to the client.
+31 | Nonce | NO |  Nonce 7 / Echo 1 | 
 
 * Nounce can do two jobs. Bytes 30, 31 are used as an Echo also.
 * If EN (byte 16) is zero (no encryption) then bytes 17-31 may take any values. In 'no encryption' mode, these values will be ignored except for the two echo bytes. 
@@ -157,8 +157,10 @@ Hex Code| Decimal Code | Denomination
 `0x05` | 5 | `100,000`
 `0x06` | 6 | `1,000,000`
 `0x07` | 7 | `0` (fake money used to strengthen encryption)
-`0x79` | -127 | Administrator Keys (For creating and issuing)
-`0x80` | -128 | RAIDA ID Keys (For inter RAIDA encryption)
+`0x77` | -125 | User Key (if Active Directory Mode enabled) 
+`0x78` | -126 | User Account Admin Keys (if AD mode endabled)
+`0x79` | -127 | Treasurer Keys (For token CRUD)
+`0x80` | -128 | RAIDA ID Keys (For inter-RAIDA encryption)
 
 
 ## ENCRYPTION
