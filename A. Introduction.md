@@ -29,12 +29,12 @@ The WEST token has optional features including:
 * Loss Recovery of Coins
 
 In addition, in the future,  the WEST Protocol can be used to support: 
-* quantum safe key exchange systems to replace the SSL/TLS Protocols that are not quantum safe. 
-* quantum safe encrypted communications using any type of protocols such as HTTP, SMS, DNS, FTP.
-* compression of protocols like the ones above so they use less bandwidth and download much faster
-* the striping and sharding of data so that it too has data supremacy. 
-* the WEST Tokens can also be used as cryptographic keys, identifiers, and certificates. 
-* can hold state documents such as those dealing with Legislation, Regulation, Administration, Financial, Legal and Court Records, Licenses, Permits, Education, Health, Land, Property, Historical, PUblic Safety, Emergency Services and so much more. 
+* Quantum safe key exchange systems to replace the SSL/TLS Protocols that are not quantum safe. 
+* Quantum safe encrypted communications using any type of protocols such as HTTP, SMS, DNS, FTP.
+* Compression of protocols like the ones above so they use less bandwidth and download much faster
+* The striping and sharding of data so that it too has data supremacy. 
+* The WEST Tokens can also be used as cryptographic keys, identifiers, and certificates. 
+* Can hold state documents such as those dealing with Legislation, Regulation, Administration, Financial, Legal and Court Records, Licenses, Permits, Education, Health, Land, Property, Historical, PUblic Safety, Emergency Services and so much more. 
 
 
 ## TRUE CASH
