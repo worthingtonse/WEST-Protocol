@@ -59,6 +59,7 @@ This service can be much faster than DETECT, especially if there are lots of tok
 Use UDP if sending between 65 and 275 notes. 
 Use TCP if sending more than 275 notes, you should use TCP and it is probably better to use regular detect in case one of the tokens is bad.  
 
+Note:  In *_sum commands 'summarizing' is in fact bitwise XOR. It is not simple addition with overflow ignored.
 
 REQUEST: Example Request Body with four tokens:
 ```hex
@@ -109,6 +110,8 @@ no response body | no response body | MT MT MT MT MS  //The MT are just zeros. 0
 
 MS means Mixed Status. Each bit returned represents the status of one token. If the bit is a zero then that token has failed. If the bit is a 1 then that token is authentic. 
 
+
+
 Response Status | Code
 ---|---
 All Pass | 241
@@ -118,6 +121,12 @@ Mixed | 243
 
 # P'OWN SUM
 The client must add up all of the AN numbers to get a sum. Then it includes all the SNs of the tokens that are part of the equation. The PAN
+
+Note: 'Pown Sum' must be performed before calculating and setting new ANs.
+
+Note 2:  In *_sum commands 'summarizing' is in fact bitwise XOR. It is not simple addition with overflow ignored.
+
+
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 DN  SN SN SN SN 
