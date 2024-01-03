@@ -59,7 +59,42 @@ This service can be much faster than DETECT, especially if there are lots of tok
 Use UDP if sending between 65 and 275 notes. 
 Use TCP if sending more than 275 notes, you should use TCP and it is probably better to use regular detect in case one of the tokens is bad.  
 
-Note:  In *_sum commands 'summarizing' is in fact bitwise XOR. It is not simple addition with overflow ignored.
+The sum is calculated as per these steps:
+1. Eech AN of every coin is converted to four 32 integers from a byte array
+```
+i0 = an[0] | an[1]<<8 | an[2]<<16 | an[3]<<24
+i1 = an[4] | an[5]<<8 | an[6]<<16 | an[7]<<24
+i2 = an[8] | an[9]<<8 | an[10]<<16 | an[11]<<24
+i3 = an[12] | an[13]<<8 | an[14]<<16 | an[15]<<24
+```
+2. The integers are XOR-ed to the accumulator (XOR-ed sum). The initial value of the XOR-ed sum is zeroes
+```
+sum[0] ^= i0
+sum[1] ^= i1
+sum[2] ^= i2
+sum[3] ^= i3
+```
+3. Steps #1 and #2 are repeated for every coin
+4. The resulting sum is converted to a byte array (SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU)
+```
+SU = sum[0]
+SU = sum[0] >> 8
+SU = sum[0] >> 16
+SU = sum[0] >> 24
+SU = sum[1]
+SU = sum[1] >> 8
+SU = sum[1] >> 16
+SU = sum[1] >> 24
+SU = sum[2]
+SU = sum[2] >> 8
+SU = sum[2] >> 16
+SU = sum[2] >> 24
+SU = sum[3]
+SU = sum[3] >> 8
+SU = sum[3] >> 16
+SU = sum[3] >> 24
+```
+
 
 REQUEST: Example Request Body with four tokens:
 ```hex
@@ -120,11 +155,9 @@ Mixed | 243
 
 
 # P'OWN SUM
-The client must add up all of the AN numbers to get a sum. Then it includes all the SNs of the tokens that are part of the equation. The PAN
+The client must add up all of the AN numbers to get a sum. Then it includes all the SNs of the tokens that are part of the equation. 
 
-Note: 'Pown Sum' must be performed before calculating and setting new ANs.
-
-Note 2:  In *_sum commands 'summarizing' is in fact bitwise XOR. It is not simple addition with overflow ignored.
+Steps for calculating the XOR-ed sum are the same as for the DetectSum service.
 
 
 ```hex
