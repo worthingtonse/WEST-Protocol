@@ -115,18 +115,37 @@ Hex Code| Decimal Code | Denomination
 This requires 807 bytes per token. Format 8 should be readable by all software but is not the perfered file format. Format 'A' should be used instead. 
 This format is for internal use only. It is used for tokens that are stored in the Limbo folder
 
-Shard 1 byte | Stripe 1 byte | Denomination 1 Byte | Serial Number (4 Bytes) | Authenticity Numbers | PAN Numbers
+Split ID (1 byte) | Shard ID (1 byte) | Denomination (1 Byte) | Serial Number (4 Bytes) | Authenticity Numbers (400 Bytes) | Proposed ANs (400 Bytes)
 ---|---|---|---|---|---
-SP | ST | DN | SN SN SN SN  |  16 byte AN x 25 | 16 byte PAN x 25
+SP | SH | DN | SN SN SN SN  |  16 byte AN x 25 | 16 byte PAN x 25
 
 
-## token Body Codes for Format 9
+## token Body Codes for Format 8
 16 byte AN x 25 (The original ANs before the call)
 16 byte PAN x 25 (The PANs that were sent to the RAIDA but were not confirmed)
 
-Sample token in format 8
+Sample File with 2 token in it
 ```c
-SP ST DN SN SN SN SN 
+SP SH DN SN SN SN SN 
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
+
+SP SH DN SN SN SN SN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
@@ -152,17 +171,17 @@ PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
 # FORMAT '9'
 This requires 407 bytes per token. Format 9 should be readable by all software but is not the perfered file format. Format 'A' should be used instead. 
 
-Shard 1 byte | Stripe 1 byte | Denomination 1 Byte | Serial Number (4 Bytes) | Authenticity Numbers
----|---|---|---|---
-Shard | ST | DN | SN SN SN SN  |  16 byte AN x 25
+Split ID (1 byte) | Shard ID (1 byte) | Denomination (1 Byte) | Serial Number (4 Bytes) | Authenticity Numbers (400 Bytes) | Proposed ANs (400 Bytes)
+---|---|---|---|---|---
+SP | SH | DN | SN SN SN SN  |  16 byte AN x 25 | 16 byte PAN x 25
 
 
 ## token Body Codes for Format 9
-16 byte AN x 25
+16 byte AN x 25 (The original ANs before the call)
 
 Sample token in format 9
 ```c
-SP ST DN SN SN SN SN 
+SP SH DN SN SN SN SN 
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN   
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
 AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN  
@@ -175,7 +194,7 @@ AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN
 
 ```
 
-
+<!--
 
 
 # FORMAT 'A'
@@ -260,4 +279,4 @@ RAIDA ID | DN |SN | Seed | Concatenated Hex Strings | SHA-384 Hash. Truncated to
 2. The resulting number 34 character string will generate a SHA-384 Hash.
 3. The hash is trucated to 16 bytes and that becomes the binary AN number. 
 
-
+-->
