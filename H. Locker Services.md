@@ -1,6 +1,5 @@
 # Locker Service (Command Group 8)
- Locker services allow people to put many tokens into a RAIDA "Locker" and receive a locker key. This locer key can then b given to other
- people who can use the key to download the cions. The locker key is a GUID specified by the client. 
+ Locker services allow people to put many tokens into a RAIDA "Locker" and receive a locker key. This locker key can then be given to another person who then can use the key to download the coins. The locker key is a code specified by the client. 
  
  
 ## Sugested Client Use
