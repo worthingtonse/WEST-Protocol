@@ -12,19 +12,15 @@
  101 | [Read User](#read_user)
  102 | [Update User](#update_user)
  103 | [Delete User](#delete_user)
- 
  104 | [Create Group](#new_user)
  105 | [Read Group](#read_user)
  106 | [Update Group](#update_user)
  107 | [Delete Group](#delete_user)
-
 108 | [Create Group_User](#new_group_user)
 109 | [Delete Group_User](#delete_group_user)
- 
 110 | [Balance](#balance)
 111 | [Transfer](#transfer)
 112 | [Read Transactions](#read_transactions)
-
 12 | [Create User](#new_user)
 101 | [Read User](#read_user)
 102 | [Update User](#update_user)
