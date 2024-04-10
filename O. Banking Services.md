@@ -88,6 +88,7 @@ AM AM AM AM //Amount
 BL BL BL BL //Balance
 TS TS TS TS TS TS//Time Stamp
 ME ME ME ME ME ME ... ME ME // Fixed 50 bytes for memo.
+3E 3E
 ```
 Reponse body if there are no statements:
 ```
@@ -97,3 +98,25 @@ Show Statements: No Statements found. Staus Code: 120
 ```
 
 ## Confirm Payment
+
+Allows anyone with a statement's GUID to read about that transaction.
+
+Request Body:
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+RR RR RR RR RR RR RR RR // eight bytes of random numbers
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //GUID
+RR RR RR RR RR RR RR RR  //eight more bytes of random numbers
+3E 3E
+```
+
+Reponse body for four coins:
+```
+TT //Transaction type
+AM AM AM AM AM AM AM AM AM AM AM AM //Amount
+TS TS TS TS //Time Stamp
+OW OW OW OW  //Account that received the transfer (got paid)
+SE SE SE SE  //Sender
+ME ME ME ME ME ME 00 00 ... //Memo ends with two null characters.
+3E 3E
+```
