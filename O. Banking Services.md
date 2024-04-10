@@ -51,6 +51,49 @@ Response
 
 
 ## Statement
+Allows the user to read statements. The user can specify how many rows they want to download. They can also specify the date that should start to download.
 
+Request
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+OW OW OW
+AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN
+RW  //Number of rows * 100. So 0x01 means return 100 rows. 00 Means max rows.
+YR //The Year  00 = 2000. 255 = 2255. Time must be in UTC
+MM //month
+DY //Day of the Month
+RT //Return Code. 00=stripe 01=mirror, 11 = 2nd mirror, FF Stripe, Miorror and 2nd Mirror
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //Reserved for Future Use. Put random numbers. 
+E3 E3
+
+```
+Reponse body for three Records:
+```
+CB CB CB CB //Current Balance
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //GUID
+TT //Transaction type
+AM AM AM AM //Amount
+BL BL BL BL //Balance
+TS TS TS TS TS TS //Time Stamp
+ME ME ME ME ME ME ... ME ME // Fixed 50 bytes for memo.
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //GUID
+TT //Transaction type
+AM AM AM AM //Amount
+BL BL BL BL //Balance
+TS TS TS TS TS TS//Time Stamp
+ME ME ME ME ME ME ... ME ME // Fixed 50 bytes for memo.
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //GUID
+TT //Transaction type
+AM AM AM AM //Amount
+BL BL BL BL //Balance
+TS TS TS TS TS TS//Time Stamp
+ME ME ME ME ME ME ... ME ME // Fixed 50 bytes for memo.
+```
+Reponse body if there are no statements:
+```
+Show Statements: No Statements found. Staus Code: 120
+
+//Nothing in body if there is no statements.
+```
 
 ## Confirm Payment
