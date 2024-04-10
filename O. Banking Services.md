@@ -6,6 +6,7 @@ Command Number | Command
 110 | [Balance](#balance)
 111 | [Transfer](#transfer)
 112 | [Read Statement](#read_statement)
+113 | [Confirm Payment](#confirm_payment)
 
 ## Balance
 Returns that number of Tokens a user has in their account.
