@@ -1,10 +1,5 @@
-# Locker Service (Command Group 8)
- Ledger services allow people to have accounts on the RAIDA and transfer money from
- themselves to other people.
- 
-## Sugested Client Use
-1. All customers must be given an account from the RAIDA Token Administrator.
-
+# Administrator Service (Command Group 10)
+ Administrator services allow the Token Admins to manage users and groups.
  
  Command Code | Service
  ---|---
@@ -18,13 +13,7 @@
  107 | [Delete Group](#delete_user)
 108 | [Create Group_User](#new_group_user)
 109 | [Delete Group_User](#delete_group_user)
-110 | [Balance](#balance)
-111 | [Transfer](#transfer)
-112 | [Read Transactions](#read_transactions)
-12 | [Create User](#new_user)
-101 | [Read User](#read_user)
-102 | [Update User](#update_user)
-103 | [Delete User](#delete_user)
+
  
 
 ### Client Actions
