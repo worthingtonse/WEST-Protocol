@@ -4,10 +4,13 @@ Users who meet the KYC and AML requirments will be issued an Access Key by the A
 
 ## Access Key Types
 There are other types of access keys that can also be issued. Here is a list of all the possible keys and their DEN code:
-* Common User 0x77
-* Key Administrator (Can issue keys and lock out users) 0x78
-* Treasure (Creator and destroyer of tokens) 0x79
-* RAIDA Machines (Keys used to allow RAIDA to talk to each other) 0x80
+
+Key Type | Hex Code | Description
+---|---|---
+Common User | 0x77 | These keys are for everyone who uses the token
+Key Administrator |  0x78 | (Can issue keys and lock out users)
+Treasure | 0x79 | Creator and destroyer of tokens 
+RAIDA Machines |0x80| Keys used to allow RAIDA to talk to each other
 
 ## Services
 There are services that are used to manage keys:
