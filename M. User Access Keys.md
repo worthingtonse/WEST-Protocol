@@ -1,22 +1,38 @@
-# User Access Keys
+# Access Keys
+
+There are four access key types implemented in the RAIDA Protocol.
+
+Every packet sent to a RAIDA server is encrypted with a key of a certain type. Besides its primary encryption function the key also provides authorization.
+
+A RAIDA server decrypts a packet and identifies the user and permissions granted to this user.
+
+The keys implemented as coins with higher denominations.
+
+The key types are:
+
+## User Keys. Denomination 7
 Users are not allowed to use the Wyomging Stable Token unless they have passed KYC and AML requirments. 
 Users who meet the KYC and AML requirments will be issued an Access Key by the Access Key Administrator. 
+Almost all services require this key: pown, pown_sum, detect, detect_sum, store_sum, store, remove_locket, fix, get_ticket.
 
-## Access Key Types
-There are other types of access keys that can also be issued. Here is a list of all the possible keys and their DEN code:
+Echo and Version calls do not require any key.
 
-Key Type | Hex Code | Description | Supported Services
----|---|---|---
-Common User | 0x77 | These keys are for everyone who uses the token | Athentication, Locker, Healing, Change
-Key Administrator |  0x78 | Can issue keys and lock out users | Status, Stable ( denomination 0x77)
-Treasure | 0x79 | Creator and destroyer of tokens  | Stable 
-RAIDA Machines |0x80| Keys used to allow RAIDA to talk to each other | All except for Stable
+## Treasurer Keys. Denomination 8
+These keys are used to mint coins. Whoever posseses these keys can create and destroy coins
+(get_available_sns, create_coins, delete_coins)
 
-## Services
-There are services that are used to manage keys:
+## Admin Keys. Denomination 9
+Admins can create all key types and mint coins. Also admins can query stat services (get_stat, audit)
+Admins can call ANY service on the RAIDA.
 
-### Create & Destroy Keys
-These services have already been covered [Stable Token Services](F. Stable Token Services.md)
+## RAIDA Keys. Denomination 10
+Used for inner-RAIDA communication. Only one service (validate_ticket) checks these keys
+
+## KYC Keys. Denomination 11
+Anyone can upload KYC documents to the RAIDA filesystem. (create_folder, delete_folder, upload_file, delete_file)
+
+
+
 
 
 
