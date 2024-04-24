@@ -156,11 +156,11 @@ Hex Code| Decimal Code | Denomination
 `0x04` | 4 | `10,000`
 `0x05` | 5 | `100,000`
 `0x06` | 6 | `1,000,000`
-`0x07` | 7 | `0` (fake money used to strengthen encryption)
-`0x77` | -125 | User Key (if Active Directory Mode enabled) 
-`0x78` | -126 | User Account Admin Keys (if AD mode endabled)
-`0x79` | -127 | Treasurer Keys (For token CRUD)
-`0x80` | -128 | RAIDA ID Keys (For inter-RAIDA encryption)
+`0x07` | 7 | User Keys
+`0x08` | 8 | Treasurer Keys
+`0x09` | 9 | Account Admin Keys 
+`0x0a` | 10 | RAIDA ID Keys
+`0x0b` | 11 | KYC Keys
 
 
 ## ENCRYPTION
