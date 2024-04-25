@@ -76,7 +76,7 @@ PT is no more than 255 bytes. The full path of the folder
 Response
 
 ```hex
-NO
+NO NO
 TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
 TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
 TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
