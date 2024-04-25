@@ -84,10 +84,15 @@ TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
 ```
 
 NO - Number of objects
+
 TY - Object Type. 1 - Folder, 2 - Data
+
 SZ - Object size in bytes
+
 FZ - Object name length
+
 ON - Object name
+
 
 Response Status | Code
 ---|---
