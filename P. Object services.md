@@ -75,6 +75,20 @@ PT is no more than 255 bytes. The full path of the folder
 
 Response
 
+```hex
+NO
+TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
+TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
+TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
+3E 3E //Not Encrypted
+```
+
+NO - Number of objects
+TY - Object Type. 1 - Folder, 2 - Data
+SZ - Object size in bytes
+FZ - Object name length
+ON - Object name
+
 Response Status | Code
 ---|---
 Success | 250
