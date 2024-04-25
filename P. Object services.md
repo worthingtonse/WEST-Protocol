@@ -47,6 +47,9 @@ PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT .. PT PT PT
 3E 3E //Not Encrypted
 ```
 
+PT is no more than 255 bytes. The full path of the folder
+
+
 Response Status | Code
 ---|---
 Success | 250
@@ -55,3 +58,25 @@ Does not exist | 202
 
 
 
+# List Folder
+Displays content of a folder.
+An object in the folder can be either another folder or a data file.
+Requires KYC permission.
+
+
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT .. PT PT PT
+3E 3E //Not Encrypted
+```
+
+PT is no more than 255 bytes. The full path of the folder
+
+
+Response
+
+Response Status | Code
+---|---
+Success | 250
+Filesystem Error | 200
+Does not exist | 202
