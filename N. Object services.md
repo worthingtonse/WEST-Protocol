@@ -11,7 +11,7 @@ Command Code | Service
 103 | [Remove Folder](#remove-folder)
 104 | [Put Object](#put-object)
 105 | [Get Object](#get-object)
-106 | [Remove Object](#rm-object)
+106 | [Remove Object](#remove-object)
 
 
 # Create Folder
