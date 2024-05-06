@@ -17,7 +17,7 @@ Init mode can be set in the RAIDA configuration file:
 init_mode = 1
 ```
 
-Key Manager can also mint and destroy coins. A treasurer key is needed for that purpose.
+Key Manager can also mint coins. A treasurer key is needed for that purpose.
 
 The full list of possible arguments:
 
@@ -30,12 +30,10 @@ Usage of ./dist/wyoming_key_manager:
 ./dist/wyoming_key_manager createkey <type>
 ./dist/wyoming_key_manager deletekey <type> <key_id>
 ./dist/wyoming_key_manager mintcoins <name> <denomination> <count>
-./dist/wyoming_key_manager freecoins <name> <denomination> <serialnumber>
 <type> Key type. One of: kyc, user, treasurer, raida, admin
 <key_id> Key ID (serial number)
 <name> Wallet Name
 <denomination> Coin Denomination (from -7 to 7)
-<serialnumber> Coin Serial Number
 
   -cli
         RUN in CLI mode
@@ -98,17 +96,6 @@ Minted coins will be put into the specified wallet.
 $ ./dist/wyoming_key_manager mintcoins Default 10 12
 {"code":0,"message":"Coins Minted"}
 ```
-
-# Delete (free) a minted coin
-
-To delete a previously minted coin specify its denomination, serial number and wallet name
-If the coin does not exist in the Wallet it will be deleted on the RAIDA only.
-
-```
-$ ./dist/wyoming_key_manager freecoins Default 10 123
-{"code":0,"message":"Coins Deleted"}
-```
-
 
 
 
