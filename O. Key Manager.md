@@ -47,8 +47,9 @@ Usage of ./dist/wyoming_key_manager:
         UI Path
   -version
         Display version
+```
 
-Examples
+Examples:
 
 # Create Admin Key
 
