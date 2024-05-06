@@ -22,18 +22,18 @@ Key Manager can also mint and destroy coins. A treasurer key is needed for that 
 The full list of possible arguments:
 
 ```
-# ./wyoming_key_manager -help
+# ./dist/wyoming_key_manager -help
 Usage of ./dist/wyoming_key_manager:
 ./dist/wyoming_key_manager [-debug] <operation> <args>
 ./dist/wyoming_key_manager [-help]
 ./dist/wyoming_key_manager [-version]
 ./dist/wyoming_key_manager createkey <type>
 ./dist/wyoming_key_manager deletekey <type> <key_id>
-./dist/wyoming_key_manager mintcoins <denomination> <count>
-./dist/wyoming_key_manager freecoins <denomination> <serialnumber>
+./dist/wyoming_key_manager mintcoins <name> <denomination> <count>
+./dist/wyoming_key_manager freecoins <name> <denomination> <serialnumber>
 <args> arguments for operation
 
-<type> Key type. One of: kyc, user, treasurer, raida, admin<key_id> Key ID (serial number)<denomination> Coin Denomination (from -7 to 7)<serialnumber> Coin Serial Number  -cli
+<type> Key type. One of: kyc, user, treasurer, raida, admin<key_id> Key ID (serial number)<name> Wallet Name<denomination> Coin Denomination (from -7 to 7)<serialnumber> Coin Serial Number  -cli
         RUN in CLI mode
   -cliport string
         Listen a specific port (works in CLI mode only)
