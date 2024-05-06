@@ -159,7 +159,7 @@ Example Request Body with four tokens:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 SI SI SI SI
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
+PG PG PG PG PG PG PG PG PG PG PG PG PG PG PG PG 
 DN SN SN SN SN
 DN SN SN SN SN
 DN SN SN SN SN
@@ -173,15 +173,34 @@ Response Status | Code
 Success | 250
 
 
-Response Body 
+Response Body Will be empty except for status. 
 ```
-AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
-AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
-AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
-AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
 E3 E3 //Not Encrypted
 ```
 
+
+The PAN is determined by concatinating the RAIDA ID, Serial Number and the PG. Like this
+
+```diff
+- WARNING: Client should send a different PG to each RAIDA otherwise the coin will be stolen by any other RAIDA admin. 
+```
+
+1. The Client will generate a 16 byte random seed.
+2. The Client will send this seed to the RAIDA. This seed is called a "PAN Generator".
+3. The Client and the RAIDA will use an algorithm to figure out what the Authenticity numbers will be for each serial number that fixes. 
+4. The Autheticty numbers for each serial number will be calculated by concatenating the RAIDA Number (String), the Coin's Serial Number (string) and the Seed that will be (converted into a 32 character string) together. 
+
+```
+1 + 1632435 + 9195C7A60CF0471BBE9B66144F5681C5 and then running an MD5 hash agains that.
+```
+Then the concatenated string is: 
+```
+PAN = MD5( "116324359195C7A60CF0471BBE9B66144F5681C5"); 
+```
+So the AN will be:
+```
+fd1495be732ab2f6959559f3041c72c0
+```
 
 # Delete tokens
 The sender sends authentic tokens. Those tokens are then deleted from the system and the Months From Start Byte is changed to zero. 
