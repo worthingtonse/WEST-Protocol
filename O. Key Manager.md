@@ -92,6 +92,8 @@ In order to mint a coin you will want to specify the wallet name, denomination a
 The denomination range starts from 0.0000001 (lowest) to 10000000 (highest)
 Minted coins will be put into the specified wallet.
 
+You should use the denomination codes found [here](https://github.com/worthingtonse/WEST-Protocol/blob/main/B.%20Header%20Format%3A%20Requests.md#denominations)
+
 ```
 $ ./dist/wyoming_key_manager mintcoins Default 10 12
 {"code":0,"message":"Coins Minted"}
