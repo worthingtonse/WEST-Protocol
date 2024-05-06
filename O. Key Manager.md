@@ -31,9 +31,13 @@ Usage of ./dist/wyoming_key_manager:
 ./dist/wyoming_key_manager deletekey <type> <key_id>
 ./dist/wyoming_key_manager mintcoins <name> <denomination> <count>
 ./dist/wyoming_key_manager freecoins <name> <denomination> <serialnumber>
-<args> arguments for operation
+<type> Key type. One of: kyc, user, treasurer, raida, admin
+<key_id> Key ID (serial number)
+<name> Wallet Name
+<denomination> Coin Denomination (from -7 to 7)
+<serialnumber> Coin Serial Number
 
-<type> Key type. One of: kyc, user, treasurer, raida, admin<key_id> Key ID (serial number)<name> Wallet Name<denomination> Coin Denomination (from -7 to 7)<serialnumber> Coin Serial Number  -cli
+  -cli
         RUN in CLI mode
   -cliport string
         Listen a specific port (works in CLI mode only)
@@ -47,6 +51,7 @@ Usage of ./dist/wyoming_key_manager:
         UI Path
   -version
         Display version
+
 ```
 
 Examples:
