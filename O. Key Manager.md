@@ -85,20 +85,22 @@ $ ./dist/wyoming_key_manager deletekey treasurer
 
 # Minting coins
 
-In order to mint a coin you will want to specify the denomination and number of coins
+In order to mint a coin you will want to specify the wallet name, denomination and number of coins. 
 The denomination range starts from 0.0000001 (lowest) to 10000000 (highest)
+Minted coins will be put into the specified wallet.
 
 ```
-$ ./dist/wyoming_key_manager mintcoins 10 12
+$ ./dist/wyoming_key_manager mintcoins Default 10 12
 {"code":0,"message":"Coins Minted"}
 ```
 
 # Delete (free) a minted coin
 
-To delete a previously minted coin specify its denomination and serial number
+To delete a previously minted coin specify its denomination, serial number and wallet name
+If the coin does not exist in the Wallet it will be deleted on the RAIDA only.
 
 ```
-$ ./dist/wyoming_key_manager freecoins 10 123
+$ ./dist/wyoming_key_manager freecoins Default 10 123
 {"code":0,"message":"Coins Deleted"}
 ```
 
