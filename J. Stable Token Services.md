@@ -40,8 +40,7 @@ Example Request Body with four tokens:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 SI SI SI SI
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
-DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //One byte for each denomination. Request for 0-255 tokens of that denomination. 
+DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //One byte for each denomination. Request for 0-255 tokens of that denomination. 
 3E 3E //Not Encrypted
 ```
 
@@ -83,7 +82,6 @@ Example Request Body with four coins:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 SI SI SI SI
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
 DN SN SN SN SN
 DN SN SN SN SN
 DN SN SN SN SN
@@ -105,7 +103,6 @@ The returned byte array is packed into a bitmap sequence where "1" stands for "m
 Example Request Body: 
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
 DN  
 3E 3E  //Not Encrypted
 ```
@@ -208,7 +205,6 @@ The sender sends authentic tokens. Those tokens are then deleted from the system
 Example Request Body with four tokens: 
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU
 DN  SN SN SN SN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
 DN  SN SN SN SN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
 DN  SN SN SN SN  AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN 
