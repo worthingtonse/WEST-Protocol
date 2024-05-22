@@ -1,13 +1,23 @@
-#Crossover services
+# Crossover services
 Crossover services allows people to convert West tokens to other cryto's or from other crypto's to West Tokens.
 
 ## Commands
 
 [Convert From West](#convert_from_west) 
+[Check Market Account](#check_market_account)
 [Convert To West](#convert_to_west)
 
 ## Convert From West
 The user must first put the coins that they want to sell into a locker.
+The client must check with the price API and decide when they would like purchase. 
+The client will tell the RAIDA what price it would like to buy at.
+The RAIDA will then check the price with the API, it the prices are within 1% of each other, the transaction shall be made. 
+The Administrators must have a market maker account with enough currency in it to handle the transaction
+I think it will become a first come first serve with the market account to keep it simple. If the market account runs out, people will know by using the "
+Check Market Account" command. 
+
+
+
 The user sends:
 * The cryptocurrency-code that they want to convert into (See table of crypto currencies)
 * The converstion cost they expect to pay
@@ -21,7 +31,7 @@ Sample Request
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 CD CD CD //currency code to convert to
 $$ $$ $$ //Converstion cost expected
-AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
 ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME
