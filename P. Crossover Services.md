@@ -3,11 +3,11 @@ Crossover services allows people to convert West tokens to other cryto's or from
 
 ## Commands
 
-[Convert From West](#convert_from_west) 
-
-[Check Market Account](#check_market_account)
-
-[Convert To West](#convert_to_west)
+Command Code | Command | Link
+---|---|---
+? | Convert From West | [Convert From West](#convert_from_west) 
+? | Check Market Account | [Check Market Account](#check_market_account)
+? | Convert To West | [Convert To West](#convert_to_west)
 
 ## Convert From West
 * The user must first put the coins that they want to sell into a locker.
