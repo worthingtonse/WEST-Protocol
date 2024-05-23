@@ -24,6 +24,7 @@ NS | Number of single SN | 5
 SI | Session ID | FF01AABB
 RS | Range Start | A four byte serial number that is the first available SN in a range
 RE | Range End | A four byte serial number that is the last available SN in a range
+PG | PAN Generator | The Proposed Authenticy Number Generator is a seed the the RAIDA will use to create authenticy numbers. This is explained below.
 
 
 
@@ -156,7 +157,7 @@ Example Request Body with four tokens:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 SI SI SI SI
-PG PG PG PG PG PG PG PG PG PG PG PG PG PG PG PG 
+PG PG PG PG PG PG PG PG PG PG PG PG PG PG PG PG // see instructions below
 DN SN SN SN SN
 DN SN SN SN SN
 DN SN SN SN SN
