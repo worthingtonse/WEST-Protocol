@@ -7,9 +7,9 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Command | Link
 ---|---|---
-? | Reserve Locker For Converting Crypto To West | [Reserve Locker For Converting Crypto To West](#reserve-locker-for-converting-crypto-to-west)
-? | Convert Crypto To West | [Convert Crypto To West](#convert-crypto-to-west)
-? | Convert West To Crypto | [Convert West To Crypto](#convert-west-to-crypto) 
+? | [Reserve Locker For Converting Crypto To West](#reserve-locker-for-converting-crypto-to-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
+? | [Convert Crypto To West](#convert-crypto-to-west) | User sends Crypto to wallets owned by the RAIDA. RAIDA puts West tokens into the clients locker. 
+? | [Convert West To Crypto](#convert-west-to-crypto) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 
 
 # Reserve Locker For Converting Crypto To West
