@@ -7,47 +7,9 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Command | Link
 ---|---|---
-? | Check Market Account | [Set Market Account](#check_market_account)
-? | Set Conversion Fee | [Set Conversion Fee](#set_conversion_fee)
+? | Forwarn | [Forwarn](#forwarn)
 ? | Convert From West | [Convert From West](#convert_from_west) 
 ? | Convert To West | [Convert To West](#convert_to_west)
-
-# Set Conversion Fee
-Everytime someone converst coins, a fee will be charged to the account of the West. This
-fee is set by the Treasure. In the future, the fee may be either fixed or variable and may have a complicated algorithm. Each currency may have a different fee associated with it. That is way there will be bytes reserved in the request body. For now this command just sets a percentage of the coins conversted. 
-
-Suppose the conversion fee is set to 3%. If 100 West are converted to Bitcoin, the fee will be 3 West. Suppose a person wants to convert 1 Bitcoin to 100 West with the same 3% fee. The fee will be 3 West. The amount of fees is always calculated based on the value of the West tokens involved.  
-
-The request body needs to have a percentage to charge as a fee. This percentage is expressed in two bytes. The first byte is the whole part of the percentage and ranges from 0 to 99. The second byte is the fraction part of the percentage and is valued from 0.99 too. So the least percentage that can be charged is 0.0% and the most is 99.99%
-
-Example Request:
-```
-CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-$$ $$ // Conversion Fee (percentage)
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS //160 bytes reserved for future expansion. 
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS 
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
-RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS 
-3E 3E //Not Encrypted
-```
-
-Example Response:
-
-Response Status | Code
----|---
-Success | 250
-Percentage is out of bounds| ?? 
-The body is empty| ?? 
-```
- //Empty
-3E 3E //Not Encrypted
-```
 
 # Convert From West
 * The user must first put the coins that they want to sell into a locker.
