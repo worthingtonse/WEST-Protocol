@@ -12,7 +12,7 @@ Command Code | Command | Link
 ? | [Convert West To Crypto](#convert-west-to-crypto) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 
 
-!![Reserve Locker](zips/my-image.jpg)
+![Reserve Locker](zips/lockers.png)
 # Reserve Locker For Converting Crypto To West
 The client calls this to tell the RAIDA that it will soon receive cryptocurrency so get a locker ready to put their West Tokens in. This service can be called after the crypto currency is sent to the RAIDA's wallet but that is risky. Someone else could claim that they sent the crypto and steal the CloudCoins. Therefor, the Reserve Locker command should be called before the client transfers crypto from their wallet to the RAIDA's wallet.
 
