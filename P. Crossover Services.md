@@ -39,7 +39,7 @@ ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Memo should contain identifyab
 ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Helps user recover coins if something goes wrong.
 3E 3E //Not Encrypted
 ```
-
+![Reserve Locker](zips/convert.png)
 # Convert West To Crypto
 * The user must first put the coins that they want to sell into a locker.
 * The client must check with the exchange rate web API and decide when to convert. 
@@ -91,7 +91,7 @@ TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK // Pickup Ticket
 
 ```
 
-
+![Reserve Locker](zips/exchange.png)
 # Convert Crypto To West
 * The client must check with the exchange rate web API and decide when to convert. 
 * The client will not get to specify the price due to the slowness of crypto transactions.
