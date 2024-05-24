@@ -11,6 +11,32 @@ Command Code | Command | Link
 ? | Convert From West | [Convert From West](#convert_from_west) 
 ? | Convert To West | [Convert To West](#convert_to_west)
 
+# Forwarn
+Tells the RAIDA that it will soon receive cryptocurrency. This can be called after the crypto currency is sent to the RAIDA's wallet but that is risky. Someone else could claim that they sent the money and get the CloudCoins. Therefor, the Forwarn command should be called before the client sends coins to the RAIDA. 
+
+After receiving the Forwant command the RAIDA:
+1. RAIDA creates a empay locker based on the one provided by the cleint.
+2. Associates the locker code with the sender's crypto address.
+3. Sets a timer based on the currency code (We need a table with known times needed) 
+
+Sample Request
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key that they RAIDA should create. 
+CD CD CD //currency code to look out for.
+$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount of crypto that should
+$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // arrive in the RAIDA's wallet. 
+AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD // 32 bytes. Sender's cryptocurrency address
+AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Memo should contain identifyable information 
+...
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Allows user to recover coins if something goes wrong.
+3E 3E //Not Encrypted
+```
+
+
+
 # Convert From West
 * The user must first put the coins that they want to sell into a locker.
 * The client must check with the exchange rate web API and decide when to convert. 
