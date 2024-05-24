@@ -5,10 +5,12 @@ Used by the RAIDA Authority to create and destroy tokens.
 Command Code | Service | Description
 --- | --- | :---: 
 120 | [Get Available SNs](#get-available-sns) | Tells the Admin what serial numbers it can use to create tokens. 
-130 | [Create tokens](#create-tokens) | Orders that tokens be created
-140 | [Delete tokens](#delete-tokens) | Orders tokens to be destroyed. 
+130 | [Create Tokens](#create-tokens) | Orders that tokens be created
+? | [Create Tokens in Market Locker](#create_tokens_in_market_locker) | Puts tokens in locker key: 01 23 45 67 89 AB CD EF 01 23 45 67 89 AB CD EF
+140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
 150 | [Free Coins](#delete-coins)|  Tells RAIDA to release lock on reserved SNs|
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted|
+? | [Set Conversion Fee](#set_conversion_fee) | 
 
 ## Code meanings
 Code | Meaning | Sample
@@ -200,6 +202,40 @@ So the AN will be:
 fd1495be732ab2f6959559f3041c72c0
 ```
 
+
+
+# Create Tokens In Market Locker
+This is exactly like the Create Tokens command but with a different commmand number. 
+
+The PG is not needed and will be ignored. Random numbers should be put there instead. 
+
+The difference on the RAIDA is that these coins will be put in a system locker with a fixed Key ID. The key ID is: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+No locker service can call this special locker key and this cannot be used by the public as their locker. 
+
+
+Example Request Body with four tokens:
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+SI SI SI SI
+RD RD RD RD RD RD RD RD RD RD RD RD RD RD RD RD // Random Numbers
+DN SN SN SN SN
+DN SN SN SN SN
+DN SN SN SN SN
+DN SN SN SN SN
+3E 3E //Not Encrypted
+```
+
+Response Status | Code
+---|---
+Success | 250
+Coins Not Available | ??
+
+Response Body Will be empty except for status. 
+```
+E3 E3 //Not Encrypted
+```
+
+
 # Delete tokens
 The sender sends authentic tokens. Those tokens are then deleted from the system and the Months From Start Byte is changed to zero. 
 
@@ -224,4 +260,41 @@ Response Body
 E3 E3 //Not Encrypted
 ```
 
+
+# Set Conversion Fee
+Everytime someone converst coins, a fee will be charged to the account of the West. This
+fee is set by the Treasure. In the future, the fee may be either fixed or variable and may have a complicated algorithm. Each currency may have a different fee associated with it. That is way there will be bytes reserved in the request body. For now this command just sets a percentage of the coins conversted. 
+
+Suppose the conversion fee is set to 3%. If 100 West are converted to Bitcoin, the fee will be 3 West. Suppose a person wants to convert 1 Bitcoin to 100 West with the same 3% fee. The fee will be 3 West. The amount of fees is always calculated based on the value of the West tokens involved.  
+
+The request body needs to have a percentage to charge as a fee. This percentage is expressed in two bytes. The first byte is the whole part of the percentage and ranges from 0 to 99. The second byte is the fraction part of the percentage and is valued from 0.99 too. So the least percentage that can be charged is 0.0% and the most is 99.99%
+
+Example Request:
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+$$ $$ // Conversion Fee (percentage)
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS //160 bytes reserved for future expansion. 
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS 
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS
+RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS RS 
+3E 3E //Not Encrypted
+```
+
+Example Response:
+
+Response Status | Code
+---|---
+Success | 250
+Percentage is out of bounds| ?? 
+The body is empty| ?? 
+```
+ //Empty
+3E 3E //Not Encrypted
+```
 
