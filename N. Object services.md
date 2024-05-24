@@ -7,11 +7,13 @@ It is up to the client to stripe/mirror and sum objects.
 Command Code | Service 
 --- | --- 
 101 | [Create Folder](#create-folder)
-102 | [List Folder](#ls-folder)
+102 | [Show Folder Contents Folder](#show-folder-contents)
 103 | [Remove Folder](#remove-folder)
 104 | [Put Object](#put-object)
 105 | [Get Object](#get-object)
 106 | [Remove Object](#remove-object)
+107 | [Show Any Folder Contents Folder](#show-any-folder-contents)
+185 | [Get Object](#get-any-object)
 
 
 # Create Folder
@@ -60,8 +62,8 @@ Does not exist | 202
 
 
 
-# List Folder
-Displays content of a folder.
+# Show Folder Contents
+Displays content of a user folder.
 An object in the folder can be either another folder or a data file.
 Requires KYC permission.
 
@@ -75,6 +77,52 @@ PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT .. PT PT PT
 PT is no more than 255 bytes. The full path of the folder
 The path must be NULL-terminated
 
+
+Response
+
+```hex
+NO NO
+TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
+TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
+TY SZ SZ SZ SZ FZ ON ON ON ON ON ON ON ON ON ON
+3E 3E //Not Encrypted
+```
+
+NO - Number of objects
+
+TY - Object Type. 1 - Folder, 2 - Data
+
+SZ - Object size in bytes
+
+FZ - Object name length
+
+ON - Object name
+
+
+Response Status | Code
+---|---
+Success | 250
+Filesystem Error | 200
+Does not exist | 202
+
+
+
+# Show Any Folder Contents
+Displays content of any folder of any user.
+The caller must specify the userid (KYC key number)
+Requires admin permission
+
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+KY KY KY KY
+PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT .. PT PT PT
+3E 3E //Not Encrypted
+```
+
+PT is no more than 255 bytes. The full path of the folder
+The path must be NULL-terminated
+
+KY is KYC Key ID
 
 Response
 
@@ -165,6 +213,50 @@ Response Status | Code
 Success | 250
 Filesystem Error | 200
 Does not Exist | 202
+
+
+
+# Get Object
+The service retreives a binary chunk from the RAIDA. The chunk can belong to any user.
+
+The maximum path length is 255 charaters.
+
+Example Request Body with four tokens:
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+KY KY KY KY
+PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT PT .. PT PT PT
+3E 3E //Not Encrypted
+```
+
+PT - is no more than 255 bytes. The full path of the folder
+The path must be NULL-terminated
+
+KY - is KYC user key
+
+Response
+
+```hex
+PL PL PL ... PL
+3E 3E //Not Encrypted
+```
+
+PL - chunk payload
+
+Response Status | Code
+---|---
+Success | 250
+Filesystem Error | 200
+Does not Exist | 202
+
+
+
+
+
+
+
+
+
 
 
 # Remove Object
