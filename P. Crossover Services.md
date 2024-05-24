@@ -7,17 +7,19 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Command | Link
 ---|---|---
-? | Forwarn | [Forwarn](#forwarn)
+? | Forwarn | [Reserve Locker](#reserve_locker)
 ? | Convert From West | [Convert From West](#convert_from_west) 
 ? | Convert To West | [Convert To West](#convert_to_west)
 
-# Forwarn
-Tells the RAIDA that it will soon receive cryptocurrency. This can be called after the crypto currency is sent to the RAIDA's wallet but that is risky. Someone else could claim that they sent the money and get the CloudCoins. Therefor, the Forwarn command should be called before the client sends coins to the RAIDA. 
+# Reserve Locker
+Tells the RAIDA that it will soon receive cryptocurrency so get a locker ready to put West Tokens in. This can be called after the crypto currency is sent to the RAIDA's wallet but that is risky. Someone else could claim that they sent the money and get the CloudCoins. Therefor, the Reserve Locker command should be called before the client sends coins to the RAIDA's wallet.
 
-After receiving the Forwant command the RAIDA:
-1. RAIDA creates a empay locker based on the one provided by the cleint.
+After receiving the Reserve Locker command the RAIDA will:
+1. Create an empty locker with the locker code provided by the cleint.
 2. Associates the locker code with the sender's crypto address.
-3. Sets a timer based on the currency code (We need a table with known times needed) 
+3. Check the web API to see how much time that currencies are taking to complete. 
+4. Set a timer based on the currency code (We need a table with known times of crypto transactions)
+5. If they times goes off before the locker has been used, the locker is deleted.
 
 Sample Request
 ```
