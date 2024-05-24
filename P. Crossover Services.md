@@ -7,19 +7,21 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Command | Link
 ---|---|---
-? | Forwarn | [Reserve Locker](#reserve_locker)
-? | Convert From West | [Convert From West](#convert_from_west) 
-? | Convert To West | [Convert To West](#convert_to_west)
+? | Reserve Locker For Converting Crypto To West | [Reserve Locker](#reserve_locker_for_converting_crypto_to_west)
+? | Convert Crypto To West | [Convert Crypto To West](#convert_to_west)
+? | Convert West To Crypto | [Convert West To Crypto](#convert_from_west) 
 
-# Reserve Locker
-Tells the RAIDA that it will soon receive cryptocurrency so get a locker ready to put West Tokens in. This can be called after the crypto currency is sent to the RAIDA's wallet but that is risky. Someone else could claim that they sent the money and get the CloudCoins. Therefor, the Reserve Locker command should be called before the client sends coins to the RAIDA's wallet.
+
+# Reserve Locker For Converting Crypto To West
+The client calls this to tell the RAIDA that it will soon receive cryptocurrency so get a locker ready to put their West Tokens in. This service can be called after the crypto currency is sent to the RAIDA's wallet but that is risky. Someone else could claim that they sent the crypto and steal the CloudCoins. Therefor, the Reserve Locker command should be called before the client transfers crypto from their wallet to the RAIDA's wallet.
 
 After receiving the Reserve Locker command the RAIDA will:
 1. Create an empty locker with the locker code provided by the cleint.
 2. Associates the locker code with the sender's crypto address.
 3. Check the web API to see how much time that currencies are taking to complete. 
-4. Set a timer based on the currency code (We need a table with known times of crypto transactions)
-5. If they times goes off before the locker has been used, the locker is deleted.
+4. Set a timer based on the currency code or API.
+5. If the times goes off before the locker has been used, the locker is deleted.
+6. The locker is deleted after it West Tokens have been removed.
 
 Sample Request
 ```
@@ -27,17 +29,15 @@ CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key that they RAIDA should create. 
 CD CD CD //currency code to look out for.
 $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount of crypto that should
-$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // arrive in the RAIDA's wallet. 
+$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // arrive in the RAIDA's wallet. e.g. 22254.992840891
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD // 32 bytes. Sender's cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
-ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
-ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Memo should contain identifyable information 
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID the client would like to use
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Memo should contain identifyable tansaction information 
 ...
-ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Allows user to recover coins if something goes wrong.
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Helps user recover coins if something goes wrong.
 3E 3E //Not Encrypted
 ```
-
-
 
 # Convert From West
 * The user must first put the coins that they want to sell into a locker.
