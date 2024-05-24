@@ -7,13 +7,13 @@ It is up to the client to stripe/mirror and sum objects.
 Command Code | Service 
 --- | --- 
 101 | [Create Folder](#create-folder)
-102 | [Show Folder Contents Folder](#show-folder-contents)
+102 | [Show Folder Contents](#show-folder-contents)
 103 | [Remove Folder](#remove-folder)
 104 | [Put Object](#put-object)
 105 | [Get Object](#get-object)
 106 | [Remove Object](#remove-object)
-107 | [Show Any Folder Contents Folder](#show-any-folder-contents)
-185 | [Get Object](#get-any-object)
+107 | [Show Any Folder Contents](#show-any-folder-contents)
+185 | [Get Any Object](#get-any-object)
 
 
 # Create Folder
@@ -216,7 +216,7 @@ Does not Exist | 202
 
 
 
-# Get Object
+# Get Any Object
 The service retreives a binary chunk from the RAIDA. The chunk can belong to any user.
 
 The maximum path length is 255 charaters.
