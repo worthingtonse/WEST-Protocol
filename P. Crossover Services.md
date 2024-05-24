@@ -7,7 +7,7 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Command | Link
 ---|---|---
-? | Reserve Locker For Converting Crypto To West | [Reserve Locker For Converting Crypto To West](#reserve_locker_for_converting_crypto_to_west)
+? | Reserve Locker For Converting Crypto To West | [Reserve Locker For Converting Crypto To West](Services.md#reserve-locker-for-converting-crypto-to-west)
 ? | Convert Crypto To West | [Convert Crypto To West](#convert_crypto_to_west)
 ? | Convert West To Crypto | [Convert West To Crypto](#convert_west_to_crypto) 
 
