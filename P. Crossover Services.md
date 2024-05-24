@@ -39,7 +39,7 @@ ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Helps user recover coins if so
 3E 3E //Not Encrypted
 ```
 
-# Convert From West
+# Convert West To Crypto
 * The user must first put the coins that they want to sell into a locker.
 * The client must check with the exchange rate web API and decide when to convert. 
 * The client will tell the RAIDA what price it would like to buy at (based on the exchange rate)
@@ -91,7 +91,7 @@ TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK // Pickup Ticket
 ```
 
 
-# Convert To West
+# Convert Crypto To West
 * The client must check with the exchange rate web API and decide when to convert. 
 * The client will not get to specify the price due to the slowness of crypto transactions.
 * The RAIDA will then check the price with the same API, if the prices are within 1% of each other, the transaction shall be made. 
