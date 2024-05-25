@@ -1,3 +1,4 @@
+![The Wyoming Stable Token](zips/west.png)
 # Introduction to the WEST Protocol
 
 ## GOALS
