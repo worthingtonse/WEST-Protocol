@@ -19,7 +19,7 @@ Command Code | Service | Description
 150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
 ? | [Set Conversion Fee](#set-conversion-fee) | The conversion fee set in percentages. 
-? | [Show Reserves](#show-reserves) | Shows how much West Tokens are available to convert.
+? | [Show Reserves](#show-reserves) | Shows how much West Tokens are in locker key zero and are available to convert.
 
 ## Command Code Meanings
 Code | Meaning | Sample
