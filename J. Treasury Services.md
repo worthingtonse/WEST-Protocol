@@ -18,7 +18,7 @@ Command Code | Service | Description
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
 150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
-? | [Set Conversion Fee](#set-conversion-fee) | The conversion fee set in percentages. 
+? | [Set Conversion Fee](#set-conversion-rate) | The conversion fee set in percentages. 
 
 
 ## Command Code Meanings
@@ -229,9 +229,6 @@ So the AN will be:
 ```
 fd1495be732ab2f6959559f3041c72c0
 ```
-
-
-
 # Create Tokens In Market Locker
 This is exactly like the Create Tokens command but with a different commmand number. 
 
@@ -239,7 +236,6 @@ The PG is not needed and will be ignored. Random numbers should be put there ins
 
 The difference on the RAIDA is that these coins will be put in a system locker with a fixed Key ID. The key ID is: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
 No locker service can call this special locker key and this cannot be used by the public as their locker. 
-
 
 Example Request Body with four tokens:
 ```hex
@@ -289,7 +285,7 @@ E3 E3 //Not Encrypted
 ```
 
 
-# Set Conversion Fee
+# Set Conversion Rate
 Everytime someone converst coins, a fee will be charged to the account of the West. This
 fee is set by the Treasure. In the future, the fee may be either fixed or variable and may have a complicated algorithm. Each currency may have a different fee associated with it. That is way there will be bytes reserved in the request body. For now this command just sets a percentage of the coins conversted. 
 
