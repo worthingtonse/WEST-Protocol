@@ -2,6 +2,15 @@
 
 Used by the Treasury to create and destroy tokens. Also used to manage multi-chain liqudity.
 
+[Commands Codes](#command-codes)
+
+[Commands Code Meanings](#command-code-meanings)
+
+[Access Keys](#access-keys)
+
+[Commands Codes](#command-codes)
+
+## Command Codes
 Command Code | Service | Description
 --- | --- | :---: 
 120 | [Get Available SNs](#get-available-sns) | Tells the Treasury what serial numbers it can use to create tokens. 
@@ -28,6 +37,25 @@ RS | Range Start | A four byte serial number that is the first available SN in a
 RE | Range End | A four byte serial number that is the last available SN in a range
 PG | PAN Generator | The Proposed Authenticy Number Generator is a seed the the RAIDA will use to create authenticy numbers. This is explained below.
 
+# Access Keys
+Some denominations are used as Access Keys and allow their holders to have rights on the RAIDA.
+
+There are four access key types implemented in the RAIDA Protocol.
+
+Every packet sent to a RAIDA server is encrypted with a key of a certain type. Besides its primary encryption function the key also provides authorization.
+
+A RAIDA server decrypts a packet and identifies the user and permissions granted to this user.
+
+The keys implemented as coins with higher denominations.
+
+The key types are:
+
+Decimal Value | Hex Value | Name | Function 
+7 | 0x7 | User Key | Users are not allowed to use the Wyoming Stable Token unless they have passed KYC and AML requirments. Users who meet the KYC and AML requirments will be issued an Access Key by the Access Key Administrator. Almost all services require this key: pown, pown_sum, detect, detect_sum, store_sum, store, remove_locket, fix, get_ticket. Echo and Version calls do not require any key.
+8 | 0x8 | Tresury Keys |These keys are used to mint coins and manage liquidity pools. Whomever posseses these keys can create and destroy coins (get_available_sns, create_coins, delete_coins)
+9 | 0x9 | Admin Keys | Admins can create all key types and mint coins. Also admins can query stat services (get_stat, audit). Admins can call ANY service on the RAIDA.
+10 | 0xA | RAIDA Keys | Used for inner-RAIDA communication. Only one service (validate_ticket) checks these keys
+11 | 0xB | KYC Keys | Anyone can upload KYC documents to the RAIDA filesystem. (create_folder, delete_folder, upload_file, delete_file)
 
 
 # Get Available SNs
