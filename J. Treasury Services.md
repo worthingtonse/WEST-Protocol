@@ -18,7 +18,7 @@ Command Code | Service | Description
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
 150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
-? | [Set Conversion Fee](#set-conversion-rate) | The conversion fee set in percentages. 
+? | [🔴Set Conversion Fee](#set-conversion-rate) | The conversion fee set in percentages. 
 
 
 ## Command Code Meanings
@@ -49,7 +49,14 @@ A RAIDA server decrypts a packet and identifies the user and permissions granted
 The keys implemented as coins with higher denominations.
 
 The key types are:
+🔴 WARNING: Admins should not be able to do everything except use any Treasury Services.
 
+🔴 WARNING: Treasury keys should be able to do everything.
+
+🔴 WARNING: RAIDA Keys should be able to call services that sync if we have that.
+
+🔴 WARNING: KYC uploads that do not have a user connected to them should be deleted after a month. The user can start again if they need to.
+ 
 Decimal Value | Hex Value | Name | Function 
 ---|---|---|---
 7 | 0x7 | User Key | Users are not allowed to use the Wyoming Stable Token unless they have passed KYC and AML requirments. Users who meet the KYC and AML requirments will be issued an Access Key by the Access Key Administrator. Almost all services require this key: pown, pown_sum, detect, detect_sum, store_sum, store, remove_locket, fix, get_ticket. Echo and Version calls do not require any key.
@@ -106,7 +113,7 @@ SN SN SN SN
 ```
 
 # Release Lock 
-- WARNING: This service has been implmented but is being considerd for deletion.
+🔴 WARNING: This service has been implmented but is being considerd for deletion.
 
 The service deletes coins that were previously reserved by Get Available SNs call.  
 Example Request Body with four coins:
@@ -210,7 +217,7 @@ E3 E3 //Not Encrypted
 The PAN is determined by concatinating the RAIDA ID, Serial Number and the PG. Like this
 
 ```diff
-- WARNING: Client should send a different PG to each RAIDA otherwise the coin will be stolen by any other RAIDA admin. 
+🔴 WARNING: Client should send a different PG to each RAIDA otherwise the coin will be stolen by any other RAIDA admin. 
 ```
 
 1. The Client will generate a 16 byte random seed.
