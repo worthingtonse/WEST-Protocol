@@ -1,3 +1,4 @@
+![Request Headers](zips/request.png)
 # WEST RAIDA Request Headers V.1.0.0
 This prodocol allows clients to send requests to the WEST RAIDA. 
 All requests made to the WEST RAIDA must have a 32 byte header.
