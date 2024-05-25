@@ -1,6 +1,6 @@
 ![Reserve Locker](zips/convert.png)
 # Crossover services
-Crossover services allows people to convert West tokens to other cryto's or from other crypto's to West Tokens.
+Crossover services allows people to convert West tokens to other cryptos or from other cryptos to West Tokens.
 
 RAIDA servers will have a special locker just for the West's conversion locker. Only the Treasure will be able to create and destroy tokens in this locker. The Treasury may also read the amount of coins in it. When the total coins are counted, the coins in the conversion account will need to be counted too. They will also need to be syncronized. While converting, coins will be taken out of this locker and placed into new lockers. Coins may also be taken out of user's lockers and placed in the conversion locker. 
 
