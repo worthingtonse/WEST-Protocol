@@ -1,3 +1,4 @@
+![Change Services](zips/change.png)
 # Change Services (Command Group 9)
 Takes larger notes and breaks them into smaller notes or vis versa. 
 
