@@ -153,21 +153,3 @@ TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK // Pickup Ticket
 
 ```
 
-
-
-## Check Market Account
-This command lets the Treasure see how many WEST Tokens are in the WEST Token's iquidity account. The Treasure must put coins in these accounts so then when people want to sell, they don't have to wait for a buyer or vis versa. Clients cannot sell more tokens then are in the liquidity pool. The admin of the system can set a "fee" for conversion. The fee will need to be set by someone with a treasury key. The client should not try to sell more than is in the liquidity account. Otherwise they will simply get an error "Not enough Coins".
-
-Sample Request
-```
-CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-CD CD CD //currency code to convert to
-3E 3E //Not Encrypted
-```
-Response 
-Status code "ok" or successful
-The amount that is in the account. This amount will show no more than 16.7 Million even if there are more coins then that.
-```
-$$ $$ $$ 
-3E 3E 
-```
