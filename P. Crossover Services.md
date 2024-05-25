@@ -12,6 +12,18 @@ Command Code | Command | Link
 ? | [Convert Crypto To West](#convert-crypto-to-west) | User sends Crypto to wallets owned by the RAIDA. RAIDA puts West tokens into the clients locker. 
 ? | [Convert West To Crypto](#convert-west-to-crypto) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 
+## REST Services Running on an Inforation Server
+Some services do not need Data Supremacy and are located on tradition servers. They are acccessed using cutomary REST calls. 
+
+Method | Name | Description
+---|---|---
+GET | Get supported currencies | Returns a list of currencies that can be swapped
+GET | Get rate | Shows the exchange rate the user must take. 
+GET | Get transaction status | Tells the user what is happening with their transaction
+GET | Get Transactions list | Shows a list of transactions that the user has performed
+GET | Validate address | Allows the user to make sure the address is good
+
+These REST services are provided by a thrid part. The API can be found at [Postman](https://documenter.getpostman.com/view/16362858/UVXokDS6)
 
 ![Reserve Locker](zips/lockers.png)
 # Reserve Locker For Converting Crypto To West
