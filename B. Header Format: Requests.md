@@ -1,4 +1,10 @@
 ![Request Headers](zips/header.jpg)
+[Request Headers Overview](#west-raida-request-headers-v.1.0.0)
+[Byte by Byte Meaning](#request-header-byte-by-byte-code-meanings)
+[COMMAND GROUPS](#comman-groups)
+[DENOMINATIONS](#denominations)
+[ENCRYPTION](#encryption)
+
 # WEST RAIDA Request Headers V.1.0.0
 This prodocol allows clients to send requests to the WEST RAIDA. 
 All requests made to the WEST RAIDA must have a 32 byte header.
