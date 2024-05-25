@@ -48,7 +48,10 @@ ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Helps user recover coins if so
 * The RAIDA will then check the price with the same API, if the prices are within 1% of each other, the transaction shall be made. 
 * The Administrators must have a market maker account with enough West tokens in it to handle the transaction.
 * First come first serve with the market account to keep it simple. If the market account runs out conversion stops.
-* The RAIDA will 
+* The RAIDA will make a call to a block explore for the transaction supplied by the client
+* RAIDA checks the data of the transactoin. If it is too old it is rejected.
+* RAIDA checks the list of recetn transactions and makes sure tokens have not been isssued yet.
+* RAIDA puts coins from the market locker into the client's locker. 
 
 The user sends:
 * The cryptocurrency-code they send coins to. 
@@ -61,10 +64,9 @@ Sample Request
 ```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key that they want the coins to be put into.
-CD CD CD //currency code to convert to
-$$ $$ $$ //Converstion cost expected
-AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
-AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+CD CD CD // Currency Code that was sent
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
 ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME
 ...
@@ -84,8 +86,6 @@ Receipt ID in use| ??
 Locker not found| ?? 
 
 ```
-TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK // Pickup Ticket
-
  //Empty 
 3E 3E 
 
