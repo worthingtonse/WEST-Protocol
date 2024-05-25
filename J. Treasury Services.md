@@ -1,10 +1,10 @@
-# Admin Services (Command  Group: 3)
+# Treasury Services (Command  Group: 3)
 
-Used by the RAIDA Authority to create and destroy tokens.
+Used by the Treasury to create and destroy tokens. Also used to manage multi-chain liqudity.
 
 Command Code | Service | Description
 --- | --- | :---: 
-120 | [Get Available SNs](#get-available-sns) | Tells the Admin what serial numbers it can use to create tokens. 
+120 | [Get Available SNs](#get-available-sns) | Tells the Treasury what serial numbers it can use to create tokens. 
 130 | [Create Tokens](#create-tokens) | Orders that tokens be created
 ? | [Create Tokens in Market Locker](#create_tokens_in_market_locker) | Puts tokens in locker key: 01 23 45 67 89 AB CD EF 01 23 45 67 89 AB CD EF
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
@@ -47,27 +47,26 @@ DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN DN //One byte for each 
 3E 3E //Not Encrypted
 ```
 
-
 Response Status | Code
 ---|---
 Success | 250
 Failure | 251
 
 
-Returns: Three denominations. The first has three ranges and two singles. The second has 1 range and 1 single. The third has 2 ranges and 3 singles. 
+Sample Returns for three denominations. The first has three ranges and two singles. The second has 1 range and 1 single. The third has 2 ranges and 3 singles. 
 ```
-DN    
-NR NS 
-RS RS RS RS  RE RE RE RE 
+DN    //First denomination code (See denomination codes in the Header format)
+NR NS  // NR (Number of ranges 0 to 255). NS (Number of single serial numbers 0 to 255). 
+RS RS RS RS  RE RE RE RE // RS (starting serial number in range) RE (last serial number in range, inclusive)
 RS RS RS RS  RE RE RE RE
 RS RS RS RS  RE RE RE RE  
+SN SN SN SN // first single serial number
 SN SN SN SN
-SN SN SN SN
-DN
+DN     //Second denomination
 NR NS 
 RS RS RS RS  RE RE RE RE 
 SN SN SN SN
-DN
+DN  // Third denomination
 NR NS 
 RS RS RS RS  RE RE RE RE
 RS RS RS RS  RE RE RE RE  
@@ -77,8 +76,8 @@ SN SN SN SN
 3E 3E  //Not Encrypted
 ```
 
-
-# Release Lock
+# Release Lock 
+- WARNING: This service has been implmented but is being considerd for deletion.
 
 The service deletes coins that were previously reserved by Get Available SNs call.  
 Example Request Body with four coins:
@@ -296,5 +295,28 @@ The body is empty| ??
 ```
  //Empty
 3E 3E //Not Encrypted
+```
+
+
+## Show Reserves
+This command lets the Treasure see how many WEST Tokens are in the WEST Token's Liquidity Accounts. The Treasure must put coins in these accounts so then when people want to sell, they don't have to wait for a buyer or vis versa. Clients cannot sell more tokens then are in the liquidity pool. The admin of the system can set a "fee" for conversion. The fee will need to be set by someone with a treasury key. The client should not try to swap more than is in the liquidity account. Otherwise they will simply get an error "Not enough Coins".
+
+Sample Request
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+CD CD CD //currency code for future use. Phase 1 returns all coins
+3E 3E //Not Encrypted
+```
+Response 
+Status code "ok" or successful
+The amount that is in the account. This amount will show no more than 16.7 Million even if there are more coins then that. Any amount returned that equals 16,777,215 should be shown as "Greater than 16,777,215"
+```
+$$ $$ $$ // Index 0 shows the amount for coin code 0 (See coin codes. This one is the West Token)
+$$ $$ $$ // Index 1 shows the amount for coin code 1 (See coin codes. This one is CloudCoin)
+$$ $$ $$ // Index 1 shows the amount for coin code 1 (See coin codes. This one is Bitcoin)
+.. .. .. Length of response will vary based on the number of coins
+$$ $$ $$
+$$ $$ $$ // Index n. 
+3E 3E // Unencrypted
 ```
 
