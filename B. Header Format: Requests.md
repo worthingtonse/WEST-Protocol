@@ -1,6 +1,6 @@
 ![Request Headers](zips/header.jpg)
 
-[Request Headers Overview](#west-raida-request-headers-v.1.0.0)
+[Request Headers Overview](#west-raida-request-headers)
 
 [Byte by Byte Meaning](#request-header-byte-by-byte-code-meanings)
 
@@ -10,7 +10,7 @@
 
 [ENCRYPTION](#encryption)
 
-# WEST RAIDA Request Headers V.1.0.0
+# WEST RAIDA Request Headers
 This prodocol allows clients to send requests to the WEST RAIDA. 
 All requests made to the WEST RAIDA must have a 32 byte header.
 The header is fixed length and will always be 32 bytes. 
@@ -183,7 +183,7 @@ Code | Type | Description | Bytes after EN
 1 | 128 AES CRT | Shared Secret |  5 (1 DN + 4 SN)
 2 | 128 AES CRT | Locker Key is used | This is used by the PEEK command if the user doesn not have any coins yet. See PEEK in Locker Services. 
 
-# ENCRYPTION RULES All SERVICES
+### ENCRYPTION RULES All SERVICES
 
 Rule | Description
 ---|---
