@@ -1,3 +1,5 @@
+![Status Services](zip/status.png)
+
 # Status Services (Command Group 0)
 
 Explains that Status of the RAIDA
