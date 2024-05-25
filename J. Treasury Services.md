@@ -20,7 +20,7 @@ Command Code | Service | Description
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted|
 ? | [Set Conversion Fee](#set_conversion_fee) | 
 
-## Code meanings
+## Command Code Meanings
 Code | Meaning | Sample
 ---|---|---
 RD | Random | 6
@@ -50,6 +50,7 @@ The keys implemented as coins with higher denominations.
 The key types are:
 
 Decimal Value | Hex Value | Name | Function 
+---|---|---|---
 7 | 0x7 | User Key | Users are not allowed to use the Wyoming Stable Token unless they have passed KYC and AML requirments. Users who meet the KYC and AML requirments will be issued an Access Key by the Access Key Administrator. Almost all services require this key: pown, pown_sum, detect, detect_sum, store_sum, store, remove_locket, fix, get_ticket. Echo and Version calls do not require any key.
 8 | 0x8 | Tresury Keys |These keys are used to mint coins and manage liquidity pools. Whomever posseses these keys can create and destroy coins (get_available_sns, create_coins, delete_coins)
 9 | 0x9 | Admin Keys | Admins can create all key types and mint coins. Also admins can query stat services (get_stat, audit). Admins can call ANY service on the RAIDA.
