@@ -10,16 +10,16 @@ Used by the Treasury to create and destroy tokens. Also used to manage multi-cha
 
 
 ## Command Codes
+Note: The Tresury may manage coins in the West Token Conversion Wallet zero by using the Lock Services. 
 Command Code | Service | Description
 --- | --- | :---: 
 120 | [Get Available SNs](#get-available-sns) | Tells the Treasury what serial numbers it can use to create tokens. 
 130 | [Create Tokens](#create-tokens) | Orders that tokens be created
-? | [Create Tokens in Market Locker](#create-tokens-in-market-locker) | Puts tokens in locker key zero.
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
 150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
 ? | [Set Conversion Fee](#set-conversion-fee) | The conversion fee set in percentages. 
-? | [Show Reserves](#show-reserves) | Shows how much West Tokens are in locker key zero and are available to convert.
+
 
 ## Command Code Meanings
 Code | Meaning | Sample
@@ -325,27 +325,3 @@ The body is empty| ??
  //Empty
 3E 3E //Not Encrypted
 ```
-
-
-## Show Reserves
-This command lets the Treasure see how many WEST Tokens are in the WEST Token's Liquidity Accounts. The Treasure must put coins in these accounts so then when people want to sell, they don't have to wait for a buyer or vis versa. Clients cannot sell more tokens then are in the liquidity pool. The admin of the system can set a "fee" for conversion. The fee will need to be set by someone with a treasury key. The client should not try to swap more than is in the liquidity account. Otherwise they will simply get an error "Not enough Coins".
-
-Sample Request
-```
-CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-CD CD CD //currency code for future use. Phase 1 returns all coins
-3E 3E //Not Encrypted
-```
-Response 
-Status code "ok" or successful
-The amount that is in the account. This amount will show no more than 16.7 Million even if there are more coins then that. Any amount returned that equals 16,777,215 should be shown as "Greater than 16,777,215"
-```
-$$ $$ $$ // Index 0 shows the amount for coin code 0 (See coin codes. This one is the West Token)
-$$ $$ $$ // Index 1 shows the amount for coin code 1 (See coin codes. This one is CloudCoin)
-$$ $$ $$ // Index 1 shows the amount for coin code 1 (See coin codes. This one is Bitcoin)
-.. .. .. Length of response will vary based on the number of coins
-$$ $$ $$
-$$ $$ $$ // Index n. 
-3E 3E // Unencrypted
-```
-
