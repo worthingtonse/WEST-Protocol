@@ -14,11 +14,12 @@ Command Code | Service | Description
 --- | --- | :---: 
 120 | [Get Available SNs](#get-available-sns) | Tells the Treasury what serial numbers it can use to create tokens. 
 130 | [Create Tokens](#create-tokens) | Orders that tokens be created
-? | [Create Tokens in Market Locker](#create_tokens_in_market_locker) | Puts tokens in locker key: 01 23 45 67 89 AB CD EF 01 23 45 67 89 AB CD EF
+? | [Create Tokens in Market Locker](#create-tokens-in-market-locker) | Puts tokens in locker key zero.
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
-150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs|
-160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted|
-? | [Set Conversion Fee](#set_conversion_fee) | 
+150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
+160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
+? | [Set Conversion Fee](#set-conversion-fee) | The conversion fee set in percentages. 
+? | [Show Reserves](#show-reserves) | Shows how much West Tokens are available to convert.
 
 ## Command Code Meanings
 Code | Meaning | Sample
