@@ -1,3 +1,4 @@
+![Request Headers](zips/response.png)
 # Response Header
 The response header is not encrypted.  When making certain requests, the client will need to remeber what order they put the tokens in the request body because the response body will have the tokens in the same order. 
 
