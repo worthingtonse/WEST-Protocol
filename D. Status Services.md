@@ -1,4 +1,4 @@
-![Status Services](zip/status.png)
+![Status Services](zips/status.png)
 
 # Status Services (Command Group 0)
 
