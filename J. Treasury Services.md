@@ -2,13 +2,12 @@
 
 Used by the Treasury to create and destroy tokens. Also used to manage multi-chain liqudity.
 
-[Commands Codes](#command-codes)
+[Command Codes](#command-codes)
 
-[Commands Code Meanings](#command-code-meanings)
+[Command Code Meanings](#command-code-meanings)
 
 [Access Keys](#access-keys)
 
-[Commands Codes](#command-codes)
 
 ## Command Codes
 Command Code | Service | Description
