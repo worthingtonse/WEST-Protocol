@@ -1,8 +1,13 @@
 ![Request Headers](zips/header.jpg)
+
 [Request Headers Overview](#west-raida-request-headers-v.1.0.0)
+
 [Byte by Byte Meaning](#request-header-byte-by-byte-code-meanings)
-[COMMAND GROUPS](#comman-groups)
+
+[COMMAND GROUPS](#command-groups)
+
 [DENOMINATIONS](#denominations)
+
 [ENCRYPTION](#encryption)
 
 # WEST RAIDA Request Headers V.1.0.0
