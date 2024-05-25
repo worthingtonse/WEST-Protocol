@@ -1,13 +1,31 @@
 ![Request Headers](zips/response.png)
-# Response Header
-The response header is not encrypted.  When making certain requests, the client will need to remeber what order they put the tokens in the request body because the response body will have the tokens in the same order. 
+# Response Headers
+Response Headers are 
+* always 32 bytes long.
+* never encrypted.
+* Have 10 parts:
+
+Part No. | code | Name | Byte Count
+---|---|---|---
+  1 |RI|Responding RAIDA ID | 1
+  2 | SH|Responding Shard ID | 1
+  3 |SS|Response Status| 1
+  4 |CG|Command Group| 1
+  5 |UD|UDP Frame Count| 2
+  6 |CE|Client's echo| 2
+  7 |EX| Extensible| 1
+  8 |SZ| Bytes in Body| 3
+  9 |ET|	Execution Time in Nano Seconds| 4
+  10 |HC|	Challenge Response | 16
 
 Response Header layout (32 bytes fixed):
-```
-RI SH SS CG UD UD EC EC RE SZ SZ SZ EX EX EX EX
-HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS
-```
 
+```
+   00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+00 RI SH SS CG UD UD EC EC RE SZ SZ SZ EX EX EX EX
+01 HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS
+```
+![Response Header Layout](zips/rh.png)
 ## Response Header Codes
 Index | Code | Name | Info
 --- |---|---|---
