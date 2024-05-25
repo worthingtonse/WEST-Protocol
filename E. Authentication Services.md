@@ -1,3 +1,4 @@
+![Authentication Services](zips/authentication.png)
 # Authentication Services (Command Group 1)
 
 These services check the authenticty of tokens and allow change of ownership.
