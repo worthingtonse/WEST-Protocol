@@ -29,6 +29,7 @@ Offset(h) |`0x00` | `0x01` | `0x02` | `0x03` |`0x04` |`0x05`|`0x06`|`0x07`|`0x08
 `0x00` | VR |SP |RI |SH| CG | CM |ID| ID| VR | AP| AP |CP | TR| AI| RE| RE 
 `0x10` | EN | DN |SN |SN| SN | SN |BL| NO| NO| NO | NO| NO |NO | NO| EC| EC 
 
+![Color Chart of Bytes](zips/h.png)
 
 ### Request Header Byte by Byte Code Meanings
 
