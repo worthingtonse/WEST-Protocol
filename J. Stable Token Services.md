@@ -8,7 +8,7 @@ Command Code | Service | Description
 130 | [Create Tokens](#create-tokens) | Orders that tokens be created
 ? | [Create Tokens in Market Locker](#create_tokens_in_market_locker) | Puts tokens in locker key: 01 23 45 67 89 AB CD EF 01 23 45 67 89 AB CD EF
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
-150 | [Free Coins](#delete-coins)|  Tells RAIDA to release lock on reserved SNs|
+150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs|
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted|
 ? | [Set Conversion Fee](#set_conversion_fee) | 
 
@@ -78,7 +78,7 @@ SN SN SN SN
 ```
 
 
-# Free Coins
+# Release Lock
 
 The service deletes coins that were previously reserved by Get Available SNs call.  
 Example Request Body with four coins:
