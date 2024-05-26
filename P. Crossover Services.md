@@ -8,9 +8,9 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Command | Link
 ---|---|---
-? | [Reserve Locker For Converting Crypto To West](#reserve-locker-for-converting-crypto-to-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
-? | [Convert Crypto To West](#convert-crypto-to-west) | User sends Crypto to wallets owned by the RAIDA. RAIDA puts West tokens into the clients locker. 
-? | [Convert West To Crypto](#convert-west-to-crypto) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
+? | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
+? | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
+? | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 
 ## REST Services Running on an Inforation Server
 Some services do not need Data Supremacy and are located on tradition servers. They are acccessed using cutomary REST calls. These REST services are provided by a thrid part. The API can be found at [Postman](https://documenter.getpostman.com/view/16362858/UVXokDS6)
@@ -52,7 +52,7 @@ ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Helps user recover coins if so
 ```
 ![Convert](zips/exchange.png)
 
-# Convert Crypto To West
+# Check Depository For Deposit
 * The client must check with the exchange rate web API and decide when to convert. 
 * The client will not get to specify the price due to the slowness of crypto transactions.
 * The RAIDA will then check the price with the same API, if the prices are within 1% of each other, the transaction shall be made. 
@@ -102,7 +102,7 @@ Locker not found| ??
 ```
 
 
-# Convert West To Crypto
+# Withdraw from Depository
 * The user must first put the coins that they want to sell into a locker.
 * The client must check with the exchange rate web API and decide when to convert. 
 * The client will tell the RAIDA what price it would like to buy at (based on the exchange rate)
