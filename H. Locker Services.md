@@ -19,7 +19,9 @@
 82| [Put](#put) 
 83| [Peek](#peek)
 84 | [Remove](#remove)
-
+?? | [Name Locker](#name-locker)
+?? | [Transfer](#transfer)
+??| [Put Named Locker](#put-named-locker) 
 
 ### Client Actions
 Here are the steps that the client should do to send tokens to a locker:
@@ -139,5 +141,49 @@ MS //Mixed content bitfield. Maybe many bytes. One byte for 8 tokens. 0 is fail,
 3E 3E  //Not Encrypted
 ```
 
+## Name Locker
+Gives a Locker an easy to remember name and setsup a hash of it's locker key so that the locker can recieve coins without the sender knowing what the locker key is.
+Sample Call to Remove tokens
+```c
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK // Locker Key to Name
+NM NM NM NM NM NM NM NM NM NM NM NM NM NM NM NM // MD5 Hash of Name
+3E 3E  //Not Encrypted
+```
+
+Sample Response
+Response Status | Code
+---|---
+Link Made| ??
+Locker Does not Exist | ??
+MD5 Hash Already in Use | ??
+
+Response Body:
+```
+3E 3E
+```
+
+## Transfer
+Moves coins from one locker to another locker
+Sample Call to Remove tokens
+```c
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK // Locker Key to Name
+NM NM NM NM NM NM NM NM NM NM NM NM NM NM NM NM // MD5 Hash of Name
+$$ $$ $$ // Amount of coins to transfer
+3E 3E  //Not Encrypted
+```
+Sample Response
+Response Status | Code
+---|---
+Link Made| ??
+From Locker Does not Exist | ??
+To MD5 Hash does not exist | ??
+Insufficient funds | ??
+
+Response Body:
+```
+3E 3E
+```
 
 
