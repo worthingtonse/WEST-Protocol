@@ -64,6 +64,7 @@ Decimal Value | Hex Value | Name | Function
 9 | 0x9 | Admin Keys | Admins can create all key types and mint coins. Also admins can query stat services (get_stat, audit). Admins can call ANY service on the RAIDA.
 10 | 0xA | RAIDA Keys | Used for inner-RAIDA communication. Only one service (validate_ticket) checks these keys
 11 | 0xB | KYC Keys | Anyone can upload KYC documents to the RAIDA filesystem. (create_folder, delete_folder, upload_file, delete_file)
+12 | 0xC | KYC Admin Keys | These keys are used to read ALL uploaded KYC documents
 
 
 # Get Available SNs
