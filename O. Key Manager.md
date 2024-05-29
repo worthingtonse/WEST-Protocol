@@ -30,7 +30,7 @@ Usage of ./dist/wyoming_key_manager:
 ./dist/wyoming_key_manager createkey <type>
 ./dist/wyoming_key_manager deletekey <type> <key_id>
 ./dist/wyoming_key_manager mintcoins <name> <denomination> <count>
-<type> Key type. One of: kyc, user, treasurer, raida, admin
+<type> Key type. One of: kyc, kycadmin, user, treasurer, raida, admin
 <key_id> Key ID (serial number)
 <name> Wallet Name
 <denomination> Coin Denomination (from -7 to 7)
