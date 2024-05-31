@@ -18,6 +18,8 @@ init_mode = 1
 ```
 
 Key Manager can also mint coins. A treasurer key is needed for that purpose.
+On top of that any user with KYCADMIN permission can list files and folders for any user on the RAIDA
+'listfolder' and 'getfile' commands can be used
 
 The full list of possible arguments:
 
@@ -30,6 +32,8 @@ Usage of ./dist/wyoming_key_manager:
 ./dist/wyoming_key_manager createkey <type>
 ./dist/wyoming_key_manager deletekey <type> <key_id>
 ./dist/wyoming_key_manager mintcoins <name> <denomination> <count>
+./dist/wyoming_key_manager listfolder <user_id> <path>
+./dist/wyoming_key_manager getfile <user_id> <path>
 <type> Key type. One of: kyc, kycadmin, user, treasurer, raida, admin
 <key_id> Key ID (serial number)
 <name> Wallet Name
@@ -101,4 +105,20 @@ $ ./dist/wyoming_key_manager mintcoins Default 10 12
 
 
 
+# Listing folders
 
+You can list folders for any user. Pass <user_id> as the first argument to the 'listfolder' command
+
+```
+$ ./dist/wyoming_key_manager listfolder 345 /kyc
+{"code":0,"items":[]}
+```
+
+# Downloading filer
+
+You can download files from the RAIDA. Pass <user_id> as the first argument to the 'listfolder' command
+
+```
+$ ./dist/wyoming_key_manager getfile 345 /kyc
+{"code":0,"items":[]}
+```
