@@ -114,11 +114,10 @@ $ ./dist/wyoming_key_manager listfolder 345 /kyc
 {"code":0,"items":[]}
 ```
 
-# Downloading filer
+# Downloading files
 
 You can download files from the RAIDA. Pass <user_id> as the first argument to the 'listfolder' command
 
 ```
-$ ./dist/wyoming_key_manager getfile 345 /kyc
-{"code":0,"items":[]}
+$ ./dist/wyoming_key_manager getfile 345 /kyc > ./myfile.bin
 ```
