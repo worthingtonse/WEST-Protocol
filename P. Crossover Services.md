@@ -8,9 +8,9 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Command | Link
 ---|---|---
-? | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
-? | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
-? | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
+110 | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
+111 | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
+112 | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 
 ## REST Services Running on an Inforation Server
 Some services do not need Data Supremacy and are located on tradition servers. They are acccessed using cutomary REST calls. These REST services are provided by a thrid part. The API can be found at [Postman](https://documenter.getpostman.com/view/16362858/UVXokDS6)
