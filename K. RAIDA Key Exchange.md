@@ -1,6 +1,6 @@
-# Key Exchange (Command Group 4)
+# RAIDA Key Exchange (Command Group 4)
 
-These services allow the Client to exchange keys with a RAIDA to support quantum safe encryption. 
+These services allow the RAIDA Client to exchange keys with a RAIDA to support quantum safe encryption.
 
 
 Command Code | Service 
