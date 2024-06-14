@@ -9,7 +9,7 @@ Command Code | Service | Notes
 42 | [Key Alert](#key_alert) | Allows the Initiating Client to inform the Passive Server to pick up keys. 
 43 | [Key Get](#key_get) | The Passive Server calls this service to receive the key parts
 
-## Post Key
+## KEY POST
 The sender computer that wants to initiate an encrypted session with a receiver server will take a key and devide into parts. 
 Then it will post each part on a different RAIDA.
 
@@ -29,7 +29,7 @@ KY | The key Part | Can hold any data and keys up to 128 bytes ( 3.2 KB accross 
 KS | *Key Start | Because the fixed key space could be zeros if empty, the client may fill unused bytes with random numbers. This is the byte (indexed by zeros) that is the first byte of the key
 KL | Key Length | This is the total number of bytes in the key and is used for finding the end of the key. 
 E3 | End bytes | Specifies the end of the Request Body. Not encrypted. 
-This is done to thwart decryption and you can just put 0 for the key start to start at the first KY byte. 
+
 Sample Request: 185 bytes fixed.
 ```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  //Challenge
@@ -65,7 +65,7 @@ Code | Status | Details | Implemented Now?
 7 | Fail: Coin used for encryption was used too many times. | No
 8 | Offline | Service temporarilty offline  | No
 
-## Alert Key
+## ALERT KEY
 Tells the Receiver that there are keys waiting for it. 
 The client can use any combinations of RAIDA it wants to. It can use all 25 or just 2.
 However, the reciever has the option of using a subset of the key parts that they Sender has suggested. 
@@ -83,7 +83,7 @@ SN | Serial Number | Client can prove their identity by supplying this.
 E3 | End bytes | Specifies the end of the Request Body. Not encrypted. 
 
 Sample Request (Unencrypted): 62 bytes for every key part plus two ending bytes. 
-```hex
+```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  
 NU //THe number of key parts that have created. 
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Hash of the Key ID put on the first RKE server
@@ -97,7 +97,7 @@ E3 E3 //Not Encrypted
 ```
 
 Sample Response to Sender:
-```hex
+```sql
 FF FF 00 FF 00 00 00 00 00 FF 00 00 00 00 00 00 //Byte fields showing which key parts were used. 
 E3 E3  //Not Encrypted
 ```
@@ -109,7 +109,7 @@ Sample Response Body SHowing that key parts 0, 1 and 3 where used and key part. 
 Allows a client to get a key on an RKE server that was left for them by a computer initiating a private conversation.  
 
 Sample Request fixed size: 
-```hex
+```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH 
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //Key ID Hash
 DN  SN SN SN SN //The encryption ID of the key sender (Optional all zeros)
