@@ -2,7 +2,7 @@
 
 These services allows computers that do not share a common secret to trade keys. 
 This is designed to be a quantum safe replacement for TLS/RSA.
-![RAIDA KEY EXCHANGE](zips/rke.png)
+![RAIDA KEY EXCHANGE](zips/rke.jpg)
 Command Code | Service | Notes
 ---|---|---
 41 | [Key Post]( #key_post) | Allows the Initiating Client to put key parts on the RAIDA
@@ -10,26 +10,26 @@ Command Code | Service | Notes
 43 | [Key Get](#key_get) | The Passive Server calls this service to receive the key parts
 
 ## Post Key
-The computer that wants to initiate an encrypted session with a server will take a key and devide into parts. 
+The sender computer that wants to initiate an encrypted session with a receiver server will take a key and devide into parts. 
 Then it will post each part on a different RAIDA.
 
 It is the client that must handle the keys as the Post Key service has not logic besides storing data. 
 See the Key Post Client Guidlines below for details. 
 
-Each RAIDA can store 70 bytes.
+Each RAIDA can store 128 bytes of a key.
 
 Byte Code | Name | Purpose
 ---|---|---
-CH | Challenge | This is for mutual identification. The server must decrypt this and return it with the response 
-ID | Key ID | The client must choose a random key ID for its key. The reciver will need this to get the key. 
+CH | Challenge | This is for mutual identification. The RAIDA server must decrypt this and return it with the response 
+ID | Key ID | The client must choose a random key ID for its key. The reciver will need to store this. 
 IP | Reciver's IP | The sender can specify that the reciver must have that IP address to get the key. (Optional. Zeros if empty)
 DN | ID Denomination | If the client wants the receiver to authenticate, it can requre a denomination and serial number 
 SN | ID Serial Number | Client can prove their identity by supplying this.
 KY | The key Part | Can hold any data and keys up to 128 bytes ( 3.2 KB accross the entire RAIDA). 
-KS | Key Start | Because the fixed key space could be zeros if empty, the client may fill unused bytes with random numbers. This is the byte (indexed by zeros) that is the first byte of the key
-KL | Key Length | This is the total number of byte in the key and is used for finding the end of the key. 
+KS | *Key Start | Because the fixed key space could be zeros if empty, the client may fill unused bytes with random numbers. This is the byte (indexed by zeros) that is the first byte of the key
+KL | Key Length | This is the total number of bytes in the key and is used for finding the end of the key. 
 E3 | End bytes | Specifies the end of the Request Body. Not encrypted. 
-
+This is done to thwart decryption and you can just put 0 for the key start to start at the first KY byte. 
 Sample Request: 185 bytes fixed.
 ```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  //Challenge
@@ -158,6 +158,7 @@ The client should first break this up into 16 parts. The table below shows the k
 that key part should be stored on. R05 means RAIDA 5. 
 
 R05 | R06|R07| R08 | R10| R11| R12| R13| R15| R16| R017| R18| R20| R21| R22| R23|
+---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 E987|3D79|C6D8|7DC0|FB6A|5778|6333|89F4|4532|1330|3DA6|1F20|BD67|FC23|3AA3|3262
 
 Then the parity information is calculated horizonally and vertically according to the following diagram. 
