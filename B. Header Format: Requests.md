@@ -182,6 +182,7 @@ Code | Type | Description | Bytes after EN
 0 | No encryption | Clear Text | 5 ( All Zeros)
 1 | 128 AES CRT | Shared Secret |  5 (1 DN + 4 SN)
 2 | 128 AES CRT | Locker Key is used | This is used by the PEEK command if the user doesn not have any coins yet. See PEEK in Locker Services. 
+3 | 128 AES CRT | Peer-to-Peer RKE | This is used when two computers who have used RKE to exhange keys are using byte 17 through 21 of the header as an ID for a key instead of a coin. 
 
 ### ENCRYPTION RULES All SERVICES
 
