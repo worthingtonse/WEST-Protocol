@@ -2,7 +2,7 @@
 
 These services allows computers that do not share a common secret to trade keys. 
 This is designed to be a quantum safe replacement for TLS/RSA.
-
+![RAIDA KEY EXCHANGE](zips/rke.png)
 Command Code | Service | Notes
 ---|---|---
 41 | [Key Post]( #key_post) | Allows the Initiating Client to put key parts on the RAIDA
