@@ -67,7 +67,7 @@ Code | Status | Details | Implemented Now?
 7 | Fail: Coin used for encryption was used too many times. | No
 8 | Offline | Service temporarilty offline  | No
 
-## ALERT KEY
+## KEY ALERT
 Tells the Receiver that there are keys waiting for it. 
 The client can use any combinations of RAIDA it wants to. It can use all 25 or just 2.
 However, the reciever has the option of using a subset of the key parts that they Sender has suggested. 
@@ -107,7 +107,7 @@ Sample Response Body SHowing that key parts 0, 1 and 3 where used and key part. 
 
 
 
-# GET KEY
+# KEY GET
 Allows a client to get a key on an RKE server that was left for them by a computer initiating a private conversation.  
 
 Sample Request fixed size: 
