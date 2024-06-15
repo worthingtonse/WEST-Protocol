@@ -5,9 +5,10 @@ This is designed to be a quantum safe replacement for TLS/RSA.
 ![RAIDA KEY EXCHANGE](zips/rke.jpg)
 Command Code | Service | Notes
 ---|---|---
-41 | [Key Post]( #key_post) | Allows the Initiating Client to put key parts on the RAIDA
-42 | [Key Alert](#key_alert) | Allows the Initiating Client to inform the Passive Server to pick up keys. 
-43 | [Key Get](#key_get) | The Passive Server calls this service to receive the key parts
+41 | [Key Post]( #key-post) | Allows the Initiating Client to put key parts on the RAIDA
+42 | [Key Alert](#key-alert) | Allows the Initiating Client to inform the Passive Server to pick up keys. 
+43 | [Key Get](#key-get) | The Passive Server calls this service to receive the key parts
+- | [Peer To Peer](#peer-to-peer_) | How computers who have exchanged keys can connect with each other. 
 
 ## KEY POST
 The sender computer that wants to initiate an encrypted session with a receiver server will take a key and devide into parts. 
@@ -21,10 +22,11 @@ Each RAIDA can store 128 bytes of a key.
 Byte Code | Name | Purpose
 ---|---|---
 CH | Challenge | This is for mutual identification. The RAIDA server must decrypt this and return it with the response 
-ID | Key ID | The client must choose a random key ID for its key. The reciver will need to store this. 
+ID | Key ID | Client makes a random key ID. ID is needed for a direct connection. Client and reciver will need to store this. 
 IP | Reciver's IP | The sender can specify that the reciver must have that IP address to get the key. (Optional. Zeros if empty)
 DN | ID Denomination | If the client wants the receiver to authenticate, it can requre a denomination and serial number 
 SN | ID Serial Number | Client can prove their identity by supplying this.
+D3 | 
 KY | The key Part | Can hold any data and keys up to 128 bytes ( 3.2 KB accross the entire RAIDA). 
 KS | *Key Start | Because the fixed key space could be zeros if empty, the client may fill unused bytes with random numbers. This is the byte (indexed by zeros) that is the first byte of the key
 KL | Key Length | This is the total number of bytes in the key and is used for finding the end of the key. 
@@ -33,9 +35,9 @@ E3 | End bytes | Specifies the end of the Request Body. Not encrypted.
 Sample Request: 185 bytes fixed.
 ```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  //Challenge
-ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //Key ID
+ID ID ID ID ID FU FU FU FU FU FU FU FU FU FU FU FU //Key ID (5 bytes) and 11 bytes for future use. 
 IP IP IP IP IP IP IP IP IP IP IP IP I4 I4 I4 I4 //IP address of the computer to receive (Optional. Zeros if empty)
-DN SN SN SN SN //Encryption Coin that Receiver should use (Optional. Zeros if empty)
+DN SN SN SN SN //Encryption Coin that Receiver should use to get the key (Optional. Zeros if empty)
 KY KY KY KY KY KY KY KY KY KY KY KY KY KY KY KY //Key space. There are a fixed 128 bytes of key space in every post
 KY KY KY KY KY KY KY KY KY KY KY KY KY KY KY KY //Key space. The key space is a bunch of random numbers.
 KY KY KY KY KY KY KY KY KY KY KY KY KY KY KY KY //Key 
@@ -86,7 +88,7 @@ Sample Request (Unencrypted): 62 bytes for every key part plus two ending bytes.
 ```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  
 NU //THe number of key parts that have created. 
-ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Hash of the Key ID put on the first RKE server
+HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS // A hash of the five byte Key ID used in the Key Post 
 IP IP IP IP IP IP IP IP IP IP IP IP IP IP IP IP 
 PT PT PT //IP and port number of the first RKE server
 DN SN SN SN SN //Senders Encryption Coin (Optional)
@@ -111,11 +113,20 @@ Allows a client to get a key on an RKE server that was left for them by a comput
 Sample Request fixed size: 
 ```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH 
-ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //Key ID Hash
+HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS // A hash of the five byte Key ID used in the Key Post 
 DN  SN SN SN SN //The encryption ID of the key sender (Optional all zeros)
 IP IP IP IP IP IP IP IP IP IP IP IP I4 I4 I4 I4 //IP address of the sender (Optional all zeros)
 E3 E3  //Not Encrypted
 ```
+
+Sample Respons fixed size: 
+```hex
+ID ID ID ID ID FU FU FU FU FU FU FU FU FU FU FU FU //Key ID (5 bytes) and 11 bytes for future use. 
+DN  SN SN SN SN //The encryption ID of the key sender (Optional) 
+IP IP IP IP IP IP IP IP IP IP IP IP I4 I4 I4 I4 (optoinal) Allows the server to prepare for a connection.
+E3 E3  //Not Encrypted
+```
+The reciever and the client must store the Key ID and its key. They key ID will be bytes 17,18,19,20 and 21 in the request header. 
 
 Response Status Codes
 Code | Status | Details
@@ -136,14 +147,13 @@ Code | Status | Details
 
 
 
-Sample Respons fixed size: 
-```hex
-ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID //Key ID Hash
-DN  SN SN SN SN //The encryption ID of the key sender 
-IP IP IP IP IP IP IP IP IP IP IP IP I4 I4 I4 I4 
-E3 E3  //Not Encrypted
-```
+## PEER TO PEER
+How computes connect to each other after key exchange. 
 
+1. The client and server must have the West Token Core Traffic Router Installed
+2. The client and server must be direct software to use the traffic router as a default gateway. 
+3. The encryption type in the request header should be '3'
+4. Bytes 17 through 21 in the Request header should be the key ID This is used when two computers who have used RKE to exhange keys are using byte 17 through 21 of the header as an ID for a key instead of a coin. 
 
 
 
