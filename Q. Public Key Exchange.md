@@ -8,7 +8,7 @@ Command Code | Service | Notes
 41 | [Key Post]( #key-post) | Allows the Initiating Client to put key parts on the RAIDA
 42 | [Key Alert](#key-alert) | Allows the Initiating Client to inform the Passive Server to pick up keys. 
 43 | [Key Get](#key-get) | The Passive Server calls this service to receive the key parts
-- | [Peer To Peer](#peer-to-peer) | How computers who have exchanged keys can connect with each other. 
+n/a| [Peer To Peer](#peer-to-peer) | How computers who have exchanged keys can connect with each other. 
 
 ## KEY POST
 The sender computer that wants to initiate an encrypted session with a receiver server will take a key and devide into parts. 
