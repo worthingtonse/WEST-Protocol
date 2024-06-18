@@ -1,5 +1,6 @@
-<img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/west.png" style="border-radius: 5%" height="200">
 # Introduction to the WEST Protocol
+<img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/west.png" style="border-radius: 5%" height="200">
+
 
 ## GOALS
 The Goals of the WEST Token are to create:
@@ -56,7 +57,7 @@ If I want to buy something from you, I will give you the file. Now we both have 
 <img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/i_give_you_the_file.png" style="border-radius: 5%" height="200">
 Anyone with the numbers can change them by going to 25 servers located all around Wyoming. 
 Once you have changed the numbers, the token is now yours because I no longer know the numbers and only you no the numbers. 
-<img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/you_change_the_passwords.png" style="border-radius: 5%" height="200">
+<img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/passwords.png" style="border-radius: 5%" height="200">
 This is how it works except it is all digital. All it required is a .5 second update of 25 databases in parallel. It is the fastest, most efficientt, easy to use monetary system in the world. 
 <img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/digital.png" style="border-radius: 5%" height="200">
 
