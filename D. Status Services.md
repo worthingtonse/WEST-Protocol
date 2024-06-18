@@ -112,6 +112,7 @@ Failure | 251
 
 ## Five Bit Table
 Dec | Letter
+---|---
 0 | 0/O
 1 | 1/I
 2 | 2
