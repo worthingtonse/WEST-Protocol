@@ -39,8 +39,16 @@ In addition, in the future,  the WEST Protocol can be used to support:
 
 
 ## TRUE CASH
-To reach its goals, the WEST Protocol creates a true digital cash token where the data of the monetary system is not stored centrally (like in a ledger) but is physically located on the computing devices of the people who own the tokens. 
-Just as cash is stored in wallets and purses, digital cash token is stored in files located on USB drives and Smartphones. 
+Cash is a monetary system whereby the individual in physical possession of the money is considered its rightful owner. Cash uses people as self-symbolizing data. Credit is symbolized by placing numerical values on physical media, commonly coins made of metal, notes made of paper, fabric or plastic, and with the WEST - files are stored on cell phones and USB drives.
+
+In contrast, a leger system is where the possession of money is recorded on a table and this table is maintained by a different entity. Legers symbolize people using numbers or letters. Credit is also symbolized by numbers or letters. Here there is no self-symbolizing data as everything is abstract. 
+
+Ledger Systems mix logic and data limiting their applications. Cash is pure data that simply needs to authenticate. This will allow the WEST to be developed quickly and inexpensivl. The West Tokken will be the ony Crossover currency that can go from the real world into virutal worlds including video games. 
+
+## Most Inovative
+CloudCoin is the first and only true digital cash and was created as an experiment. The WEST will be the first real use of this technology making Wyoming the most inovative Stable Token in the world. The WEST Token will be protected by USPTO patent number [10,650,375](https://patents.justia.com/patent/10650375). So there will be no copy cats. The serverside code is not open source, further protecting agains immitators. This code took six years of R&D to create.  
+
+
 
 Suppose that I have a file called a WEST Token. This file has a serial number and dozens of authenticity numbers in it. If I physically have the file, then I am the owner because I know the authenticity numbers. 
 If I want to buy something from you, I will give you the file. Now we both have the numbers. 
@@ -73,4 +81,4 @@ Autheticity Numbers are sixteeen bytes and are created by the Clients. Clients s
 The format for the coins is a binary file format that is founded under L. File Formates. 
 
 
- [1] Cash is defined as a currency or token whose database’s data is stored with the owner of the data. Coins and paper money are data stored in the pockets of their owners. WEST stores data on the computers, smart phones and USB drives of their owners. 
+
