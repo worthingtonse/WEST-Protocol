@@ -84,7 +84,7 @@ Date Time | IP Address | User Key | Service Command Number| Service Details | Ex
 ---|---|---|---|---|---|---
 6/18/2024, 9:04:25 AM | 189.23.98.223 | e004af90-7a34-454d-af17-6aec64584fe7 | 8 | 10 TOKENS * | 5773 | 241
 4 Bytes | 16 Bytes | 16 Bytes | 1 Byte | 23 Bytes | 2 Bytes | 2 Byte
-* The first byte of the service details spefies is the service details are 8 bit or 5 bit ascii If zero it is 8 bit. Not zero is 5 bit. 8 bit allows for 22 characters. 5 bit allows for 35 characters. In five bit, zeros and ohs are the same O/O and ones and Eyes are the same 1/I. See five bit table below.
+* The first byte of the Service Details spefies is the Service Details are 8 bit or 5 bit. If the first byte is a zero, it uses 8 bit otherwise it uses 5 bit. See the 5 bit table below. 
 
 Data is collected on the following subjects: 
 1. Chronology. Such as the day and time when the most authentication requests occure.
