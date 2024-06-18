@@ -1,4 +1,4 @@
-# Key Healing Services (Command Group 4)
+# Healing Services For Keys (Command Group 4)
 
 These services allow the RAIDA Client to fix encryption keys that are fracked with a RAIDA to support quantum safe encryption. (Fracked means that a minority of RAIDA think the key is counterfeit)
 
