@@ -48,12 +48,17 @@ Ledger Systems mix logic and data limiting their applications. Cash is pure data
 ## Most Inovative
 CloudCoin is the first and only true digital cash and was created as an experiment. The WEST will be the first real use of this technology making Wyoming the most inovative Stable Token in the world. The WEST Token will be protected by USPTO patent number [10,650,375](https://patents.justia.com/patent/10650375). So there will be no copy cats. The serverside code is not open source, further protecting agains immitators. This code took six years of R&D to create.  
 
-
+## How It Works
 
 Suppose that I have a file called a WEST Token. This file has a serial number and dozens of authenticity numbers in it. If I physically have the file, then I am the owner because I know the authenticity numbers. 
+![The Wyoming Stable Token](zips/I_have_a_file.png)
 If I want to buy something from you, I will give you the file. Now we both have the numbers. 
+![The Wyoming Stable Token](zips/i_give_you_the_file.png)
 Anyone with the numbers can change them by going to 25 servers located all around Wyoming. 
 Once you have changed the numbers, the token is now yours because I no longer know the numbers and only you no the numbers. 
+![The Wyoming Stable Token](zips/you_change_the_passwords.png)
+This is how it works except it is all digital. All it required is a .5 second update of 25 databases in parallel. It is the fastest, most efficientt, easy to use monetary system in the world. 
+![The Wyoming Stable Token](zips/digital.png)
 
 We call a group of computers that do the same work but have completely different data and are run by different organizations "RAIDA".
 
