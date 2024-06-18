@@ -164,8 +164,6 @@ RC RC .. //Standard response record #N. 64 byes fixed for each record.
 
 
 
-## Example Request Body:
-
 <!--
 Code | Meaning
 --|--
