@@ -51,30 +51,45 @@ CloudCoin is the first and only true digital cash and was created as an experime
 
 ## How It Works
 
+### WEST Tokens are files 
+
+<img  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/I_have_a_file.png" height="200"> 
+
+
+
 Suppose that I have a file called a WEST Token. This file has a serial number and dozens of authenticity numbers in it. If I physically have the file, then I am the owner because I know the authenticity numbers. 
 
-<img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/I_have_a_file.png" style="border-radius: 5px" height="200">
 
 ---
+
+### Pass the file to make a purchase
+
+<img   height="200"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/i_give_you_the_file.png" style="border-radius: 10px" height="200">
+
+
 
 If I want to buy something from you, I will give you the file. Now we both have the numbers. 
-<img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/i_give_you_the_file.png" style="border-radius: 10px" height="200">
+
 
 ---
+
+
+### Change the passwords to make it yours. 
+<img   src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/passwords.png"  height="200">
 
 Anyone with the numbers can change them by going to 25 servers located all around Wyoming. 
 Once you have changed the numbers, the token is now yours because I no longer know the numbers and only you no the numbers. 
 
-<img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/passwords.png" style="border-radius: 15px" height="200">
-
 ---
+
+### The files are digital
+<img  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/digital.png"  height="200">
 
 This is how it works except it is all digital. All it required is a .5 second update of 25 databases in parallel. It is the fastest, most efficientt, easy to use monetary system in the world. 
-<img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/digital.png" style="border-radius: 20px" height="200">
 
 ---
 
-Lockers:
+### Use Lockers:
 
 The way we usally transfer money from one person to another is through the use of a RAIDA locker. People will put their coins in a safe locker on the RAIDA and then give another person the key. This reduces the amount of file handling that needs to happen. 
 <img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/locker.png" style="border-radius: 20px" height="200">
