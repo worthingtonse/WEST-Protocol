@@ -7,10 +7,10 @@ Explains that Status of the RAIDA.
 
 Command Code | Service | Description
 --- | --- | :---: 
-00 | [Echo](#echo) | Returns the challenge 
+00 | [Echo](#echo) | Sends a challenge handshake to test connection, encryption and mutual authenticate.
 01 | [Version](#version)  | Returns the version of the protocol
-02 | [Performance](#performance) | Returns the usage of services (Not Implemented)
-03 | [Count Coins](#count-coins) | Returns the number of tokens in the system
+02 | [Performance](#performance) | Returns performance indicators for diagnostics and performance (Not Implemented)
+03 | [Count Coins](#count-coins) | Returns the number of tokens on the RAIDA
 
 
 # Echo  
@@ -58,7 +58,7 @@ Returns the total number of coins the RAIDA has.
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 00 00 00 00 //for future use 
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. Only RAIDA can use this service and a password is required
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. User keys cannot access this service. 
 3E 3E
 ```
 Response Status | Code
