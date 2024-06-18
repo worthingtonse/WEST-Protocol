@@ -9,7 +9,7 @@ Command Code | Service | Description
 --- | --- | :---: 
 00 | [Echo](#echo) | Sends a challenge handshake to test connection, encryption and mutual authenticate.
 01 | [Version](#version)  | Returns the version of the protocol
-02 | [Performance](#performance) | Returns performance indicators for diagnostics and performance (Not Implemented)
+02 | [Status](#status) | Returns status and performance indicators for diagnostics (Not Implemented)
 03 | [Count Coins](#count-coins) | Returns the number of tokens on the RAIDA
 
 
@@ -74,6 +74,97 @@ CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 TO TO TO TO TO TO  //Six Byte total amount of coins
 3E 3E
 ```
+
+# Status
+We can create a custom dashboard that will display the data as required. The raw data can be imported to a database such as MySQL or into a platform such as DataDog so that meaningful graphic reports can be generated for the purpose of marketing metrics, system tuning, planning and PR. These reports will be generated based on the "Standard Report Records" as shown below: 
+
+## Sample Standard Reporting Record: 
+
+Date Time | IP Address | User Key | Service Command Number| Service Details | Execution Time Nanoseconds | Response Status
+---|---|---|---|---|---|---
+6/18/2024, 9:04:25 AM | 189.23.98.223 | e004af90-7a34-454d-af17-6aec64584fe7 | 8 | 10 TOKENS * | 5773 | 241
+4 Bytes | 16 Bytes | 16 Bytes | 1 Byte | 23 Bytes | 2 Bytes | 2 Byte
+* The first byte of the service details spefies is the service details are 8 bit or 5 bit ascii If zero it is 8 bit. Not zero is 5 bit. 8 bit allows for 22 characters. 5 bit allows for 35 characters. In five bit, zeros and ohs are the same O/O and ones and Eyes are the same 1/I. See five bit table below.
+
+Data is collected on the following subjects: 
+1. Chronology. Such as the day and time when the most authentication requests occure.
+2. IP Address. Where in the world are authentications happening
+3. Service Use. How many tokens were authenticated.
+4. Customer Key Use. What did a specific user do. 
+5. Technical. Transaction completion times, number of transactions per second, etc. 
+
+## Implementation
+We have not implemented this yet because we do not know the specific needs for data. Each of the 25 RAIDA will be tasked with loggin different commands. There are about 28 commands and each RAIDA can monitor one or two of them. This is one of the few services where the RAIDA returns more data than it receives. Thus it could be a target for a DDOS attack. To prevent any DDOS attacks, this service can only be accessed by Treasures and Administrators.  
+
+## Example Request Body:
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+00 00 00 00 //Time to start the status return used in the C programming langage
+00 00 00 00 // Time to end the status. Zero means until now.
+00 00        // Service to return. Zero means all of them .
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. User keys cannot access this service. 
+3E 3E
+```
+Response Status | Code
+---|---
+Success | 250
+Failure | 251
+
+## Five Bit Table
+Dec | Letter
+0 | 0/O
+1 | 1/I
+2 | 2
+3 | 3
+4 | 5
+5 | 5
+6 | 6
+7 | 7
+8 | 8
+9 | 9
+10 | A
+11 | B
+12 | C
+13 | D
+14 | E
+15 | F
+16 | G
+17 | H
+18 | J
+19 | K
+20 | L
+21 | M
+22 | N
+23 | P
+24 | Q
+25 | R
+26 | S
+25 | T
+26 | U
+27 | V
+28 | W
+29 | X
+30 | Y
+31 | Z
+
+
+Response:
+
+## Response
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+CT CT //Number of rows returned
+RC RC .. //Standard response record #1. 64 byes fixed for each record.
+RC RC .. //Standard response record #2. 64 byes fixed for each record.
+...
+RC RC .. //Standard response record #N. 64 byes fixed for each record. 
+3E 3E
+```
+
+
+
+## Example Request Body:
+
 <!--
 Code | Meaning
 --|--
