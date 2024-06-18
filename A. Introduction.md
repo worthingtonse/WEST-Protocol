@@ -51,9 +51,9 @@ CloudCoin is the first and only true digital cash and was created as an experime
 ## How It Works
 
 Suppose that I have a file called a WEST Token. This file has a serial number and dozens of authenticity numbers in it. If I physically have the file, then I am the owner because I know the authenticity numbers. 
-<img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/I_have_a_file.png" style="border-radius:5%" width="150" height="280">
-![The Wyoming Stable Token](zips/I_have_a_file.png)
+<img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/I_have_a_file.png" style="border-radius: 5%" height="200">
 If I want to buy something from you, I will give you the file. Now we both have the numbers. 
+<img src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/i_give_you_the_file.png" style="border-radius: 5%" height="200">
 ![The Wyoming Stable Token](zips/i_give_you_the_file.png)
 Anyone with the numbers can change them by going to 25 servers located all around Wyoming. 
 Once you have changed the numbers, the token is now yours because I no longer know the numbers and only you no the numbers. 
