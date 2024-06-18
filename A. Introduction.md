@@ -2,8 +2,7 @@
 <img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/west.png" style="border-radius: 5%" height="200">
 
 
-## GOALS
-The Goals of the WEST Token are to create:
+## The goals of the WEST Token are to be:
 * The fastest token in the world and complete transactions in less than half a second. 
 * The most scalable token in the world and will handle all the transactions it is given. 
 * The most energy efficient token in the world and will use less electricity than a house.
@@ -16,7 +15,7 @@ The Goals of the WEST Token are to create:
 * The token with the most ability to mitigate the risk of theft and loss.
 * The only token that provides accountability so that system administrators can’t steal without being noticed. 
 
-The WEST will be the only stable token in the world that separates data from logic so that:  
+## The WEST will be the only stable token in the world that separates data from logic so that:  
 * “smart contract” bugs are impossible.
 * It is the first “crossover currency” and can go between reality and virtual reality.
 * ”Turing complete” and usable by all computer programming languages.
@@ -25,12 +24,13 @@ The WEST will be the only stable token in the world that separates data from log
 * It can be easily stored in a person’s mind where it is undetectable.  
 * It can easily be integrated with existing ATM systems
 
-The WEST token has optional features including: 
+## The WEST token has optional features including: 
 * Easy to implement smart contracts system
 * Active Directory Administration
 * Loss Recovery of Coins
+* Extreemly Secure Multi-chain in addition to the existing Multi-chain.
 
-In addition, in the future,  the WEST Protocol can be used to support: 
+## In addition, in the future,  the WEST Protocol can be used to support: 
 * Quantum safe key exchange systems to replace the SSL/TLS Protocols that are not quantum safe. 
 * Quantum safe encrypted communications using any type of protocols such as HTTP, SMS, DNS, FTP.
 * Compression of protocols like the ones above so they use less bandwidth and download much faster
@@ -54,19 +54,24 @@ CloudCoin is the first and only true digital cash and was created as an experime
 Suppose that I have a file called a WEST Token. This file has a serial number and dozens of authenticity numbers in it. If I physically have the file, then I am the owner because I know the authenticity numbers. 
 
 <img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/I_have_a_file.png" style="border-radius: 5px" height="200">
+
 ---
 
 If I want to buy something from you, I will give you the file. Now we both have the numbers. 
-<img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/i_give_you_the_file.png" style="border-radius: 10px" height="200">
+<img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/i_give_you_the_file.png" style="border-radius: 10px" height="200">
 
 ---
+
 Anyone with the numbers can change them by going to 25 servers located all around Wyoming. 
 Once you have changed the numbers, the token is now yours because I no longer know the numbers and only you no the numbers. 
 
 <img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/passwords.png" style="border-radius: 15px" height="200">
+
 ---
+
 This is how it works except it is all digital. All it required is a .5 second update of 25 databases in parallel. It is the fastest, most efficientt, easy to use monetary system in the world. 
-<img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/digital.png" style="border-radius: 20px" height="200">
+<img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/digital.png" style="border-radius: 20px" height="200">
+
 ---
 
 Lockers:
