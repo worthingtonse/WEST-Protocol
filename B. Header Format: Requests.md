@@ -1,4 +1,4 @@
-![Request Headers](zips/header.jpg)
+![Request Headers](zips/header.png)
 
 [Request Headers Overview](#west-raida-request-headers)
 
