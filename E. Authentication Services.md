@@ -3,6 +3,18 @@
 
 These services check the authenticty of tokens and allow change of ownership.
 
+Key Terms: 
+
+AN: Authenticity Number. A 16 byte password that they coin has. Usually shown as 32 hexidecimal characters. 
+
+SN: Serial Number. Every coin has a unique 4 byte serial number .
+
+PAN or PN: Proposed Authenticity Number. The new AN that the client wants to repace the old AN with. 
+
+POWN: Password Own. To ask the RAIDA to change the AN to the PAN.
+
+Fracked: When a coin has one or more RAIDA that think it is counterfeit but more than 13 that think it is authentic. 
+
 Command Code | Service  | Description
 --- | --- |---
 10 | [Detect](#detect) | Tells if token is authentic without changing AN
