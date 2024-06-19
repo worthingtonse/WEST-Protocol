@@ -1,5 +1,5 @@
 # Introduction to the WEST Protocol
-<img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/west.png" style="border-radius: 5%" height="200">
+<img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/west.png" style="border-radius: 5%" height="300">
 
 
 ## The goals of the WEST Token are to be:
@@ -11,9 +11,10 @@
 * The easiest token to use.
 * The most bankable token that supports a strong banking industry. 
 * The most quantum safe token.
-* The most inexpensive as it requires no fees. 
+* The most inexpensive so users pay no fees. 
 * The token with the most ability to mitigate the risk of theft and loss.
-* The only token that provides accountability so that system administrators can’t steal without being noticed. 
+* The only token that provides accountability so that system administrators can’t steal without being noticed.
+* The only token where users can send thousands of microtransactions like .0000001 without any fees or lag. 
 
 ## The WEST will be the only stable token in the world that separates data from logic so that:  
 * “smart contract” bugs are impossible.
@@ -23,11 +24,13 @@
 * It can be transported using any transportation method. 
 * It can be easily stored in a person’s mind where it is undetectable.  
 * It can easily be integrated with existing ATM systems
+* Built in KYC document storage that is ultra secure. 
 
 ## The WEST token has optional features including: 
 * Easy to implement smart contracts system
 * Active Directory Administration
 * Loss Recovery of Coins
+* Theft recovery system 
 * Extreemly Secure Multi-chain in addition to the existing Multi-chain.
 
 ## In addition, in the future,  the WEST Protocol can be used to support: 
