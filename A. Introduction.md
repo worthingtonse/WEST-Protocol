@@ -89,6 +89,13 @@ This is how it works except it is all digital. All it required is a .5 second up
 
 ---
 
+### What a WEST Token Actually looks like
+
+<img  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/sample.png"  height="200">
+We don't actually need to see the serial numbers or authenticity numbers. One of the favorite ways of storing West Tokens is in .png files. Look at the image above. It is a .png file but it has many bytes of West Token information within it. PNG is a format that allows us to have custome "chunks" that will not be altered by other programs. If you download it and open it with a hex editor, you will see the serial numbers and authenticiy numbers of the coins. WEST Tokens can go into almost any file.   
+
+---
+ 
 ### Use Lockers:
 
 The way we usally transfer money from one person to another is through the use of a RAIDA locker. People will put their coins in a safe locker on the RAIDA and then give another person the key. This reduces the amount of file handling that needs to happen. 
