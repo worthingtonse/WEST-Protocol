@@ -109,11 +109,12 @@ In 1985, the US government created a RAIDA (redundant array of independent DNS a
 Instead of us being required to type a number like “189.98.226.16” into a web browser, we can now simply type in something easier to remember like “www.wyoming.gov”. 
 We all use this system thousands of times daily without even knowing it. 
 The DNS RAIDA plays an essential role in keeping the Internet working. 
-If the DNS RAIDA was to be hacked, it could bring down the entire Internet. 
-This system is scalable to the entire planet, is extremely fast and is free for everyone. 
+If the DNS RAIDA was to be hacked, it could bring down the entire Internet. The RAIDA has never gone down a minute since it was created in 1985. It has data supremacy and cannot be tampeted with. This system is scalable to the entire planet, is extremely fast and is free for everyone. 
 
 The properties of the RAIDA can also be used to detect counterfeit tokens. We place one RAIDA node in each county, one in the capital city and one in they University of Wyoming. 
 Each node is indepedently opperated so that there is no systemic risk of failure. 
+
+<img align="right"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/arc.png" >
 
 ## Conventions
 
