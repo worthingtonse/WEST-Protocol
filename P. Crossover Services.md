@@ -160,6 +160,7 @@ Asks a RAIDA server to send some crypto coins to a remote wallet
 The Server must download the key using the GetKey method from RAIDA servers
 This key is used to contact the remote API
 
+```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Key ID
 CD CD CD // Cryptocurrency ticker
@@ -167,6 +168,7 @@ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount
 $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+```
 
 Response Status | Code
 ---|---
