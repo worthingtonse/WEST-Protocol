@@ -168,6 +168,7 @@ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount
 $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+3E 3E //Not Encrypted
 ```
 
 Response Status | Code
