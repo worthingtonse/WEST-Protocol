@@ -163,7 +163,7 @@ This key is used to contact the remote API
 ```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 CD CD CD // Cryptocurrency ticker
-ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Key ID
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Receipt ID
 KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV
 KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV // Key Value
 $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount 
