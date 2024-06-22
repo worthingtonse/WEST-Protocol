@@ -162,8 +162,10 @@ This key is used to contact the remote API
 
 ```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Key ID
 CD CD CD // Cryptocurrency ticker
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Key ID
+KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV
+KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV // Key Value
 $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount 
 $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
