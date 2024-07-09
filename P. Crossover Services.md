@@ -12,6 +12,7 @@ Command Code | Command | Link
 111 | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
 112 | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 113 | [TriggerTransaction](#trigger-transaction) | Requests a RAIDA server to send a crypto transaction to a remote wallet
+114 | [GetRate](#get-rate) | Gets exchange rate from a remote source
 
 ## REST Services Running on an Inforation Server
 Some services do not need Data Supremacy and are located on tradition servers. They are acccessed using cutomary REST calls. These REST services are provided by a thrid part. The API can be found at [Postman](https://documenter.getpostman.com/view/16362858/UVXokDS6)
@@ -172,6 +173,29 @@ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
 3E 3E //Not Encrypted
+```
+
+Response Status | Code
+---|---
+Success | 250
+Failure | 251
+
+
+# Get Rate
+
+Requests the exchange rate between cryptocurrency and US dollar
+A remote API is used to get this rate. 
+
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+CD CD CD // Cryptocurrency ticker
+3E 3E //Not Encrypted
+```
+
+Response 
+```
+$$ $$ $$ $$ $$ $$ $$ $$ // 8 bytes exchange rate for 1 USD
+3E 3E 
 ```
 
 Response Status | Code
