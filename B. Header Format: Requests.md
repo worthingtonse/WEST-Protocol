@@ -68,14 +68,14 @@ Index (Decimal) | Group | Code | Name | Notes
 19 | Encryption | SN |  Encryption token SN 1 | 2nd Highest Order Byte
 20 | Encryption | SN |  Encryption token SN 2 |  
 21 | Encryption | SN |  Encryption token SN 3| Lowest Order Byte
-22 | Encryption | BL | Body Length | Length in bytes of the entire body including the last 2 terminating bytes. 
-23 | Encryption | BL | Body Length| LOB. if more than 65K bytes are sent, then these two will be FF FF and bytes 24, 25, 26 and 27 will tokentain the length. 
-24 | Nonce | NO |  Nonce 0 | The nonce used in the encryption.
-25 | Nonce | NO |  Nonce 1 | 
-26 | Nonce | NO |  Nonce 2|
-27 | Nonce | NO |  Nonce 3| Nouce bytes 0-7 should be random and never used twice. 
-28 | Nonce | NO |  Nonce 4 |
-29 | Nonce | NO |  Nonce 5 |
+22 | Encryption | BL u16| Body Length | Length in bytes of the entire body including the last 2 terminating bytes. 
+23 | Encryption | BL u16| Body Length| LOB. if more than 65,535 bytes are sent, then bytes 22 and 23 will be FF FF and bytes 24, 25, 26 and 27 will be the body length. 
+24 | Nonce | NO |  Nonce 0 / BL u32 | The nonce used in the encryption and should never be used twice. 
+25 | Nonce | NO |  Nonce 1 / BL u32| 
+26 | Nonce | NO |  Nonce 2 / BL u32|
+27 | Nonce | NO |  Nonce 3 / BL u32| 
+28 | Nonce | NO |  Nonce 4 | Always a random byte
+29 | Nonce | NO |  Nonce 5 | Always a random byte
 30 | Nonce | NO |  Nonce 6 / Echo 0 | Serves two purposes. These bytes are always echoed back to the client.
 31 | Nonce | NO |  Nonce 7 / Echo 1 | 
 
@@ -84,7 +84,7 @@ Index (Decimal) | Group | Code | Name | Notes
 * The nounce is also a challenge. The RKE (RAIDA Key Exchange) server must decrypt this and place it in the response if RKE is enabled. 
 
 
-## COMMAND GROUPS
+## COMMAND GROUPS FOR APPLICATION CODE 0 (Taken from bytes 9 and 10)
 Code | Name | Description
 --- | --- | ---
 0 | Status | Status, Errors that have nothing to do with commands but usually with headers
