@@ -163,7 +163,6 @@ This key is used to contact the remote API
 
 ```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
-RN // Raida Number that is sending this request
 CD CD CD // Cryptocurrency ticker
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Receipt ID
 KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV
