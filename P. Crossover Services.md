@@ -13,6 +13,7 @@ Command Code | Command | Link
 112 | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 113 | [TriggerTransaction](#trigger-transaction) | Requests a RAIDA server to send a crypto transaction to a remote wallet
 114 | [GetRate](#get-rate) | Gets exchange rate from a remote source
+115 | [WatchForTransaction](#watch-for-transaction) | Checks if a transaction is confirmed on the Blockchain
 
 ## REST Services Running on an Inforation Server
 Some services do not need Data Supremacy and are located on tradition servers. They are acccessed using cutomary REST calls. These REST services are provided by a thrid part. The API can be found at [Postman](https://documenter.getpostman.com/view/16362858/UVXokDS6)
@@ -201,3 +202,32 @@ Response Status | Code
 ---|---
 Success | 250
 Failure | 251
+
+
+
+# Watch For Transaction
+* Contacts a blockchain explorer to check on the transaction status (whether it is completed)
+* If the transaction has at least 1 confirmation the "SUCCESS" code will be returned
+  
+
+Sample Request
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
+3E 3E //Not Encrypted
+```
+
+Response
+```
+//Empty 
+3E 3E 
+
+```
+
+Response Status | Code
+---|---
+Success | 250 // Transaction confirmed
+Fail | 251
+
+
