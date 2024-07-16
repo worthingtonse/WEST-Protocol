@@ -202,6 +202,8 @@ Response Status | Code
 ---|---
 Success | 250
 Failure | 251
+BackendError | 193 // Error in External API
+KeyBuild | 192 // Failed to build key
 
 
 
@@ -220,7 +222,10 @@ TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR
 
 Response
 ```
-//Empty 
+//Empty
+$$ $$ $$ $$ $$ $$ $$ $$ $$ // Amount sent
+$$ $$ $$ $$ $$ $$ $$ $$ $$ // Fees
+CF CF CF CF CF CF CF CF CF // Number of confirmations
 3E 3E 
 
 ```
@@ -228,6 +233,8 @@ Response
 Response Status | Code
 ---|---
 Success | 250 // Transaction confirmed
-Fail | 251
+DoesNotExist | 191 // Transaction doesn't exist
+Empty | 190 // Transaction doesn't send anything to our wallet
+BackendError | 193 // Error in External API
 
 
