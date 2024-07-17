@@ -43,10 +43,11 @@ Sample Request
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key that they RAIDA should create. 
 CD CD CD //currency code to look out for.
-$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount of crypto that should
-$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // arrive in the RAIDA's wallet. e.g. 22254.992840891
-AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD // 32 bytes. Sender's cryptocurrency address
+$$ $$ $$ $$ $$ $$ $$ $$ // 8 Bytes for the amount of crypto that should
+AS // Address size
+AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD // 32-35 bytes. Sender's cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+AD AD AD
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID the client would like to use
 ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Memo should contain identifyable tansaction information 
 ...
@@ -127,7 +128,7 @@ Sample Request
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key with CloudCoins
 CD CD CD //currency code to convert to
-$$ $$ $$ //Converstion cost expected
+$$ $$ $$ $$ $$ $$ $$ $$ $$//Converstion cost expected
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
@@ -168,10 +169,11 @@ CD CD CD // Cryptocurrency ticker
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Receipt ID
 KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV
 KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV // Key Value
-$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ // 32 Bytes for the amount 
-$$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$ $$
+$$ $$ $$ $$ $$ $$ $$ $$ // 8 Bytes for the amount 
+AS // Adress size (from 32 to 35)
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+AD AD AD
 3E 3E //Not Encrypted
 ```
 
