@@ -4,53 +4,66 @@ Auditor Services allow authorized personel to see specific information that is n
 
 Server Owner | Purpose | Notes
 ---|---|---
-Auditor | Looks at Token Usage | This is the only service that allows State of Wyoming Officials to understand the activities of customers. Here they can actaully see who is spending
-what money and what transactions are occuring.
+Auditor | Looks at Token Usage | This is the only service that allows State of Wyoming Officials to understand the activities of customers. Here they can actaully see who is spending what money and what transactions are occuring.
 Treasurer | Looks at events dealing with token creation, management and deletion | All events having to do with the creation of tokens are recorded on this one network node
-Performance | Monitors the System's Performance | This shows how many transaction are being handled, wher transactions are comming from in the world, time to execute transactions and other
-performance indicators
-
+Performance | Monitors the System's Performance | This shows how many transaction are being handled, wher transactions are comming from in the world, time to execute transactions and other performance indicators
 
 Because of security concens, only the Node Located in the Auditor's Office should have auditor functionality. 
 
 # Status
 We can create a custom dashboard that will display the data as required. The raw data can be imported to a database such as MySQL or into a platform such as DataDog so that meaningful graphic reports can be generated for the purpose of marketing metrics, system tuning, planning and PR. These reports will be generated based on the "Standard Report Records" as shown below: 
 
-## Sample Standard Reporting Record: 
+## The Events Table: 
+Records common events such as authentications, healing, locker services, 
+Event ID | Date Time | IP Address | User ID | Service Command Number| Amount Processed | Execution Time Nanoseconds | Response Status
+---|---|---|---|---|---|---|---
+1 | 6/18/2024, 9:04:25 AM | 189.23.98.223 | e004af90-7a34-454d-af17-6aec64584fe7 | 8 | 10  | 5773 | 241
+4 bytes | 4 Bytes | 16 Bytes | 16 Bytes | 2 Bytes | 4 Bytes | 2 Bytes | 2 Byte
 
-Date Time | IP Address | User ID | Service Command Number| Service Details | Execution Time Nanoseconds | Response Status
----|---|---|---|---|---|---
-6/18/2024, 9:04:25 AM | 189.23.98.223 | e004af90-7a34-454d-af17-6aec64584fe7 | 8 | 10 TOKENS * | 5773 | 241
-4 Bytes | 16 Bytes | 16 Bytes | 1 Byte | 23 Bytes | 2 Bytes | 2 Byte
-* The first byte of the Service Details spefies is the Service Details are 8 bit or 5 bit. If the first byte is a zero, it uses 8 bit otherwise it uses 5 bit. See the 5 bit table below. 
+* The first byte of the Service Details spefies is the Service Details are 8 bit or 5 bit. If the first byte is a zero, it uses 8 bit otherwise it uses 5 bit. See the 5 bit table below.
+
+## The Events Details Table
+Event ID | Detail
+---|---
+12 | String of information
+4 bytes | 252 bytes
+
+
+
+
+
 
 Metric Being Recorded | Included in Auditor | Included in Treasure | Included in Performance
+---|---|---|---
 Date Time | ✅  |✅| ✅
 IP Address | ✅  |✅| ✅
-User ID | ✅  |❌| ❌
+User ID* | ✅  |✅| ❌
 Service Command Number | ✅  |✅| ✅
 Execution Time Nanoseconds | ✅  |✅| ✅
 Response Status | ✅  |✅| ✅
-Customer Actions | ✅  |❌| ✅
 Token Creation | ✅  |✅| ❌
 Token Deletion | ✅  |✅| ❌
 Set Conversion Fee | ✅  |✅| ❌
-Account Creation | ✅  |✅| ❌
-Account Deletion | ✅  |✅| ❌
+User ID Enabling | ✅  |✅| ❌
+User ID Disabling | ✅  |✅| ❌
 KYC Document Access | ✅  |✅| ❌
 
+The User ID is what allows activities to be traced to people. This is the biggest privacy concern. 
 
 
 Data is collected on the following subjects: 
 1. Chronology. Such as the day and time when the most authentication requests occure.
 2. IP Address. Where in the world are authentications happening
 3. Service Use. How many tokens were authenticated.
-4. Customer Key Use. What did a specific user do. 
-5. Technical. Transaction completion times, number of transactions per second, etc. 
+4. Customer ID Use. What did a specific user do. 
+5. Technical. Transaction completion times, number of transactions per second, etc.
+6. Administrative actions such as creating 
 
+
+<!--
 ## Implementation
 We have not implemented this yet because we do not know the specific needs for data. Each of the 25 RAIDA will be tasked with loggin different commands. There are about 28 commands and each RAIDA can monitor one or two of them. This is one of the few services where the RAIDA returns more data than it receives. Thus it could be a target for a DDOS attack. To prevent any DDOS attacks, this service can only be accessed by Treasures and Administrators.  
-<!--
+
 ## Example Request Body:
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
@@ -64,7 +77,7 @@ Response Status | Code
 ---|---
 Success | 250
 Failure | 251
--->
+
 ## Five Bit Table
 Dec | Letter
 ---|---
