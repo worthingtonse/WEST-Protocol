@@ -10,7 +10,6 @@ Performance | Monitors the System's Performance | This shows how many transactio
 
 Because of security concens, only the Node Located in the Auditor's Office should have auditor functionality. 
 
-# Status
 We can create a custom dashboard that will display the data as required. The raw data can be imported to a database such as MySQL or into a platform such as DataDog so that meaningful graphic reports can be generated for the purpose of marketing metrics, system tuning, planning and PR. These reports will be generated based on the "Standard Report Records" as shown below: 
 
 ## The Events Table: 
@@ -76,6 +75,17 @@ Data is collected on the following subjects:
 4. Customer ID Use. What did a specific user do. 
 5. Technical. Transaction completion times, number of transactions per second, etc.
 6. Administrative actions such as creating 
+
+
+## Dashboards
+
+### Auditor Dashboard
+The records are shown from newest to oldest with the newest on top. 
+
+### Performance Dashboard
+Shows all eight columns. There is a filter by drop down on each column head. Events can be sorted by start and end date. They can choose just one command to look at. "All" is the default. Sort based on user ID is possible. Sort by ip address. Sort by nanoseconds taken. Sort by Respons code ('All' is default. There is a button "Search" that causes the query to execute. 
+
+
 
 
 <!--
