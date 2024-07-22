@@ -1,12 +1,12 @@
-# Auditing Services
+# Auditing Work Stations
 
-Auditor Services allow authorized personel to see specific information that is neccessary for their job function. Three of the RAIDA are marked as "Auditing Nodes."
+Auditor Work Stations are computer designed to be used for one thing: Auditing WEST Token activities. There are three of them: Treasure, Auditor and Performance Monitoring. These macines are designed to be physically located in the same buildings as West Nodes  allow authorized personel to see specific information that is neccessary for their job function. 
 
-Server Owner | Purpose | Notes
----|---|---
-Auditor | Looks at Token Usage | This is the only service that allows State of Wyoming Officials to understand the activities of customers. Here they can actaully see who is spending what money and what transactions are occuring.
-Treasurer | Looks at events dealing with token creation, management and deletion | All events having to do with the creation of tokens are recorded on this one network node
-Performance | Monitors the System's Performance | This shows how many transaction are being handled, wher transactions are comming from in the world, time to execute transactions and other performance indicators
+Server Owner | Location | Purpose | Notes
+---|---|---|---
+Auditor | State Auditor's Office | Looks at Token Usage | This is the only service that allows State of Wyoming Officials to understand the activities of customers. Here they can actaully see who is spending what money and what transactions are occuring.
+Treasurer | State Treasure's Office | Looks at events dealing with token creation, management and deletion | All events having to do with the creation of tokens are recorded on this one network node
+Performance | University of Wyoming's Center for Blockchain and Digital Inovation | Monitors the System's Performance | This shows how many transaction are being handled, wher transactions are comming from in the world, time to execute transactions and other performance indicators
 
 Because of security concens, only the Node Located in the Auditor's Office should have auditor functionality. 
 
@@ -85,7 +85,13 @@ The records are shown from newest to oldest with the newest on top.
 ### Performance Dashboard
 Shows all eight columns. There is a filter by drop down on each column head. Events can be sorted by start and end date. They can choose just one command to look at. "All" is the default. Sort based on user ID is possible. Sort by ip address. Sort by nanoseconds taken. Sort by Respons code ('All' is default. There is a button "Search" that causes the query to execute. 
 
-
+Reports Buttons
+1. Search 
+2. Show Averages
+3. Show Counts
+4. Show Max and Min
+5. Show Totals
+6. Show Uniques
 
 
 <!--
