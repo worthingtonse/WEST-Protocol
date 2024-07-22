@@ -1,5 +1,5 @@
 # Auditing Work Stations
-
+<img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/dashboard.png" style="border-radius: 5%" >
 Auditor Work Stations are computer designed to be used for one thing: Auditing WEST Token activities. There are three of them: Treasure, Auditor and Performance Monitoring. These macines are designed to be physically located in the same buildings as West Nodes  allow authorized personel to see specific information that is neccessary for their job function. 
 
 Server Owner | Location | Purpose | Notes
