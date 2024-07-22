@@ -1,4 +1,4 @@
-# Auditor Services
+# Auditing Services
 
 Auditor Services allow authorized personel to see specific information that is neccessary for their job function. Three of the RAIDA are marked as "Auditing Nodes."
 
