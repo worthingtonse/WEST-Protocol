@@ -15,23 +15,41 @@ We can create a custom dashboard that will display the data as required. The raw
 
 ## The Events Table: 
 Records common events such as authentications, healing, locker services, 
-Event ID | Date Time | IP Address | User ID | Service Command Number| Amount Processed | Execution Time Nanoseconds | Response Status
+event_id | date_time | ip_address | user_id | service_command_number| amount_processed | execution_time_nanoseconds | response_status
 ---|---|---|---|---|---|---|---
 1 | 6/18/2024, 9:04:25 AM | 189.23.98.223 | e004af90-7a34-454d-af17-6aec64584fe7 | 8 | 10  | 5773 | 241
-4 bytes | 4 Bytes | 16 Bytes | 16 Bytes | 2 Bytes | 4 Bytes | 2 Bytes | 2 Byte
+4 bytes | 4 Bytes | 16 Bytes | 16 Bytes | 2 Bytes | 2 Bytes | 2 Bytes | 2 Byte
 
 * The first byte of the Service Details spefies is the Service Details are 8 bit or 5 bit. If the first byte is a zero, it uses 8 bit otherwise it uses 5 bit. See the 5 bit table below.
 
-## The Events Details Table
-Event ID | Detail
----|---
-12 | String of information
-4 bytes | 252 bytes
+## RAIDA Error Table "raida_errors"
+error_id | date_time | error_string
+---|---|---
+4 bytes | 4 bytes | 255 bytes
+
+
+## Special command numbers that represent events. Auditors events start with 500. Treasurey events with 600 and Performance Events with 700.  
+Event ID / Command Number | Event Title | Event Details
+---|---|---
+500 | KYC Account Created | Records everytime a user is created. User ID is the account creator. IP Address becomes the user ID created.
+501 | KYC Account Deleted | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+502 | User Account Created | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+503 | User Account Deleted | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+504 | Auditor Account Created | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+505 | Auditor Account Deleted | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+506 | Tresurer Account Created | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+507 | Tresurer Account Deleted | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+508 | Auditor Account Created | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
+509 | Admin Account Deleted | Records everytime a user is created. User ID is the account creator. IP Address becomes the user ID created.
+600 | Admin Rate changed | Currency ID that was changed. Amount is the rate it was changed to. 
+700 | Server Starting | everything else is zeros
+701 | Page Written | User ID is blank. Page number goes in amoun
+702 | Internal Error Recorded | post a detail to the RAIDA Error Table "raida_errors".
+703 | Locker Index File Full | Amount is the amount of records that are full
 
 
 
-
-
+## Role Permissions 
 
 Metric Being Recorded | Included in Auditor | Included in Treasure | Included in Performance
 ---|---|---|---
