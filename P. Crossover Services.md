@@ -6,14 +6,14 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 # Commands
 
-Command Code | Command | Link
----|---|---
-110 | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
-111 | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
-112 | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
-113 | [TriggerTransaction](#trigger-transaction) | Requests a RAIDA server to send a crypto transaction to a remote wallet
-114 | [GetRate](#get-rate) | Gets exchange rate from a remote source
-115 | [WatchForTransaction](#watch-for-transaction) | Checks if a transaction is confirmed on the Blockchain
+Command Code | Type | Command | Link
+---|---|---|---
+110 | Buy West with blockchain  | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
+111 | Buy West with blockchain | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
+112 | Buy Blockchain with West | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
+113 | Buy Blockchain with Wet | [TriggerTransaction](#trigger-transaction) | Requests a RAIDA server to send a crypto transaction to a remote wallet
+114 | Both | [GetRate](#get-rate) | Gets exchange rate from a remote source
+115 | Buy West with blockchain | [WatchForTransaction](#watch-for-transaction) | Checks if a transaction is confirmed on the Blockchain
 
 ## REST Services Running on an Inforation Server
 Some services do not need Data Supremacy and are located on tradition servers. They are acccessed using cutomary REST calls. These REST services are provided by a thrid part. The API can be found at [Postman](https://documenter.getpostman.com/view/16362858/UVXokDS6)
