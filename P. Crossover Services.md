@@ -217,6 +217,7 @@ KeyBuild | 192 // Failed to build key
 Sample Request
 ```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+CD CD CD // Cryptocurrency ticker
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
 3E 3E //Not Encrypted
