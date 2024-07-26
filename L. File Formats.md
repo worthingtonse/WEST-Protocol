@@ -194,6 +194,42 @@ AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN AN
 
 ```
 
+
+<!--
+# Text Based Files
+These files are designed for people to read them. They are used when the primary concern is the user. They use the .html file format with one data point per line. 
+
+```ini
+<!DOCTYPE>
+<head>
+<title>Wyoming Extensible Stable Token</title>
+</head>
+<body>
+<!-- Format like: “YYYY-MM-DD HH:MM:SS” 
+<h2 id="updated">Last Updated = "2022-06-16 23:15:34"</h2>
+<h2 id="den">Denomination = Hundred Thousand </h2>
+<h2 id="sn">Serial Number = 558554 </h2>
+<h3 id ="s01">Secret 01 = </h3> 
+ </body>
+</html>
+
+
+
+```
+Names of sixteen denominations: 
+Million
+Hundred Thousand
+Ten Thousand
+One Thousand
+One Hundred
+Ten
+one
+zero
+Dime
+Cent
+
+
+
 <!--
 
 
