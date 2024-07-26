@@ -1,6 +1,8 @@
 # Remote Procedure Call Services
 RPC Services allows clients to make simple calls to get simple information. 
 
+Command Group Number is 12
+
 This has not been developed yet. 
 
 ![Status Services](zips/gpg.png)
