@@ -8,7 +8,7 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 
 Command Code | Type | Command | Link
 ---|---|---|---
-110 | Buy West with blockchain  | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
+110🔴 | Not Needed Buy West with blockchain  | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
 112 | Buy Blockchain with West | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 113 | Buy Blockchain with Wet | [TriggerTransaction](#trigger-transaction) | Requests a RAIDA server to send a crypto transaction to a remote wallet
 114 | Both | [GetRate](#get-rate) | Gets exchange rate from a remote source
