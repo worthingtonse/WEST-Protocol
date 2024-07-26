@@ -17,6 +17,56 @@ Command Code | Service | Description
 122 | [Get Exchange Rate](#get_exchange_rate) | Gets the exchange rate between West and another currency.
 123 | [Ask AI](#ask_ai) | Asks AI a question
 124 | [GET URL](#get-url) | Gets the return data from a URL call. 
+125 | [Payment Sent Alert](#payment-sent-alert) | Gets the return data from a URL call. 
+
+## Payment Sent Alert
+* The client must check with the exchange rate web API and decide when to convert. 
+* The client will not get to specify the price due to the slowness of crypto transactions.
+* The RAIDA will then check the price with the same API, if the prices are within 1% of each other, the transaction shall be made. 
+* The Administrators must have a market maker account with enough West tokens in it to handle the transaction.
+* First come first serve with the market account to keep it simple. If the market account runs out conversion stops.
+* The RAIDA will make a call to a block explore for the transaction supplied by the client
+* RAIDA checks the data of the transactoin. If it is too old it is rejected.
+* RAIDA checks the list of recetn transactions and makes sure tokens have not been isssued yet.
+* RAIDA puts coins from the market locker into the client's locker. 
+
+The user sends:
+* The cryptocurrency-code they send coins to. 
+* The transaction numbers.
+* Their crypto wallet address that coins were sent from.
+* The receipt number (not required )
+* The memo (up to 1300 bytes allows for 20KB on 16 RAIDAs)
+
+Sample Request
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key that they want the coins to be put into.
+CD CD CD // Currency Code that was sent
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME
+...
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //up to 1300 bytes of memo data. Optional.
+3E 3E //Not Encrypted
+```
+
+
+Response Status | Code
+---|---
+Success | 250
+Not enough market coins| ??
+Price differnt more than 1% | ??
+Address did not fit allowable format | ??
+Memo too long | ??
+Receipt ID in use| ?? 
+Locker not found| ?? 
+
+```
+ //Empty 
+3E 3E 
+
+```
 
 
 
