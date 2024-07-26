@@ -93,6 +93,7 @@ SRV - ServiceRecord = 0x2
 
 
 Response: Success Status 250
+NXDOMAIN Status 185
 
 Version (8 bytes)
 ```
