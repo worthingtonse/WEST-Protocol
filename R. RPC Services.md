@@ -79,12 +79,19 @@ fully qualified domain name requested can be up to 64 bytes.
 Request (no parameters)
 ```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+RR
 FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN //64 Bytes Fixed
 FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN
 FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN
 FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN FQ DN 
 3E 3E
 ```
+
+RR - Record Type. 
+A - IPv4 address = 0x1
+SRV - ServiceRecord = 0x2
+
+
 Response: Success Status 250
 
 Version (8 bytes)
