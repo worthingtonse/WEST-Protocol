@@ -96,7 +96,8 @@ Response: Success Status 250
 
 Version (8 bytes)
 ```
-IP V4 IP V4 // four byte IPV4 address. 
+IP V4 IP V4 // four byte IPV4 address.
+PN PN // port number
 3E 3E
 ```
 
