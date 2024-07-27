@@ -20,6 +20,7 @@ Command Code | Service | Description
 123 | [Ask AI](#ask_ai) | Asks AI a question
 124 | [GET URL](#get-url) | Gets the return data from a URL call. 
 125 | [Payment Sent Alert](#payment-sent-alert) | Gets the return data from a URL call. 
+126 | Ghost Chats | Sends Messages to other users using quantum safe encryption. 
 
 ## Payment Sent Alert
 * The client must check with the exchange rate web API and decide when to convert. 
