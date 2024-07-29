@@ -7,6 +7,7 @@ These services allow the RAIDA to heal when a token becomes counterfeit on one R
 Command Code | Service 
 --- | --- 
 40 | [Get Ticket](#/get-ticket)
+41 | [Get Ticket By Sum](#/get-ticket-by-sum)
 50 | [Validate Ticket](#validate-ticket)
 60 | [Find](#find)
 80 | [Fix](OFF_LEDGER.md#fix) 
@@ -45,6 +46,74 @@ MT MT MT MT  //Master Ticket
 Example Response if all mixed :
 ```hex
 MS MS MS MS MS MT MT MT MT  //Master Ticket 
+3E 3E 
+```
+
+# GET TICKET BY SUM
+Like DETECT SUM, except it returns a ticket. The ANs are added up and put in one number. 
+This service can be much faster than GET TICKET, especially if there are lots of tokens being detected. 
+Use UDP if sending between 65 and 275 notes. 
+Use TCP if sending more than 275 notes, you should use TCP and it is probably better to use regular detect in case one of the tokens is bad.  
+
+The sum is calculated as per these steps:
+1. Eech AN of every coin is converted to four 32 integers from a byte array
+```
+i0 = an[0] | an[1]<<8 | an[2]<<16 | an[3]<<24
+i1 = an[4] | an[5]<<8 | an[6]<<16 | an[7]<<24
+i2 = an[8] | an[9]<<8 | an[10]<<16 | an[11]<<24
+i3 = an[12] | an[13]<<8 | an[14]<<16 | an[15]<<24
+```
+2. The integers are XOR-ed to the accumulator (XOR-ed sum). The initial value of the XOR-ed sum is zeroes
+```
+sum[0] ^= i0
+sum[1] ^= i1
+sum[2] ^= i2
+sum[3] ^= i3
+```
+3. Steps #1 and #2 are repeated for every coin
+4. The resulting sum is converted to a byte array (SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU)
+```
+SU = sum[0]
+SU = sum[0] >> 8
+SU = sum[0] >> 16
+SU = sum[0] >> 24
+SU = sum[1]
+SU = sum[1] >> 8
+SU = sum[1] >> 16
+SU = sum[1] >> 24
+SU = sum[2]
+SU = sum[2] >> 8
+SU = sum[2] >> 16
+SU = sum[2] >> 24
+SU = sum[3]
+SU = sum[3] >> 8
+SU = sum[3] >> 16
+SU = sum[3] >> 24
+```
+
+
+REQUEST: Example Request Body with four tokens:
+```hex
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+DN  SN SN SN SN 
+DN  SN SN SN SN  
+SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU //Some of all Authenticity Numbers with the higest numbers using ADD and not carrying about the Carrie bit (on the processor flags)
+3E 3E //Not Encrypted
+```
+Response Status | Code | Note
+---|---|---
+All Pass | 241 | All the tokens were authentic. 
+All Fail | 242 //really means sum does not add up. So, the tokens may all be good but just one is bad so the DETECT service should be run to no exactly which tokens are bad. 
+
+Example Response if pass :
+```hex
+MT MT MT MT  //Master Ticket
+3E 3E //Not Encryption
+```
+Example Response if fail :
+```hex
 3E 3E 
 ```
 
