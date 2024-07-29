@@ -1,6 +1,6 @@
-# Auditing Work Stations
+# Special Purpose Workstations
 <img align="left"  src="https://github.com/worthingtonse/WEST-Protocol/blob/main/zips/dashboard.png" style="border-radius: 5%" >
-Auditor Work Stations are computer designed to be used for one thing: Auditing WEST Token activities. There are three of them: Treasure, Auditor and Performance Monitoring. These macines are designed to be physically located in the same buildings as West Nodes  allow authorized personel to see specific information that is neccessary for their job function. 
+Special Purpose Workstations are computer designed to be used for a specific role. There are: Treasure, Auditor, Marketing and Performance Monitoring. These macines are designed to be physically located in the same buildings as West Nodes and allow authorized personel to see specific information that is neccessary for their job function. 
 
 Server Owner | Location | Purpose | Notes
 ---|---|---|---
@@ -65,6 +65,7 @@ Set Conversion Fee | ✅  |✅| ❌
 User ID Enabling | ✅  |✅| ❌
 User ID Disabling | ✅  |✅| ❌
 KYC Document Access | ✅  |✅| ❌
+Joining User ID with True Identity | ✅ |❌| ❌
 
 The User ID is what allows activities to be traced to people. This is the biggest privacy concern. 
 
