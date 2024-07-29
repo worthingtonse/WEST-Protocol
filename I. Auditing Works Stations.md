@@ -7,6 +7,7 @@ Server Owner | Location | Purpose | Notes
 Auditor | State Auditor's Office | Looks at Token Usage | This is the only service that allows State of Wyoming Officials to understand the activities of customers. Here they can actaully see who is spending what money and what transactions are occuring.
 Treasurer | State Treasure's Office | Looks at events dealing with token creation, management and deletion | All events having to do with the creation of tokens are recorded on this one network node
 Performance | University of Wyoming's Center for Blockchain and Digital Inovation | Monitors the System's Performance | This shows how many transaction are being handled, wher transactions are comming from in the world, time to execute transactions and other performance indicators
+Marketing | TBD | Monitor Activites Caused by Marketing | Allows marketers to use AI, BI to see the results of their marketing campaigns and to develop strategies to improve campaigns. 
 
 Because of security concens, only the Node Located in the Auditor's Office should have auditor functionality. 
 
