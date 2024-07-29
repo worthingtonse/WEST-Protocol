@@ -83,7 +83,7 @@ Data is collected on the following subjects:
 ## Dashboards
 
 ### Auditor Dashboard
-The records are shown from newest to oldest with the newest on top. 
+Top show all of the most important facts including the last 24 hours: Total trades, Total Tokens, Total Unique Individuals, Average Trade, Speed of trades, Biggest Trade. Averages, counts, max and mins, totals, uniques. Second row allows for the selection of common reports including biggest trades, volume over the day, AI enabled suspicius activity. See list below.  
 
 ### Performance Dashboard
 Shows all eight columns. There is a filter by drop down on each column head. Events can be sorted by start and end date. They can choose just one command to look at. "All" is the default. Sort based on user ID is possible. Sort by ip address. Sort by nanoseconds taken. Sort by Respons code ('All' is default. There is a button "Search" that causes the query to execute. 
