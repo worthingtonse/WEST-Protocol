@@ -50,7 +50,7 @@ Event ID / Command Number | Event Title | Event Details |
 
 
 
-## Role Permissions 
+## Event Monitoring Role Permissions 
 
 Metric Being Recorded | Included in Auditor | Included in Treasure | Included in Performance | Marketing
 ---|---|---|---|---
