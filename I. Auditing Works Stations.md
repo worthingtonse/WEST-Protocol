@@ -30,7 +30,7 @@ error_id | date_time | error_string
 
 
 ## Special command numbers that represent events. Auditors events start with 500. Treasurey events with 600 and Performance Events with 700.  
-Event ID / Command Number | Event Title | Event Details
+Event ID / Command Number | Event Title | Event Details | 
 ---|---|---
 500 | KYC Account Created | Records everytime a user is created. User ID is the account creator. IP Address becomes the user ID created.
 501 | KYC Account Deleted | Records everytime a user is created. User ID is the account creator. IP Address  becomes the user ID created.
@@ -52,21 +52,21 @@ Event ID / Command Number | Event Title | Event Details
 
 ## Role Permissions 
 
-Metric Being Recorded | Included in Auditor | Included in Treasure | Included in Performance
----|---|---|---
-Date Time | ✅  |✅| ✅
-IP Address | ✅  |✅| ✅
-User ID* | ✅  |✅| ❌
-Service Command Number | ✅  |✅| ✅
-Execution Time Nanoseconds | ✅  |✅| ✅
-Response Status | ✅  |✅| ✅
-Token Creation | ✅  |✅| ❌
-Token Deletion | ✅  |✅| ❌
-Set Conversion Fee | ✅  |✅| ❌
-User ID Enabling | ✅  |✅| ❌
-User ID Disabling | ✅  |✅| ❌
-KYC Document Access | ✅  |✅| ❌
-Joining User ID with True Identity | ✅ |❌| ❌
+Metric Being Recorded | Included in Auditor | Included in Treasure | Included in Performance | Marketing
+---|---|---|---|---
+Date Time | ✅  |✅| ✅|✅
+IP Address | ✅  |✅| ✅|✅
+User ID* | ✅  |✅| ❌|✅
+Service Command Number | ✅  |✅| ✅|✅
+Execution Time Nanoseconds | ✅  |✅| ✅|❌
+Response Status | ✅  |✅| ✅|❌
+Token Creation | ✅  |✅| ❌|✅
+Token Deletion | ✅  |✅| ❌|✅
+Set Conversion Fee | ✅  |✅| ❌|❌
+User ID Enabling | ✅  |✅| ❌|❌
+User ID Disabling | ✅  |✅| ❌|❌
+KYC Document Access | ✅  |✅| ❌|❌
+Joining User ID with True Identity | ✅ |❌| ❌|❌
 
 The User ID is what allows activities to be traced to people. This is the biggest privacy concern. 
 
