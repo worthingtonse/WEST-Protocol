@@ -18,7 +18,7 @@ Command Code | Service | Description
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
 150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
-? | [🔴Set Fee For Conversion](#set-fee-for-conversion) | The conversion fee set in percentages. 
+? | [🔴Set Fee For Swaps](#set-fee-for-swaps) | The conversion fee set in percentages. 
 
 
 ## Command Code Meanings
@@ -293,7 +293,7 @@ E3 E3 //Not Encrypted
 ```
 
 
-# Set Fee For Conversion
+# Set Fee For Swaps
 Everytime someone converst coins, a fee will be charged to the account of the West. This
 fee is set by the Treasure. In the future, the fee may be either fixed or variable and may have a complicated algorithm. Each currency may have a different fee associated with it. That is way there will be bytes reserved in the request body. For now this command just sets a percentage of the coins conversted. 
 
