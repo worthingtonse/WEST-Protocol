@@ -1,4 +1,5 @@
 # RAIDA Filesystem Service (Command Group 10)
+![Status Services](zips/files.png)
 
 These services allow the RAIDA to create and modify folders and data objects. 
 It is up to the client to stripe/mirror and sum objects.
