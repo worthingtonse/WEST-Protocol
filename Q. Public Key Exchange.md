@@ -87,7 +87,6 @@ E3 | End bytes | Specifies the end of the Request Body. Not encrypted.
 Sample Request (Unencrypted): 62 bytes for every key part plus two ending bytes. 
 ```sql
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  
-NU //THe number of key parts that have created. 
 HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS // A hash of the five byte Key ID used in the Key Post 
 IP IP IP IP IP IP IP IP IP IP IP IP IP IP IP IP 
 PT PT PT //IP and port number of the first RKE server
