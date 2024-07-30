@@ -89,7 +89,7 @@ Sample Request (Unencrypted): 62 bytes for every key part plus two ending bytes.
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH  
 HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS HS // A hash of the five byte Key ID used in the Key Post 
 IP IP IP IP IP IP IP IP IP IP IP IP IP IP IP IP 
-PT PT PT //IP and port number of the first RKE server
+PT PT //IP and port number of the first RKE server
 DN SN SN SN SN //Senders Encryption Coin (Optional)
 DE SE SE SE SE //Coin Receiver should use to do the encryption. (Optional/future use)
 --- The above four lines are repeated for every key part that the receiver is being told about. 
