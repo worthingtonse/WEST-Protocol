@@ -9,6 +9,7 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 Command Code | Type | Command | Link
 ---|---|---|---
 110🔴 | Not Needed Buy West with blockchain  | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
+111 | Buy West with blockchain | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
 112 | Buy Blockchain with West | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
 113 | Buy Blockchain with Wet | [TriggerTransaction](#trigger-transaction) | Requests a RAIDA server to send a crypto transaction to a remote wallet
 114🔴 | Both | [GetRate](#get-rate) | Gets exchange rate for the client (This has been moved to the RAIDAX Proxy on the Treasurer's Workstation). 
@@ -54,6 +55,85 @@ ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //Helps user recover coins if so
 3E 3E //Not Encrypted
 ```
 ![Convert](zips/exchange.png)
+
+
+
+
+
+
+
+
+
+# Check Depository For Deposit
+* The client must check with the exchange rate web API and decide when to convert. 
+* The client will not get to specify the price due to the slowness of crypto transactions.
+* The RAIDA will then check the price with the same API, if the prices are within 1% of each other, the transaction shall be made. 
+* The Administrators must have a market maker account with enough West tokens in it to handle the transaction.
+* First come first serve with the market account to keep it simple. If the market account runs out conversion stops.
+* The RAIDA will make a call to a block explore for the transaction supplied by the client
+* RAIDA checks the data of the transactoin. If it is too old it is rejected.
+* RAIDA checks the list of recetn transactions and makes sure tokens have not been isssued yet.
+* RAIDA puts coins from the market locker into the client's locker. 
+
+The user sends:
+* The cryptocurrency-code they send coins to. 
+* The transaction numbers.
+* Their crypto wallet address that coins were sent from.
+* The receipt number (not required )
+* The memo (up to 1300 bytes allows for 20KB on 16 RAIDAs)
+
+Sample Request
+```
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key that they want the coins to be put into.
+CD CD CD // Currency Code that was sent
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME
+...
+ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //up to 1300 bytes of memo data. Optional.
+3E 3E //Not Encrypted
+```
+
+
+Response Status | Code
+---|---
+Success | 250
+Not enough market coins| ??
+Price differnt more than 1% | ??
+Address did not fit allowable format | ??
+Memo too long | ??
+Receipt ID in use| ?? 
+Locker not found| ?? 
+
+```
+ //Empty 
+3E 3E 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Withdraw from Depository
 * The user must first put the coins that they want to sell into a locker.
