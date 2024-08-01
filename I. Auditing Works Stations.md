@@ -18,7 +18,7 @@ Records common events such as authentications, healing, locker services,
 event_id | date_time | ip_address | user_id | service_command_number| amount_processed | execution_time_nanoseconds | response_status
 ---|---|---|---|---|---|---|---
 1 | 6/18/2024, 9:04:25 AM | 189.23.98.223 | e004af90-7a34-454d-af17-6aec64584fe7 | 8 | 10  | 5773 | 241
-4 bytes | 4 Bytes | 16 Bytes | 16 Bytes | 2 Bytes | 2 Bytes | 2 Bytes | 2 Byte
+4 bytes | 4 Bytes | 16 Bytes | 16 Bytes | 2 Bytes | 4 Bytes | 4 Bytes | 2 Byte
 Int | DataTime | bin | bin |Small Int | Small Int | Small Int | Small Int
 
 * The first byte of the Service Details spefies is the Service Details are 8 bit or 5 bit. If the first byte is a zero, it uses 8 bit otherwise it uses 5 bit. See the 5 bit table below.
