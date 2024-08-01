@@ -9,10 +9,10 @@ RAIDA servers will have a special locker just for the West's conversion locker. 
 Command Code | Type | Command | Link
 ---|---|---|---
 110 | RAIDAX  | [Reserve Locker For Receiving West](#reserve-locker-for-receiving-west) | Used first when you want to convert Bitcoin to West. Prepares a locker for the user's West Tokens. 
-111 | RAIDAX | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. 
-112 | RAIDAX | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto
+111 | RAIDAX | [Check Depository For Deposit](#check-depository-for-deposit) | User sends Crypto to RAIDA's depository wallet. RAIDA puts West tokens into the clients locker. Calls service #115 on PythonRAIDA
+112 | RAIDAX | [Withdraw from Depository](#withdraw-from-depository) | After user puts West into a locker, the user sends the locker code to the RAIDA and the RAIDA sends that user crypto. Calls service #113 on PythonRAIDA
 113 | PythonRAIDA | [TriggerTransaction](#trigger-transaction) | Requests a RAIDA server to send a crypto transaction to a remote wallet
-114 | PythonRAIDA, RAIDAX | [GetRate](#get-rate) | Gets exchange rate for the client (This has been moved to the RAIDAX Proxy on the Treasurer's Workstation). 
+114 | PythonRAIDA, RAIDAX | [GetRate](#get-rate) | Gets exchange rate for the client (This has been moved to the RAIDAX Proxy on the Treasurer's Workstation). RAIDAX calls service #114 on PythonRAIDA
 115 | PythonRAIDA | [WatchForTransaction](#watch-for-transaction) | Checks if a transaction is confirmed on the Blockchain(This has been moved to the RAIDAX Proxy on the Treasurer's Workstation).
 
 ## REST Services Running on an Inforation Server
