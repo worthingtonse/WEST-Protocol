@@ -100,12 +100,11 @@ ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //up to 1300 bytes of memo data.
 Response Status | Code
 ---|---
 Success | 250
-Not enough market coins| ??
-Price differnt more than 1% | ??
-Address did not fit allowable format | ??
-Memo too long | ??
-Receipt ID in use| ?? 
-Locker not found| ?? 
+Not enough market coins| 182
+Price differnt more than 1% | 181
+Address did not fit allowable format | 198
+
+
 
 ```
  //Empty 
@@ -171,12 +170,9 @@ ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME //up to 1300 bytes of memo data.
 Response Status | Code
 ---|---
 Success | 250
-Not enough market coins| ??
-Price differnt more than 1% | ??
-Address did not fit allowable format | ??
-Memo too long | ??
-Receipt ID in use| ?? 
-Locker not found| ?? 
+Not enough market coins| 182
+Price differnt more than 1% | 181
+Address did not fit allowable format | 198
 
 ```
 TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK TK // Pickup Ticket
