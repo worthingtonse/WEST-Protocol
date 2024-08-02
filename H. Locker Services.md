@@ -62,14 +62,14 @@ Store is the exact same thing as POWN SUM but instead of adding a sum, a single 
 
 The sum is calculated as per these steps:
 1. Eech AN of every coin is converted to four 32 integers from a byte array
-```
+```c
 i0 = an[0] | an[1]<<8 | an[2]<<16 | an[3]<<24
 i1 = an[4] | an[5]<<8 | an[6]<<16 | an[7]<<24
 i2 = an[8] | an[9]<<8 | an[10]<<16 | an[11]<<24
 i3 = an[12] | an[13]<<8 | an[14]<<16 | an[15]<<24
 ```
 2. The integers are XOR-ed to the accumulator (XOR-ed sum). The initial value of the XOR-ed sum is zeroes
-```
+```c
 sum[0] ^= i0
 sum[1] ^= i1
 sum[2] ^= i2
