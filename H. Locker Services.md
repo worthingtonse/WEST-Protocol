@@ -57,11 +57,9 @@ Step 5 in detail:
 
 ## PUT
 
-Store is the exact same thing as POWN SUM but instead of adding a sum, a single PAN is used for all the tokens. This PAN becomes the "Locker Number". However, to make it clear that the PAN is a locker number, the last four bytes must be set to all ones (0xFF) by the client. 
+Store is the exact same thing as POWN SUM but instead of adding a sum, a single PAN is used for all the tokens. This PAN becomes the "Locker Number". However, to make it clear that the PAN is a locker number, the last four bytes must be set to all ones (0xFF) by the client. If a client is generating a locker key based on a hash of something, they should create the whole hash and then write all ones over the last four bytes. This is done so that the RAIDA can index the lockercodes easier and determine a coin is in a locker or not without having to have a seperate table or seperate index. It also allows the caller to create more than one locker key at the same time. 
 
-
-
-Sample Store Request:
+Sample Put Request:
 ```c
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 DN  SN SN SN SN 
@@ -72,6 +70,47 @@ SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU //The sum of all the ANs of the 
 PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  //This is the PAN for all the tokens. The last four bytes must be set to binary ones (0xFF) 
 3E 3E  //Not Encrypted
 ```
+
+Put with multiple lockers:
+```c
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+DN  SN SN SN SN   // Locker with two coins put in it
+DN  SN SN SN SN  
+SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU 
+PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  
+DN  SN SN SN SN  // Locker with six coins put in it
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+DN  SN SN SN SN
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU 
+PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF 
+DN  SN SN SN SN  // Locker with four coins put in it
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU
+PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  
+3E 3E 
+```
+
+### Response Status Table
+
+Status| Response Body Contents
+---|---
+All Passed | Will not include a response body | Will not include a response body | 
+All Failed | Will not include a response body
+Mixed | MT MT MT MT MS  //The MT are just zeros. 0x00 00 00 00. They are for future use. The number of MS bytes depends on the number of tokens p'owned. 
+
+MS means Mixed Status. Each bit returned represents the status of one token. If the bit is a zero then that token has failed. If the bit is a 1 then that token is authentic. 
+
+Response Status | Code
+---|---
+All Pass | 241
+All Fail | 242
+Mixed | 243
+ 
 
 ## PEEK
 Allows the caller to see all the serial numbers in a RAIDA Locker. This must be called before the REMOVE command can be called. It can also be used to find out how many coins are in the locker without removing them. 
