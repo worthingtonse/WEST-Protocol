@@ -77,7 +77,7 @@ sum[3] ^= i3
 ```
 3. Steps #1 and #2 are repeated for every coin
 4. The resulting sum is converted to a byte array (SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU)
-```
+```c
 SU = sum[0]
 SU = sum[0] >> 8
 SU = sum[0] >> 16
