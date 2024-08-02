@@ -97,57 +97,32 @@ Code | Name | Description
 
 ## COMMAND CODES
 
-### 0. Status Commands
-Code (Decimal) | Command | Description
---- | --- | --- 
- 00 |  Echo | Sends a request for a response.
- 01 | Version | Returns the version of the RAIDA Software
- 02 | ShowStats | Shows information about requests to the RAIDA
- 03 | Audit | Shows how many coins are in the RAIDA
-
-### 1. Authentication Commands
-Code (Decimal) | Command | Description
---- | --- | --- 
- 10 |  Detect | Compares authenticity numbers but does not change them.
- 11 |  Detect SUM | Compares authenticity numbers by adding them all together. Does not change them.
- 20 | P'Own | Password Own. Changes ANs (Authenticity Numbers) with PANs (Proposed Authenticity Numbers). 
- 21 | P'Own Check Sum | Checks the sums of all ANs sent at once and changes them if good.
- 
- ### 2. Healing Commands
-Code (Decimal) | Command | Description
---- | --- | --- 
- 40 |Get Ticket | Returns proof that the tokens are good. 
- 50 | Validate Ticket | Checks to see if a ticket is valid. 
- 60 |Find|  Checks last two ANs to see if there is a match. 
- 80 | Fix | Accepts a bunch of tickets to ensure they are good.
-
-### 3. Admin Commands
-Code (Decimal) | Command | Description
---- | --- | --- 
- 120 | Get Available SNs| Shows available serial numbers. 
- 130 | Create tokens| Adds more tokens to the total tokens on the RAIDA.
- 140 | Delete tokens| Removes tokens from the RAIDA.
- 160 | Get All SNs | Allows RAIDA to syncronize their serial numbers. 
-
- ### 4. Key Exchange 
- Code (Decimal) | Command | Description
---- | --- | --- 
- 44 |Encrypt Ticket | Returns an encrypted key part that can be used as a shared secret. 
- 45 | Fix Encryption | Accepts tickets from many RAIDA to created a shared secret from many "key parts". 
-
- ### 8. Locker Commands
-Code (Decimal) | Command | Description
---- | --- | --- 
- 82 | Put | Puts token in a locker that can be opened by a key.
- 83 | Peek | Just returns information about what is in the locker such as how many tokens are there. 
- 84 | Remove | Removes tokens from locker and destroys locker.
-
- ### 9. Change Commands
-Code (Decimal) | Command | Description
---- | --- | --- 
- 91 | Get Available SNs | Asks the RAIDA what SNs are available for use. 
- 92 | Break | Breaks token into ten smaller tokens. 
- 93 | Join | Joins smaller tokens into one larger token. 
+Group | Code (Decimal) | Command | Description
+---|--- | --- | --- 
+ Status |00 |  Echo | Sends a request for a response.
+ Status |01 | Version | Returns the version of the RAIDA Software
+ Status |02 | ShowStats | Shows information about requests to the RAIDA
+ Status |03 | Audit | Shows how many coins are in the RAIDA
+ Authentication | 10 |  Detect | Compares authenticity numbers but does not change them.
+ Authentication | 11 |  Detect SUM | Compares authenticity numbers by adding them all together. Does not change them.
+ Authentication | 20 | P'Own | Password Own. Changes ANs (Authenticity Numbers) with PANs (Proposed Authenticity Numbers). 
+ Authentication | 21 | P'Own Check Sum | Checks the sums of all ANs sent at once and changes them if good.
+Healing |  40 |Get Ticket | Returns proof that the tokens are good. 
+ Healing | 50 | Validate Ticket | Checks to see if a ticket is valid. 
+ Healing | 60 |Find|  Checks last two ANs to see if there is a match. 
+ Healing | 80 | Fix | Accepts a bunch of tickets to ensure they are good.
+ Treasury | 120 | Get Available SNs| Shows available serial numbers. 
+ Treasury |130 | Create tokens| Adds more tokens to the total tokens on the RAIDA.
+ Treasury |140 | Delete tokens| Removes tokens from the RAIDA.
+ Treasury |160 | Get All SNs | Allows RAIDA to syncronize their serial numbers. 
+ Key Exchange |44 |Encrypt Ticket | Returns an encrypted key part that can be used as a shared secret. 
+ Key Exchange |45 | Fix Encryption | Accepts tickets from many RAIDA to created a shared secret from many "key parts". 
+Locker | 82 | Put | Puts token in a locker that can be opened by a key.
+Locker | 83 | Peek | Just returns information about what is in the locker such as how many tokens are there. 
+Locker | 84 | Remove | Removes tokens from locker and destroys locker.
+ Change |91 | Get Available SNs | Asks the RAIDA what SNs are available for use. 
+ Change |92 | Break | Breaks token into ten smaller tokens. 
+ Change |93 | Join | Joins smaller tokens into one larger token. 
 
 ## DENOMINATIONS
 Except for ID Token and possible future extensions of this table decimal values should be treated as powers of ten.
