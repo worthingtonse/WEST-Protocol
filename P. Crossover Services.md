@@ -248,6 +248,7 @@ Sample Request
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 CD CD CD // Cryptocurrency ticker
 $$ $$ $$ $$ $$ $$ $$ $$ $$ // Amount expected
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK // Locker code
 CF // Number of confirmations
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // ReceiptID
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
