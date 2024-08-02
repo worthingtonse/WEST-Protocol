@@ -109,7 +109,7 @@ PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  //This is the PAN for all the t
 3E 3E  //Not Encrypted
 ```
 
-Put with multiple lockers:🔴 // Support for the creation of many lockers has not yet been implemented
+### Put with multiple lockers:🔴 // Support for the creation of many lockers has not yet been implemented
 ```c
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 DN  SN SN SN SN   // Locker with two coins put in it
