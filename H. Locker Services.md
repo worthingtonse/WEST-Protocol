@@ -59,6 +59,44 @@ Step 5 in detail:
 
 Store is the exact same thing as POWN SUM but instead of adding a sum, a single PAN is used for all the tokens. This PAN becomes the "Locker Number". However, to make it clear that the PAN is a locker number, the last four bytes must be set to all ones (0xFF) by the client. If a client is generating a locker key based on a hash of something, they should create the whole hash and then write all ones over the last four bytes. This is done so that the RAIDA can index the lockercodes easier and determine a coin is in a locker or not without having to have a seperate table or seperate index. It also allows the caller to create more than one locker key at the same time. 
 
+
+The sum is calculated as per these steps:
+1. Eech AN of every coin is converted to four 32 integers from a byte array
+```
+i0 = an[0] | an[1]<<8 | an[2]<<16 | an[3]<<24
+i1 = an[4] | an[5]<<8 | an[6]<<16 | an[7]<<24
+i2 = an[8] | an[9]<<8 | an[10]<<16 | an[11]<<24
+i3 = an[12] | an[13]<<8 | an[14]<<16 | an[15]<<24
+```
+2. The integers are XOR-ed to the accumulator (XOR-ed sum). The initial value of the XOR-ed sum is zeroes
+```
+sum[0] ^= i0
+sum[1] ^= i1
+sum[2] ^= i2
+sum[3] ^= i3
+```
+3. Steps #1 and #2 are repeated for every coin
+4. The resulting sum is converted to a byte array (SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU SU)
+```
+SU = sum[0]
+SU = sum[0] >> 8
+SU = sum[0] >> 16
+SU = sum[0] >> 24
+SU = sum[1]
+SU = sum[1] >> 8
+SU = sum[1] >> 16
+SU = sum[1] >> 24
+SU = sum[2]
+SU = sum[2] >> 8
+SU = sum[2] >> 16
+SU = sum[2] >> 24
+SU = sum[3]
+SU = sum[3] >> 8
+SU = sum[3] >> 16
+SU = sum[3] >> 24
+```
+
+
 Sample Put Request:
 ```c
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
@@ -71,7 +109,7 @@ PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  //This is the PAN for all the t
 3E 3E  //Not Encrypted
 ```
 
-Put with multiple lockers:
+Put with multiple lockers:🔴 // Support for the creation of many lockers has not yet been implemented
 ```c
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 DN  SN SN SN SN   // Locker with two coins put in it
@@ -99,11 +137,11 @@ PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF
 
 Status| Response Body Contents
 ---|---
-All Passed | Will not include a response body | Will not include a response body | 
-All Failed | Will not include a response body
-Mixed | MT MT MT MT MS  //The MT are just zeros. 0x00 00 00 00. They are for future use. The number of MS bytes depends on the number of tokens p'owned. 
+All Lockers Passed | Will not include a response body | Will not include a response body | 
+All Lockers Failed | Will not include a response body
+Mixed Lockers | MT MT MT MT MS  //The MT are just zeros. 0x00 00 00 00. They are for future use. The number of MS bytes depends on the number of tokens p'owned. 
 
-MS means Mixed Status. Each bit returned represents the status of one token. If the bit is a zero then that token has failed. If the bit is a 1 then that token is authentic. 
+MS means Mixed Status but here we are talking about a mixed group of lockers, not coins. Each bit returned represents the status of one locker. If the bit is a zero then that locker has failed. If the bit is a 1 then that locker is authentic. 
 
 Response Status | Code
 ---|---
