@@ -247,6 +247,8 @@ Sample Request
 ```
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 CD CD CD // Cryptocurrency ticker
+$$ $$ $$ $$ $$ $$ $$ $$ $$ // Amount expected
+CF // Number of confirmations
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
 3E 3E //Not Encrypted
@@ -257,7 +259,6 @@ Response
 //Empty
 $$ $$ $$ $$ $$ $$ $$ $$ $$ // Amount sent
 $$ $$ $$ $$ $$ $$ $$ $$ $$ // Fees
-CF CF CF CF CF CF CF CF CF // Number of confirmations
 3E 3E 
 
 ```
@@ -265,6 +266,7 @@ CF CF CF CF CF CF CF CF CF // Number of confirmations
 Response Status | Code
 ---|---
 Success | 250 // Transaction confirmed
+Seen | 183 // Transaction seen, but not confirmed yet
 DoesNotExist | 191 // Transaction doesn't exist
 Empty | 190 // Transaction doesn't send anything to our wallet
 BackendError | 193 // Error in External API
