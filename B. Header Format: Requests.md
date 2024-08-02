@@ -102,27 +102,44 @@ Group | Code (Decimal) | Command | Description
  Status |00 |  Echo | Sends a request for a response.
  Status |01 | Version | Returns the version of the RAIDA Software
  Status |02 | ShowStats | Shows information about requests to the RAIDA
- Status |03 | Audit | Shows how many coins are in the RAIDA
+ Status |03 | Count Coins | Shows how many coins are in the RAIDA
  Authentication | 10 |  Detect | Compares authenticity numbers but does not change them.
  Authentication | 11 |  Detect SUM | Compares authenticity numbers by adding them all together. Does not change them.
  Authentication | 20 | P'Own | Password Own. Changes ANs (Authenticity Numbers) with PANs (Proposed Authenticity Numbers). 
  Authentication | 21 | P'Own Check Sum | Checks the sums of all ANs sent at once and changes them if good.
 Healing |  40 |Get Ticket | Returns proof that the tokens are good. 
+Healing |  41 |Get Ticket by Sum | Returns proof that the tokens are good based on a sum of ANs. 
+Healing |  44 |Get Encryption Ticket | Returns proof that the tokens are good. 
+Healing |  45 |Fix Encryption | Returns proof that the tokens are good based on a sum of ANs. 
  Healing | 50 | Validate Ticket | Checks to see if a ticket is valid. 
  Healing | 60 |Find|  Checks last two ANs to see if there is a match. 
  Healing | 80 | Fix | Accepts a bunch of tickets to ensure they are good.
- Treasury | 120 | Get Available SNs| Shows available serial numbers. 
- Treasury |130 | Create tokens| Adds more tokens to the total tokens on the RAIDA.
- Treasury |140 | Delete tokens| Removes tokens from the RAIDA.
- Treasury |160 | Get All SNs | Allows RAIDA to syncronize their serial numbers. 
- Key Exchange |44 |Encrypt Ticket | Returns an encrypted key part that can be used as a shared secret. 
- Key Exchange |45 | Fix Encryption | Accepts tickets from many RAIDA to created a shared secret from many "key parts". 
-Locker | 82 | Put | Puts token in a locker that can be opened by a key.
+ Locker | 82 | Put | Puts token in a locker that can be opened by a key.
 Locker | 83 | Peek | Just returns information about what is in the locker such as how many tokens are there. 
 Locker | 84 | Remove | Removes tokens from locker and destroys locker.
  Change |91 | Get Available SNs | Asks the RAIDA what SNs are available for use. 
  Change |92 | Break | Breaks token into ten smaller tokens. 
  Change |93 | Join | Joins smaller tokens into one larger token. 
+ Files | 101 | Create Folder | Creates a folder on the RAIDA
+ Files | 102 | Show Folder Contents | Shows list of files and folders
+ Files | 103 | Remove Folder | Removes a folder
+ Files | 104 | Put Object | Uploads a file
+ Files | 105 | Get Object | Downloads a file
+ Files | 106 | Remove Object | Deletes a file
+ Files | 107 | Show Any Folder Contents | Used by KYC officers to see list of files
+ Files | 108 | Get Any Object | Used by KYC officers to see files
+ 
+ Treasury | 120 | Get Available SNs| Shows available serial numbers. 
+ Treasury |130 | Create tokens| Adds more tokens to the total tokens on the RAIDA.
+ Treasury |140 | Delete tokens| Removes tokens from the RAIDA.
+ Treasury |150 | Release Lock| Tells RAIDA to release lock on reserved SNs. 
+ Treasury | 151 | Set Fee for Swaps | Allows Treasure to set the fee swap rate 
+ Treasury |160 | Get All SNs | Allows RAIDA to syncronize their serial numbers. 
+ 
+ Key Exchange |44 |Encrypt Ticket | Returns an encrypted key part that can be used as a shared secret. 
+ Key Exchange |45 | Fix Encryption | Accepts tickets from many RAIDA to created a shared secret from many "key parts". 
+
+
 
 ## DENOMINATIONS
 Except for ID Token and possible future extensions of this table decimal values should be treated as powers of ten.
