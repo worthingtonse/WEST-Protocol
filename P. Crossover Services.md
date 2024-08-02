@@ -249,6 +249,7 @@ CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 CD CD CD // Cryptocurrency ticker
 $$ $$ $$ $$ $$ $$ $$ $$ $$ // Amount expected
 CF // Number of confirmations
+ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // ReceiptID
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
 3E 3E //Not Encrypted
