@@ -8,5 +8,6 @@ Anyone can put coins in. Only the owner of the account can move the out to a loc
 Command Code | Service | Description
 --- | --- | :---: 
 ? | 🔴[Payment](#) | People put money into a special depository & receive an invoice. 
+? | 🔴[See Invoice](#) | This receipt id allows anyone to see an invoice about what happened. 
 ? | 🔴[Confirm Payment](#confirm-payment) | Confirms that a payment has been made and marks the payment as confirmed.
 ? | 🔴[Move to Locker](#move-to-locker) | Orders tokens to be destroyed. 
