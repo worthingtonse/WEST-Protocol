@@ -199,6 +199,7 @@ AS // Adress size (from 32 to 35)
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
 AD AD AD
+ME ME ME ... ME // Memo up to 1500 bytes
 3E 3E //Not Encrypted
 ```
 
@@ -248,7 +249,8 @@ LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK // Locker code
 CF // Number of confirmations
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // ReceiptID
 TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR // Transaction ID
-TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR 
+TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR TR
+ME ME ME ... ME // Memo up to 1500 bytes
 3E 3E //Not Encrypted
 ```
 
