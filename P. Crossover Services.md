@@ -157,8 +157,10 @@ CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK //Locker key with CloudCoins
 CD CD CD //currency code to convert to
 $$ $$ $$ $$ $$ $$ $$ $$ $$//Converstion cost expected
+AS // Address size
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
+AD AD AD
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID  //The receipt ID 
 ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME ME
 ...
