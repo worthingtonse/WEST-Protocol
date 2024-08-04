@@ -18,6 +18,8 @@ Command Code | Service | Description
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
 150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
+161 | [Create_Depository](create-depository) | Creates a Depository for an exchange, merchant of bank
+161 | [Stop_Depository](stop) | Suspect Depository
 ? | [🔴Set Fee For Swaps](#set-fee-for-swaps) | The conversion fee set in percentages. 
 
 
