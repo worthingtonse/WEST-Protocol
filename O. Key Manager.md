@@ -8,6 +8,8 @@ The following keys can be managed:
 - KYC Key
 - Treasurer Key
 - RAIDA Key
+- Depository
+  - Depository Keys
 
 You need an Admin Key in order to create the other key types.
 If a RAIDA server is run in the 'Init' mode then the admin key is not required
