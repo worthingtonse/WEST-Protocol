@@ -14,14 +14,16 @@
 5. The receiver uses the keys to withdraw the tokens. 
 
  
- Command Code | Service
- ---|---
-82| [Put](#put) 
-83| [Peek](#peek)
-84 | [Remove](#remove)
-?? | [Name Locker](#name-locker)
-?? | [Transfer](#transfer)
-??| [Put Named Locker](#put-named-locker) 
+ Command Code | Service | Note
+ ---|---|---
+82| [Put](#put)| Puts coins into a locker. 🔴Needs to support multi locker creation at one time
+83| [Peek](#peek) | Allows the locker key holder to see what is in inside of it 
+84 | [Remove](#remove) | Allows the locker key holder to emplty out some or all of the contents
+85 | [Create Depository](create-depository) | Depository is a locker that only the KYC an create
+86 | [Log Deposit](#pay) | Puts coins into a depository. Includes transaction information
+87| [Confirm Payment](#put-named-locker)| Allows the depository to check if it has received payment for a service
+88 | Depository Balance | Tells the caller to see how much WE$T is in a depository
+89 | See Transaction Log | 
 
 ### Client Actions
 Here are the steps that the client should do to send tokens to a locker:
