@@ -19,12 +19,14 @@
 82| [Put](#put)| Puts coins into a locker. 🔴Needs to support multi locker creation at one time
 83| [Peek](#peek) | Allows the locker key holder to see what is in inside of it 
 84 | [Remove](#remove) | Allows the locker key holder to emplty out some or all of the contents
+
+<!--
 85 | [Create Depository](create-depository) | Depository is a locker that only the KYC an create
 86 | [Log Deposit](#pay) | Puts coins into a depository. Includes transaction information
 87| [Confirm Payment](#put-named-locker)| Allows the depository to check if it has received payment for a service
 88 | Depository Balance | Tells the caller to see how much WE$T is in a depository
 89 | See Transaction Log | 
-
+-->
 ### Client Actions
 Here are the steps that the client should do to send tokens to a locker:
 1. Calculate if you need to make change (break tokens into smaller denominations).
@@ -199,7 +201,7 @@ DN  SN SN SN SN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
 DN  SN SN SN SN  PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN PN
 3E 3E  //Not Encrypted
 ```
-
+<!--
 Returns all the Serial Numbers that were changed. 
 
 Sample Response
