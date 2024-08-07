@@ -196,7 +196,8 @@ CD CD CD // Cryptocurrency ticker
 ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID ID // Receipt ID
 KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV
 KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV KV // Key Value
-$$ $$ $$ $$ $$ $$ $$ $$ // 8 Bytes for the amount 
+$$ $$ $$ $$ $$ $$ $$ $$ // 8 Bytes for the amount
+LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK LK // Locker key
 AS // Adress size (from 32 to 35)
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD //Target cryptocurrency address
 AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD AD
