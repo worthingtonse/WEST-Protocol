@@ -10,7 +10,7 @@ Command Code | Service | Description
 86 | 🔴[Payment](#) | People put money into a special depository & receive an invoice. 
 87 | 🔴[See Invoice](#) | This receipt id allows anyone to see an invoice about what happened. 
 88 | 🔴[Confirm Payment](#confirm-payment) | Confirms that a payment has been made and marks the payment as confirmed.
-89 | 🔴[Show Statement](#show-statement) | Confirms that a payment has been made and marks the payment as confirmed.
+89 | 🔴[Show Statement](#show-statement) | Shows the owner of the Depository all the history of transactions. 
 89 | 🔴[Move to Locker](#move-to-locker) | Orders tokens to be destroyed. 
 
 ## PAYMENT 
