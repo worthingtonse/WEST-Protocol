@@ -10,6 +10,7 @@ Command Code | Service | Description
 86 | 🔴[Payment](#) | People put money into a special depository & receive an invoice. 
 87 | 🔴[See Invoice](#) | This receipt id allows anyone to see an invoice about what happened. 
 88 | 🔴[Confirm Payment](#confirm-payment) | Confirms that a payment has been made and marks the payment as confirmed.
+89 | 🔴[Show Statement](#show-statement) | Confirms that a payment has been made and marks the payment as confirmed.
 89 | 🔴[Move to Locker](#move-to-locker) | Orders tokens to be destroyed. 
 
 ## PAYMENT 
@@ -42,7 +43,7 @@ ST ST ST ST.....//Meta Data Stripe up to 100 bytes. The client may use this to d
 3E 3E  //Not Encrypted
 ```
 This will create a transaction record that can just be stored on the RAIDA hard drive. Each Depository will have its own folder. The Depositories'
-folders will have sub folders for "Senders Key" written in hexidecimal. Then each senders folder will have .bin files named after the transaction
+folders will have sub folders for "Senders Key" written in hexidecimal. Then each senders folder will have two sub folders called "Confirmed" and "Unconfirmed" and "Invoices" .bin files named after the transaction
 GUIDs with an underscore with the amount then the new balance in the Depository then the transaction type (zero for payment), then timestamp. Inside the .bin file is the memo in binary form. Sample files are: 
 
 File names: Transaction GUID, amount, New Balance, meta data format, privacy Code, time stamp and .bin file extention.  
@@ -54,10 +55,16 @@ Data/
 │  ├─ A085C87642B14841A856E69EFFFFFFF0/
 │  ├─ EC1D7C261DB54EA8B52D8046FFFFFFF0/
 │  │  ├─ 46DE996BC5/   (Sender's key)
-│  │  ├─ 13199AD076/ 
-│  │  │  ├─ E7FAF12810FD4BABB0E2657C16DEF8E0_3.19032_9000_0_1723449490.bin (Transaction file)
-│  │  │  ├─ A085C87642B14841A856E69E1CE4112C_140_9150_0_1723449450.bin
-│  │  │  ├─ AA9AE39A07B145DA938B7113199AD076_.0098_9140.0098_0_172346666.bin 
+│  │  ├─ 13199AD076/
+│  │  │  ├─Confirmed
+│  │  │  │  ├─ E7FAF12810FD4BABB0E2657C16DEF8E0_3.19032_9000_0_1723449490.bin (Transaction file)
+│  │  │  │  ├─ A085C87642B14841A856E69E1CE4112C_140_9150_0_1723449450.bin
+│  │  │  │  ├─ AA9AE39A07B145DA938B7113199AD076_.0098_9140.0098_0_172346666.bin
+│  │  │  ├─Unconfirmed
+│  │  │  ├─Invoices
+│  │  │  │  ├─ E7FAF12810FD4BABB0E2657C16DEF8E0_1.bin (Invoice file. Transaction GUID along with the invoice format code)
+│  │  │  │  ├─ A085C87642B14841A856E69E1CE4112C_1.bin
+│  │  │  │  ├─ AA9AE39A07B145DA938B7113199AD076_1.bin
 
 ```
 Note that Timestamps are in UTC time. 
