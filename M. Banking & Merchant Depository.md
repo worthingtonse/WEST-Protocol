@@ -46,7 +46,7 @@ This will create a transaction record that can just be stored on the RAIDA hard 
 folders will have sub folders for "Senders Key" written in hexidecimal. Then each senders folder will have two sub folders called "Confirmed" and "Unconfirmed" and "Invoices" .bin files named after the transaction
 GUIDs with an underscore with the amount then the new balance in the Depository then the transaction type (zero for payment), then timestamp. Inside the .bin file is the memo in binary form. Sample files are: 
 
-File names: Transaction GUID, amount, New Balance, meta data format, privacy Code, time stamp and .bin file extention.  
+File names: Transaction GUID, amount, New Balance, meta data format, time stamp and .bin file extention.  
 ```file
 Data/
 ├─ /
@@ -62,9 +62,9 @@ Data/
 │  │  │  │  ├─ AA9AE39A07B145DA938B7113199AD076_.0098_9140.0098_0_172346666.bin
 │  │  │  ├─Unconfirmed
 │  │  │  ├─Invoices
-│  │  │  │  ├─ E7FAF12810FD4BABB0E2657C16DEF8E0_1.bin (Invoice file. Transaction GUID along with the invoice format code)
-│  │  │  │  ├─ A085C87642B14841A856E69E1CE4112C_1.bin
-│  │  │  │  ├─ AA9AE39A07B145DA938B7113199AD076_1.bin
+│  │  │  │  ├─ E7FAF12810FD4BABB0E2657C16DEF8E0_1_1.bin (Invoice file. Transaction GUID along with the invoice format code, privacy code)
+│  │  │  │  ├─ A085C87642B14841A856E69E1CE4112C_1_1.bin
+│  │  │  │  ├─ AA9AE39A07B145DA938B7113199AD076_1-0.bin
 
 ```
 Note that Timestamps are in UTC time. 
