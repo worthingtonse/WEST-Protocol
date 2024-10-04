@@ -362,7 +362,7 @@ RAIDA ID | DN |SN | Seed | Concatenated Hex Strings | SHA-384 Hash. Truncated to
 2. The resulting number 34 character string will generate a SHA-384 Hash.
 3. The hash is trucated to 16 bytes and that becomes the binary AN number. 
 
-
+-->
 # FORMAT 'B'
 ## token Header Codes for Format 'B'
 For this standard, there is one seed for all the tokens. Each token is just the split number, Denomination number and the serial number. This gives us 6 bytes per token. 
@@ -392,7 +392,7 @@ SD ST DN  SN SN SN SN
 SD ST DN  SN SN SN SN 
 SD ST DN  SN SN SN SN  6th token
 ```
-
+<!--
 To Generate the 25 seeds for each RAIDA (Same as with 'A'):
 
 RAIDA ID | DN |SN | Seed | Concatenated Hex Strings | SHA-384 Hash. Truncated to 16 bytes. 
