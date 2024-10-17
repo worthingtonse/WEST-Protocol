@@ -101,6 +101,7 @@ Name | Code | Description
   ERROR_INVALID_SHARD | 46 | Invalid shard. We only support 0 until future use
   ERROR_DELETE_TOKENS | 47 | Failed to delete legacy tokens
   ERROR_LEGACY_DB | 48 | Problems with MySQL
+  ERROR_CHANGE_LIMIT | 160 | Too many change requests in 6 hours
   ERROR_INVALID_KEY_START | 195 | Invalid keyStart parameter
   ERROR_INVALID_KEY_LENGTH | 196 | Invalid keyLength parameter
   ERROR_TOKEN_LOAD | 197 | Failed to load RAIDA encryption token
