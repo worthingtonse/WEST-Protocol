@@ -16,6 +16,9 @@ Command Code | Service | Description
 120 | [Get Available SNs](#get-available-sns) | Tells the Treasury what serial numbers it can use to create tokens. 
 130 | [Create Tokens](#create-tokens) | Orders that tokens be created
 140 | [Delete Tokens](#delete-tokens) | Orders tokens to be destroyed. 
+141 | [Freeze Tokens](#freeze-tokens) | Stops money from being transacted until unfrozen.  
+142 | [Unfreeze Tokens](#unfreeze-tokens) | Returns the control of the coins to the user.  
+143 | [Seize Tokens](#seize-tokens) | Orders tokens to be put into a locker so that the treasure can download it. 
 150 | [Release Lock](#release-lock)|  Tells RAIDA to release lock on reserved SNs.
 160 | [Get All SNs](#get-all-sns)|  Returns all the serial numbers that the RAIDA has minted.
 161 | [Create_Depository](create-depository) | Creates a Depository for an exchange, merchant of bank
@@ -293,6 +296,35 @@ Response Body
 ```
 E3 E3 //Not Encrypted
 ```
+# Seize Tokens
+This will take the tokens specified and place them into a locker that the Treasure can then put in his bank. 
+This service is almost identical to the PUT locker code service except there is no authentication of tokens. 
+
+Sample Seize Request
+```c
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+DN  SN SN SN SN 
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+PN PN PN PN PN PN PN PN PN PN PN PN FF FF FF FF  //This is the locker code. The last four bytes must be set to binary ones (0xFF) 
+3E 3E  //Not Encrypted
+```
+### Response Status Table
+
+Status| Response Body Contents
+---|---
+All Lockers Passed | Will not include a response body | Will not include a response body | 
+All Lockers Failed | Will not include a response body
+Mixed Lockers | MT MT MT MT MS  //The MT are just zeros. 0x00 00 00 00. They are for future use. The number of MS bytes depends on the number of tokens p'owned. 
+
+MS means Mixed Status but here we are talking about a mixed group of lockers, not coins. Each bit returned represents the status of one locker. If the bit is a zero then that locker has failed. If the bit is a 1 then that locker is authentic. 
+
+Response Status | Code
+---|---
+All Pass | 241
+All Fail | 242
+Mixed | 243
 
 
 # Set Fee For Swaps
