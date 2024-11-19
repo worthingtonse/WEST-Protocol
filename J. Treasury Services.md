@@ -296,6 +296,46 @@ Response Body
 ```
 E3 E3 //Not Encrypted
 ```
+
+# Freeze Tokens
+This stops the token from being able to be authenticated. 
+
+```c
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+DN  SN SN SN SN //coins to freeze
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+FK FK FK FK FK FK FK FK FK FK FK FK FK FK FK FK   //Freeze key (guid). This same key is needed to unfreeze and is added to the AN
+3E 3E  //Not Encrypted
+```
+Response Status | Code
+---|---
+All Pass | Coins found and unfrozen
+All Fail | None Unfrozen
+Mixed | Mixed Lockers 
+
+MT MT MT MT MS  //The mixed bit field. zeros for pass, ones for failed. 
+
+# Unreeze Tokens
+Makes it so that the coins can be used again.  
+```c
+CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
+DN  SN SN SN SN //coins to freeze
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+DN  SN SN SN SN  
+FK FK FK FK FK FK FK FK FK FK FK FK FK FK FK FK   //Freeze key (guid). This same key is needed to freeze and is subtracted from the existing AN
+3E 3E  //Not Encrypted
+```
+Response Status | Code
+---|---
+All Coins found and unfrozen | 241
+No Coins found and unfrozen | None Unfrozen
+Mixed | Mixed Lockers 
+
+//The mixed bit field. zeros for pass, ones for failed. 
+
 # Seize Tokens
 This will take the tokens specified and place them into a locker that the Treasure can then put in his bank. 
 This service is almost identical to the PUT locker code service except there is no authentication of tokens. 
