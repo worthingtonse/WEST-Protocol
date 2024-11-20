@@ -52,7 +52,7 @@ VE VE VE VE VE VE VE VE
 ```
 
 # Count Coins
-Returns the total number of coins the RAIDA has. 
+Returns the total number of coins the RAIDA has. This value is not updated in real time but only once every 20 minutes. This time can be changed in the future. 
 
 ## Example Request Body:
 ```hex
