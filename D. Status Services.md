@@ -58,7 +58,7 @@ Returns the total number of coins the RAIDA has.
 ```hex
 CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH CH
 00 00 00 00 //for future use 
-AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Authorization Password. User keys cannot access this service. 
+AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU AU //Optional password. All zeros if not used. 
 3E 3E
 ```
 Response Status | Code
